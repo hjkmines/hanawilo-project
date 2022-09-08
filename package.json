@@ -1,0 +1,19 @@
+{
+  "name": "hanawilo-project",
+  "version": "1.0.0",
+  "description": "Hanawilo Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hjkmines/hanawilo-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hjkmines/hanawilo-project/issues"
+  },
+  "homepage": "https://github.com/hjkmines/hanawilo-project#readme"
+}

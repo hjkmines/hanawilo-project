@@ -1,11 +1,13 @@
 import React, { Component } from "react";
+import { Switch, Route } from 'react-router-dom';
+import Home from "./Components/Home";
 
 class App extends Component {
     render() {
         return(
-            <div>
-                <h1>Hello World! This is the start of the Hanawilo Team Project</h1>
-            </div>
+            <Switch>
+                <Route path='/' component={ Home } />
+            </Switch>
         )
     }
 }

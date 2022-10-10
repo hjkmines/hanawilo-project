@@ -1,15 +1,25 @@
-import React, { Component } from "react";
-import { Switch, Route } from 'react-router-dom';
-import Home from "./Components/Home";
+import React from "react"; 
+import { Link, Routes, Route } from 'react-router-dom';
+import Directory from "./pages/Directory";
+import AboutUs from './pages/AboutUs';
+import  Home  from "./pages/Home";
+import MuiNavbar from "./components/MuiNavbar";
+import Footer from './components/Footer';
+import { Box } from "@mui/material";
 
-class App extends Component {
-    render() {
+function App() {
         return(
-            <Switch>
-                <Route path='/' component={ Home } />
-            </Switch>
+            <Box className='app'>
+                <MuiNavbar />
+                <Routes>
+                    <Route path='/' element={ <Home /> } />
+                    <Route path='/directory' element={ <Directory /> } />
+                    <Route path='/about' element={ <AboutUs /> } />
+                </Routes>
+                <Footer />
+            </Box>
+
         )
-    }
 }
 
 export default App;

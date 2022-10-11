@@ -1,3 +1,4 @@
+
 import React from "react"; 
 import { Routes, Route } from 'react-router-dom';
 import Directory from "./pages/Directory";
@@ -18,7 +19,6 @@ function App() {
                 </Routes>
                 <Footer />
             </Box>
-
         )
 }
 

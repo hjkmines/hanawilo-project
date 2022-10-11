@@ -5,6 +5,7 @@ import {
     Avatar, 
     Badge, 
     Box, 
+    Drawer, 
     InputBase, 
     Menu, 
     MenuItem, 
@@ -25,6 +26,7 @@ const Search = styled("div")(({ theme }) => ({
     backgroundColor: "white",
     padding: " 0 10px ",
     borderRadius: theme.shape.borderRadius,
+    width: "35%",
 }));
 
 const Icons = styled(Box)(({ theme }) => ({
@@ -48,18 +50,21 @@ const UserBox = styled(Box)(({ theme }) => ({
     }
 }));
 
+
+
 const MuiNavbar = () => {
     const [open, SetOpen] = useState(false)
     
     return (
 
-        <AppBar position='sticky'>
+        <AppBar position='sticky' padding={1}>
             <StyledToolbar>
+                {/* <Drawer  Component */}
                 <Typography variant='h6' sx={{ display:{xs:'none', sm:'block' }}}>
                     Hanawilo Team Project
                 </Typography>
                 <NorthEastOutlinedIcon sx={{ display: {xs:"block", sm:"none"}}} />
-                <Search> <InputBase placeholder="search..." /> </Search>
+                <Search > <InputBase placeholder="search..." /> </Search>
                 <Icons> 
                     <Badge badgeContent={4} color="error" aria-label='show 4 new messages'>
                         <MailOutlinedIcon />
@@ -76,7 +81,7 @@ const MuiNavbar = () => {
                     <Avatar sx={{ width:30, height: 30}} 
                         src='https://placekitten.com/200/300'
                     />
-                    <Typography variant='span' >User Name Here</Typography>
+                    <Typography variant='span' >User Name</Typography>
                 </UserBox>
             </StyledToolbar>
             <Menu

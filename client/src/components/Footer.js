@@ -1,74 +1,82 @@
 import React from 'react'
-import Grid from '@mui/material/Grid'; // Grid version 1
-import Stack from '@mui/material/Stack';
-import Container from '@mui/material/Container';
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-// import FacebookIcon from '@mui/icons-material/Facebook';
-// import InstagramIcon from '@mui/icons-material/Instagram';
-// import TwitterIcon from '@mui/icons-material/Twitter';
-// import GitHubIcon from '@mui/icons-material/GitHub';
-// import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import {
+    Grid, //Grid Version 1
+    Stack,
+    Container, 
+    Box,
+    Link, 
+    styled,
+    TextField,
+} from '@mui/material';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 const Footer = () => {
+
+    const StyledFootBar = styled(Stack)({
+        display: "flex",
+        margin: 10,
+        justifyContent: "space-around",
+        alignItems: "center",
+        justifyItems: "center",
+        backgroundColor: "#f4f4f4",
+    })
+
   return (
-    <Box>
-        <Stack direction="row" spacing={2}>
+    <Box >
+        <StyledFootBar direction="row" >
             <Container > 
-                <Grid container spacing={5}>
+                <Grid container>
                     <Grid item xs={12} sm={4}>
-                        <Box> Help</Box>
+                        <Box> Join Our Mailing List</Box>
+                        <br/>
                         <Box > 
-                            <Link href='/' color='inherit'>
-                            Contact
-                            </Link>
+                            <TextField placeholder='johndoe@gmail.com'>email </TextField>
                         </Box>
-                        <Box > 
-                            <Link href='/' color='inherit'>
-                                Support
-                            </Link>
-                        </Box> 
-                        <Box > 
-                            <Link href='/' color='inherit'>
-                                Privacy
-                            </Link>
-                        </Box> 
                     </Grid>
+                   
                     <Grid item xs={12} sm={4}>
-                        <Box borderBottom={1}> Account</Box>
-                        <Box > 
-                            <Link href='/' color='inherit'>
-                                Login
-                            </Link>
-                        </Box>
-                        <Box > 
-                            <Link href='/' color='inherit'>
-                                Register
-                            </Link>
-                        </Box> 
+                        <FacebookIcon  />
+                        <InstagramIcon />
+                        <TwitterIcon />
+                        <GitHubIcon />
+                        <LinkedInIcon /> 
                     </Grid>
-                    <Grid item xs={12} sm={4}>
-                        <Box borderBottom={1}> Messages </Box>
+
+                    <Grid item xs={12} sm={4} 
+                        sx={{ 
+                            alignItems:'center', 
+                            justifyItems:'center'
+                        }}>
+                        <Box>Link tree </Box>
                         <Box>
                             <Link href='/' color='inherit'>
-                                Backup
+                                Home
                             </Link>
                         </Box>
                         <Box>
                             <Link href='/' color='inherit'>
-                                History
+                               Directory
                             </Link>
                         </Box>
                         <Box>
                             <Link href='/' color='inherit'>
-                                Roll
+                                Messages
+                            </Link>
+                        </Box>
+                        <Box>
+                            <Link href='/' color='inherit'>
+                               About Us 
                             </Link>
                         </Box>
                     </Grid>
                 </Grid>
             </Container> 
-        </Stack>
-    </Box>
+        </StyledFootBar>
+     </Box>
   )
 }
 

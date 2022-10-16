@@ -12,14 +12,14 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import NorthEastOutlinedIcon from '@mui/icons-material/NorthEastOutlined';
-import { Link } from "react-router-dom";
-import {styled} from '@mui/material';
+import { Link, NavLink } from "react-router-dom";
+// import { styled } from '@mui/material';
 
-const StyledToolbar = styled(Toolbar)({
-  display: "flex",
-  justifyContent: "space-evenly",
+// const StyledToolbar = styled(Toolbar)({
+//   display: "flex",
+//   justifyContent: "space-between",
   
-});
+// });
 
 // constants for menu/tooltip navigation 
 const pages = ['Directory', 'About', 'Messages'];
@@ -48,22 +48,22 @@ const MUI_NAVBAR = () => {
   return (
 
     // total container sticks to top of viewport via "sticky" utilizes anchor elements 
-    <AppBar position="sticky">
-      <Container maxWidth="xl">
-        <StyledToolbar disableGutters>
+    <AppBar position="sticky" >
+      <Container >
+        <Toolbar disableGutters>
 
           {/* small & up viewport size */}
          {/* logo here */}
-          <NorthEastOutlinedIcon sx={{ display: { xs: 'none', sm: 'flex' }, mr: 1 }} />
+          <NorthEastOutlinedIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
          {/* text here */}
           <Typography
             variant="h6"
-            noWrap
+            // noWrap
             component="a"
             href="/"
             sx={{
               mr: 2,
-              display: { xs: 'none', sm: 'flex' },
+              display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 600,
               letterSpacing: '.3rem',
@@ -75,7 +75,7 @@ const MUI_NAVBAR = () => {
           </Typography>
 
             {/* less than small viewport */}
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', sm: 'none' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -101,7 +101,7 @@ const MUI_NAVBAR = () => {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', sm: 'none' },
+                display: { xs: 'block', md: 'none' },
               }}
             >
               {pages.map((page) => (
@@ -115,7 +115,7 @@ const MUI_NAVBAR = () => {
               ))}
             </Menu>
           </Box>
-          <NorthEastOutlinedIcon sx={{ display: { xs: 'flex', sm: 'none' }, mr: 1 }} />
+          <NorthEastOutlinedIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -123,7 +123,7 @@ const MUI_NAVBAR = () => {
             href="/"
             sx={{
               mr: 2,
-              display: { xs: 'flex', sm: 'none' },
+              display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
               fontFamily: 'monospace',
               fontWeight: 600,
@@ -135,8 +135,8 @@ const MUI_NAVBAR = () => {
             Hanawilo-Edge
           </Typography>
         
-        {/* buttons for navigation small and up viewports */}
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex' } }}>
+        {/* buttons for navigation mdall and up viewports */}
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
                 key={page}
@@ -180,7 +180,7 @@ const MUI_NAVBAR = () => {
               ))}
             </Menu>
           </Box>
-        </StyledToolbar>
+        </Toolbar>
       </Container>
     </AppBar>
   );

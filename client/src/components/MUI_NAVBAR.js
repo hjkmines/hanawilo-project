@@ -13,16 +13,9 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import NorthEastOutlinedIcon from '@mui/icons-material/NorthEastOutlined';
 import { Link, NavLink } from "react-router-dom";
-// import { styled } from '@mui/material';
-
-// const StyledToolbar = styled(Toolbar)({
-//   display: "flex",
-//   justifyContent: "space-between",
-  
-// });
 
 // constants for menu/tooltip navigation 
-const pages = ['Directory', 'About', 'Messages'];
+const pages = ['Directory', 'About', 'Messages',];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const MUI_NAVBAR = () => {
@@ -49,33 +42,37 @@ const MUI_NAVBAR = () => {
 
     // total container sticks to top of viewport via "sticky" utilizes anchor elements 
     <AppBar position="sticky" >
-      <Container >
-        <Toolbar disableGutters>
+      <Box sx={{
+        padding:0,
+        margin:0,
+        width: '100%',
+        maxWidth: 'xl',
+      }} >
+        <Toolbar disableGutters sx={{ maxWidth:'xl'}}>
 
-          {/* small & up viewport size */}
-         {/* logo here */}
-          <NorthEastOutlinedIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-         {/* text here */}
+          {/* medium & up viewport size */}
+          <NorthEastOutlinedIcon sx={{ display: { xs: 'none', md: 'flex' }, mx: 1 }} />
           <Typography
             variant="h6"
-            // noWrap
             component="a"
             href="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
+              fontFamily: 'roboto',
               fontWeight: 600,
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
+              fontSize:'30px'
             }}
           >
             Hanawilo-Edge
           </Typography>
 
-            {/* less than small viewport */}
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+            {/* less than medium viewport */}
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, mr:'auto' }}>
+             
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -107,9 +104,14 @@ const MUI_NAVBAR = () => {
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">
-                     <Link to={`/${page}`}>
+                     <Button 
+                      key={page}
+                      component={Link}
+                      to={`/${page}`}
+                      sx={{ my: 1, color: 'black', fontWeight:'500', display: 'block'}}
+                      >
                         {page}
-                     </Link>
+                     </Button>
                     </Typography>
                 </MenuItem>
               ))}
@@ -127,6 +129,7 @@ const MUI_NAVBAR = () => {
               flexGrow: 1,
               fontFamily: 'monospace',
               fontWeight: 600,
+              fontSize: '17px',
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
@@ -135,7 +138,7 @@ const MUI_NAVBAR = () => {
             Hanawilo-Edge
           </Typography>
         
-        {/* buttons for navigation mdall and up viewports */}
+        {/* buttons for navigation medium and up viewports */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
@@ -151,7 +154,7 @@ const MUI_NAVBAR = () => {
           </Box>
 
               {/* avatar box - placeholder kitten image - how cute :) */}
-          <Box sx={{ flexGrow: 0 }}>
+          <Box sx={{ flexGrow: 0, mr: 1 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Place Kitten" src="http://placekitten.com/g/200/300" />
@@ -181,7 +184,7 @@ const MUI_NAVBAR = () => {
             </Menu>
           </Box>
         </Toolbar>
-      </Container>
+      </Box>
     </AppBar>
   );
 };

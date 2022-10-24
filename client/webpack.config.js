@@ -23,7 +23,7 @@ module.exports = {
     target: "web",
     devServer: {
         port: "3000",
-        static: ["./public"],
+        static: ["./src"],
         open: true,
         hot: true,
         liveReload: true

@@ -1,15 +1,15 @@
 import React from 'react'
 import {
-    Grid, //Grid Version 1
+    Grid, //Grid Version 1 -> version 2 is still unstable :(
     Stack,
     Container, 
     IconButton,
     Button,
     Box,
-    // Link, //try using link from react-router-dom
     styled,
     TextField,
     Typography,
+    Divider,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -17,142 +17,164 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-// import LinkTree from './LinkTree';
 
 const Footer = () => {
 
-    // const StyledFootBar = styled(Stack)({
-    //     display: "flex",
-    //     margin: 2,
-    //     justifyContent: "space-evenly",
-    //     alignItems: "center",
-    //     justifyContent: "center",
-    //     justifyItems: "center",
-    //     backgroundColor: "#f4f4f4",
-    //     padding: 2,
-    //     direction: "row",
-    // })
+    const StyledFooterContainer = styled(Grid)({
+        display: "flex",
+        margin: 2,
+        justifyContent: "space-around",
+        alignItems: "space-around",
+        justifyContent: "space-around",
+        justifyItems: "space-around",
+        backgroundColor: "#f4f4f4",
+        padding: 3,
+        minWidth: '100%',
+        spacing: 2
+    })
 
   return (
-    <Container sx={{ backgroundColor:"#f4f4f4"}} p={2}>
-        {/* small and up viewport */}
-        <Stack 
-            direction="row" 
-            spacing ={2} 
-            alignItems= "center"
-            justifyContent="space-between"
-            display={{ xs:"none", sm:"flex"}}
-        >
-            <Box  > 
-                <Typography textAlign={'center'} alignContent={"center"} mt={2} > Join Our Mailing List</Typography>
+    // parent container with above styling
+    <StyledFooterContainer container  >
+       {/* grid to dynamically render footer components */}
+        <Grid item xs={12} md={3} mb={2}>
+            {/* xs -> md viewport (mobile friendly) */}
+            <Box  
+                sx={{
+                    textAlign:'center', 
+                    alignContent:"center", 
+                    alignItems:"center",
+                    display: { xs:"block", md:"none"}
+                     
+            }}> 
+                <Typography mt={2} > Join Our Mailing List</Typography>
                 <br/>
-                <Stack direction={'row'} mb={2}> 
-                    <TextField type="text" placeholder='johndoe@gmail.com'>email </TextField>
-                    <Button variant="outlined" 
-                    onClick={e => {
+                <Divider variant="middle" />
+                <br/>
+                <Container mb={2} p={0}> 
+                    
+                        <TextField type="text" placeholder='jdoe@gmail.com'>
+                            email 
+                        </TextField>
+                        <Button 
+                            variant="contained"
+                            color="secondary"
+                            sx={{
+                                minHeight:'3.5rem'
+                            }} 
+                        // onClick={e => {
 
-                    } }> Submit</Button>
-                </Stack>
+                        // } }
+                        > 
+                            Submit
+                        </Button>
+                    
+                </Container>
             </Box>
 
+            {/* med + viewport */}
+            <Box  
+                sx={{
+                    textAlign:'center', 
+                    alignContent:"center", 
+                    alignItems:"center",
+                    display: { xs:"none", md:"block"},
+                    mt: 2,
+            }}> 
+               <Stack>
+                    <Typography 
+                        textAlign={'center'} 
+                        justifyContent='center' 
+                        alignItems='center'
+                    > 
+                        Join Our Mailing List
+                    </Typography>
+                    <br />
+                    <Divider variant="middle" my={2} />
+                    <br />
+                    <TextField type="text" placeholder='JohnDoe@gmail.com'>
+                        email 
+                    </TextField>
+                    <Button 
+                        size='small'
+                        variant="outlined"
+                        color="secondary"
+                        sx={{
+                            minHeight:'3.5rem'
+                        }} 
+                    // onClick={e => {
+                    // will eventually handle email subscription
+                    // } }
+                    > 
+                        Submit
+                    </Button>
+                </Stack>
+            </Box>
+        </Grid>
+        
+        {/* social links */}
+        <Grid item xs={12} md={3} my={6}>
             <Box>
-                <Grid container  sx={{ justifyContent:"center"}}>
+                <Grid container  sx={{ justifyContent:"space-evenly"}}>
                     <Grid item >
-                        <IconButton>
+                        <IconButton aria-label='facebook' color='success' size="large">
                             <a href="https://facebook.com" target="_blank" rel="noreferrer">
-                                <FacebookIcon  />
+                                <FacebookIcon  fontSize='large'/>
                             </a>
                         </IconButton>
-                        <IconButton>
+                        <IconButton aria-label='instagram' color='warning'>
                             <a href="https://instagram.com" target="_blank" rel="noreferrer">
-                                <InstagramIcon />
+                                <InstagramIcon fontSize='large' />
                             </a>
                         </IconButton>
-                        <IconButton >
+                        <IconButton aria-label='twitter' color='primary'>
                             <a href="https://twitter.com" target="_blank" rel="noreferrer">
-                                <TwitterIcon />
+                                <TwitterIcon fontSize='large' />
                             </a>
                         </IconButton>
-                        <IconButton>
+                        <IconButton aria-label='github' >
                             <a href="https://github.com" target="_blank" rel="noreferrer">
-                                <GitHubIcon />
+                                <GitHubIcon fontSize='large' />
                             </a>
                         </IconButton>
-                        <IconButton>
+                        <IconButton aria-label='linked-in'>
                             <a href="https://linkedin.com" target="_blank" rel="noreferrer">
-                                <LinkedInIcon /> 
+                                <LinkedInIcon fontSize='large' /> 
                             </a>
                         </IconButton>
                     </Grid>
                 </Grid>
             </Box>
-                
+        </Grid>
+        
+        {/* Link Tree */}
+        <Grid item xs={12} md={3} my={2}>    
             <Stack>
-                <Link to="/">Home </Link>
-                <Link to="/about">About</Link>
-                <Link to="/directory">Directory </Link>
+                <Button
+                    component = {Link}
+                    to='/'>
+                        Home
+                </Button>
+                <Button
+                    component = {Link}
+                    to='/about'>
+                        About
+                </Button>
+                <Button
+                    component = {Link}
+                    to='/directory'>
+                        Directory
+                </Button>
+                <Button
+                    component = {Link}
+                    to='/messages'>
+                        Messages
+                </Button>
             </Stack>
-        </Stack>
-
-        {/* below small viewport */}
-        <Stack 
-            display={{ xs:"flex", sm:"none"}} 
-            alignItems="center" 
-            p={2} 
-            mb={2} 
-        >
-            <Box  > 
-                <Typography textAlign={'center'} alignContent={"center"}  > Join Our Mailing List</Typography>
-                <br/>
-                <Stack direction={'row'} mb={2}> 
-                    <TextField type="text" placeholder='johndoe@gmail.com'>email </TextField>
-                    <Button variant="outlined" 
-                    onClick={e => {
-
-                    } }> Submit</Button>
-                </Stack>
-            </Box>
-
-            <Grid container  sx={{ justifyContent:"center"}} mb={2}>
-                <Grid item >
-                    <IconButton>
-                        <a href="https://facebook.com" target="_blank" rel="noreferrer">
-                            <FacebookIcon  />
-                        </a>
-                    </IconButton>
-                    <IconButton>
-                        <a href="https://instagram.com" target="_blank" rel="noreferrer">
-                            <InstagramIcon />
-                        </a>
-                    </IconButton>
-                    <IconButton >
-                        <a href="https://twitter.com" target="_blank" rel="noreferrer">
-                            <TwitterIcon />
-                        </a>
-                    </IconButton>
-                    <IconButton>
-                        <a href="https://github.com" target="_blank" rel="noreferrer">
-                            <GitHubIcon />
-                        </a>
-                    </IconButton>
-                    <IconButton>
-                        <a href="https://linkedin.com" target="_blank" rel="noreferrer">
-                            <LinkedInIcon /> 
-                        </a>
-                    </IconButton>
-                </Grid>
-            </Grid>
-
-            <Stack>
-                <Link to="/">Home </Link>
-                <Link to="/about">About</Link>
-                <Link to="/directory">Directory </Link>
-            </Stack>
-        </Stack>
-
-    </Container>
+        </Grid>  
+    </StyledFooterContainer> 
   )
 }
 
 
-export default Footer
+export default Footer;

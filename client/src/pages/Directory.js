@@ -1,32 +1,46 @@
-import { Paper, Typography } from '@mui/material';
+import { Container, Paper, Typography } from '@mui/material';
 import React from 'react';
-import { useParams } from 'react-router-dom';
-// import MuiNavbar from '../components/MuiNavbar';
-// import Footer from '../components/Footer';
+import Grid from '@mui/material/Grid';
+import DirectoryCard from '../components/DirectoryCard';
+import { fontWeight } from '@mui/system';
+
+
+
 
 const Directory = () => {
-    const { id } = useParams();
+
 
     return (
-        <div>
-            {/* <MuiNavbar />  */}
-            <Paper>
-                <h1>This is the directory page!</h1>
-                <Paper elevation={8}>
-                    <Typography>
-                        Paper 1
-                    </Typography>
-                </Paper>
-                <Paper elevation={8}>
-                    <Typography>
-                        Paper 2
-                    </Typography>
-                </Paper>
+        <>
+            <Container 
+                sx={{
+                    alignItems:'center',
+                    justifyContent:  'center',
+                    textAlign: 'center',
+                    padding:0,
+            }}>
+                <Typography 
+                    sx={{
+                        fontFamily: 'roboto',
+                        fontWeight: 600,
+                        fontSize: '20px',
+                        
 
-
-            </Paper>
-            {/* <Footer />  */}
-        </div>
+                }}>
+                    Directory page
+                </Typography>
+            </Container>
+            <Grid container spacing={2}>
+                <DirectoryCard />
+                <DirectoryCard />
+                <DirectoryCard />
+                <DirectoryCard />
+                <DirectoryCard />
+                <DirectoryCard />
+                <DirectoryCard />
+                <DirectoryCard />
+            </Grid>
+        </>
     )
 }
 export default Directory

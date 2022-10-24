@@ -1,36 +1,134 @@
-import { Box, Card, Container, Grid, Paper, Stack, Typography } from '@mui/material';
 import React from 'react';
-import MuiImageList from '../components/MuiImageList';
-import HomeCard from '../components/homeCard';
-// import Banner from '../components/Banner';
-// import { Link } from 'react-router-dom';
-// import MuiNavbar from '../components/MuiNavbar';
-// import Footer from '../components/Footer';
+import { 
+  Box, 
+  Button, 
+  Card, 
+  Container, 
+  Divider, 
+  Grid, 
+  Paper, 
+  Stack, 
+  styled, 
+  Typography } from '@mui/material';
+import IamgeCollage from '../components/imageCollage';
+import { Link, Navigate } from 'react-router-dom';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+
+const BannerContainer = styled(Box) ({
+    display: 'flex',
+    justifyContent: 'center',
+    width: '100%',
+    height: '100%',
+    padding: '0px 0px',
+    backgroundColor: 'lightpink',
+    marginTop: 4,
+    marginBottom: 4,
+    // [theme.breakpoints.down('sm')]: {
+    //     flexDirection: 'column',
+    //     alignItems: 'center',
+    // }
+
+});
+
+const BannerContent = styled(Box) ({
+    display: 'flex',
+    // flexDirection: 'column',
+    justifyContent: 'center',
+    alignContent: 'center',
+    maxWidth: '100%',
+    padding: '20px'
+})
+
+const BannerTitle = styled(Typography) ({
+    lineHeight: 1.5,
+    fontSize: '30px',
+    marginBottom: '10px',
+    textAlign: 'center',
+})
+
 
 const Home = () => {
+
+
   return (
-          <Stack  justifyContent="space-around" alignItems='center'>
-              <Container sx={{alignItems:"center"}} >
-                <Typography>
-              Home screen 1
+    <>
+    
+      <Box >
+
+        {/* banner  */}
+        <BannerContainer >
+          <BannerContent>
+            <BannerTitle> Find Your Developer Today!</BannerTitle>
+          </BannerContent>
+        </BannerContainer>
+
+        {/* additional info / what can you do with this site? */}
+
+        {/* <Container> */}
+          <Grid container>
+
+            <Grid item xs={12} md={6} padding={2}>
+                <Paper 
+                  elevation={3} 
+                  sx={{
+                    display: 'flex',
+                    minHeight:'200px',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignContent: 'center',
+                    alignItems: 'center',
+                    }}>
+                  <Typography textAlign={'center'} >
+                    Cut down your development time by 50%!!!
+                  </Typography>
+                  <Divider variant='middle'  />
+                  <Typography textAlign={'center'} >
+                    Save time and resources looking for the right employee for the right job
+                  </Typography>
+                </Paper>
+              </Grid>
+
+            <Grid item xs={12} md={6} padding={2}>
+              <Paper 
+                elevation={3} 
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  minHeight: '200px',
+              }}>
+                <Typography textAlign={'center'}>
+                  Looking for a Software Engineer or Developer?
                 </Typography>
-              {/* <Box > */}
-                <img 
-                  src="https://placekitten.com/200/300" 
-                  alt="placholder kitten"
-                  className='img'
-                />
-              {/* </Box> */}
-              </Container>
-          
-            <Grid item xs={12}  >
-              <Paper>
-                <Typography > 
-                Interesting quotes / facts here
+                <Container sx={{display:'flex', alignItems:'center', alignContent:'center', justifyContent:'center'}}>
+                  <Button 
+                    sx={{ justifyContent: 'center'}}
+                    color='secondary' 
+                    variant='contained'
+                    component={Link} 
+                    endIcon={<ThumbUpIcon />}
+                    to = '/directory'
+                    >       
+                      Find Your Next Engineer
+                  </Button>
+                </Container>
+              </Paper>
+            </Grid> 
+            <Grid item xs={12} md={6} margin={1}>
+              <Paper elevation={3} sx={{minHeight:'60px'}}>
+                <Typography>
+                  Place holder text
                 </Typography>
               </Paper>
             </Grid>
-          </Stack>
+          </Grid>
+        {/* </Container> */}
+
+
+        {/* images are cool */}
+        <IamgeCollage />
+      </Box>
+    </> 
   )
 }
 

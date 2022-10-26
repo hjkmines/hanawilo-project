@@ -5,7 +5,8 @@ import {
     Avatar, 
     Badge, 
     Box, 
-    Drawer, 
+    IconButton, 
+    // Drawer, 
     InputBase, 
     Menu, 
     MenuItem, 
@@ -13,6 +14,8 @@ import {
     Toolbar, 
     Typography 
 } from '@mui/material'
+import { Link } from 'react-router-dom';
+
 import NorthEastOutlinedIcon from '@mui/icons-material/NorthEastOutlined';
 import MailOutlinedIcon from '@mui/icons-material/MailOutlined';
 import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
@@ -57,13 +60,27 @@ const MuiNavbar = () => {
     
     return (
 
-        <AppBar position='sticky' padding={1}>
+
+        <AppBar position='sticky'>
+            {/* Drawer ? can we fit it in the same app bar? anchorEl conflict? */}
             <StyledToolbar>
-                {/* <Drawer  Component */}
-                <Typography variant='h6' sx={{ display:{xs:'none', sm:'block' }}}>
+                <IconButton
+                    size="large"
+                    edge="start"
+                    color="inherit"
+                    aria-label="open drawer"
+                    sx={{ mr:2 }}
+                >
+                    <NorthEastOutlinedIcon />
+                </IconButton>
+                <Typography 
+                    variant='h6' 
+                    sx={{ display: { xs:'none', sm:'block' } }}
+                >
                     Hanawilo Team Project
                 </Typography>
-                <NorthEastOutlinedIcon sx={{ display: {xs:"block", sm:"none"}}} />
+                {/* <NorthEastOutlinedIcon sx={{ display: {xs:"block", sm:"none"}}} /> */}
+
                 <Search > <InputBase placeholder="search..." /> </Search>
                 <Icons> 
                     <Badge badgeContent={4} color="error" aria-label='show 4 new messages'>

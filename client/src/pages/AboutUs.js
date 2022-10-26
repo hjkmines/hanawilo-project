@@ -8,6 +8,7 @@ const AboutUs = () => {
             {/* <MuiNavbar /> */}
             <h1>this is the about us page</h1>
             {/* <Footer /> */}
+
         </div>
     )
 }

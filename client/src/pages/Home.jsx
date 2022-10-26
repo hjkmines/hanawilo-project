@@ -129,6 +129,7 @@ const Home = () => {
         <IamgeCollage />
       </Box>
     </> 
+
   )
 }
 

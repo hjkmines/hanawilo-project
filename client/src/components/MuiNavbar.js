@@ -15,6 +15,7 @@ import {
     Typography 
 } from '@mui/material'
 import { Link } from 'react-router-dom';
+
 import NorthEastOutlinedIcon from '@mui/icons-material/NorthEastOutlined';
 import MailOutlinedIcon from '@mui/icons-material/MailOutlined';
 import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
@@ -59,6 +60,7 @@ const MuiNavbar = () => {
     
     return (
 
+
         <AppBar position='sticky'>
             {/* Drawer ? can we fit it in the same app bar? anchorEl conflict? */}
             <StyledToolbar>
@@ -78,6 +80,7 @@ const MuiNavbar = () => {
                     Hanawilo Team Project
                 </Typography>
                 {/* <NorthEastOutlinedIcon sx={{ display: {xs:"block", sm:"none"}}} /> */}
+
                 <Search > <InputBase placeholder="search..." /> </Search>
                 <Icons> 
                     <Badge badgeContent={4} color="error" aria-label='show 4 new messages'>

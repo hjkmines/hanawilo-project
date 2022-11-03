@@ -16,7 +16,6 @@ const getUsers = async (req, res, next) => {
 const createUser = async (req, res, next) => {
     try {
         const user = await User.create(req.body);
-        console.log('User created:', user);
         res.statusCode(200)
             .setHeader('Content-Type', 'application/json')
             .json(user);

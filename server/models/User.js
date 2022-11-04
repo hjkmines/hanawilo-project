@@ -2,11 +2,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-    // userId: {
-    //     type: Number,
-    //     unique: true,
-    //     required: true
-    // },
     userName: {
         type: String,
         unique: true,
@@ -32,7 +27,7 @@ const UserSchema = new Schema({
     },
     gender:{
         type: String,
-        require: [true, 'please select your gender'],
+        required: [true, 'please select your gender'],
         enum: [ 
                 'Male', 
                 'Female', 

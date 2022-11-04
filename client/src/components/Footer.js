@@ -138,7 +138,7 @@ const Footer = () => {
                                 <GitHubIcon fontSize='large' />
                             </a>
                         </IconButton>
-                        <IconButton aria-label='linked-in'>
+                        <IconButton aria-label='linked-in' >
                             <a href="https://linkedin.com" target="_blank" rel="noreferrer">
                                 <LinkedInIcon fontSize='large' /> 
                             </a>

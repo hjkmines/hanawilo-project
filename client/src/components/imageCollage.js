@@ -34,8 +34,8 @@ export default function IamgeCollage() {
 
 const itemData = [
   {
-    img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
-    title: 'Breakfast',
+    img: 'http://placekitten.com/g/400/500',
+    title: 'placekitten',
     rows: 2,
     cols: 2,
   },

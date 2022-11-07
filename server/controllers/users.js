@@ -39,9 +39,6 @@ const deleteUsers = async (req, res, next) => {
     }
 }
 
-// Create Controller file for get, update and delte one user Joe and James
-
-//get one user
 const getOneuser = async (req, res, next) => {
   try {
     const user = await User.findById(req.params.userId);
@@ -69,7 +66,6 @@ const updateOneUser = async (req, res, next) => {
   }
 };
 
-//deleteOne user
 const deleteOneUser = async (req, res, next) => {
   try {
     await User.findByIdAndDelete(req.params.userId);
@@ -81,7 +77,6 @@ const deleteOneUser = async (req, res, next) => {
 };
 
 
-// Exports
 module.exports = {
     getUsers,
     createUser,

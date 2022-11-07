@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
 const connectDB = require('./config/db'); 
+const userRouter = require('./routes/userRouter'); 
 
 //configure our project to access config values from this location
 dotenv.config({ path: "./config/config.env" });
@@ -15,6 +16,8 @@ const app = express();
 if (process.env.NODE_ENV === "dev") {
   app.use(morgan("dev"));
 }
+
+app.use('/user', userRouter); 
 
 const PORT = process.env.PORT || 5000;
 

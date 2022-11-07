@@ -10,13 +10,15 @@ const {
 
 userRouter.route("/login").post(getUser);
 
+userRouter.route("/")
+.get(getUsers)
+.post(createUser)
+.delete(deleteUsers)
+
 userRouter
-  .route("/:users")
+  .route("/:userId")
   .get(getUser)
-  .get(getUsers)
-  .post(createUser)
   .put(updateOneUser)
-  .delete(deleteUsers)
   .delete(deleteOneUser);
 
 module.exports = userRouter;

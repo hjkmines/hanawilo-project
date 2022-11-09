@@ -13,7 +13,16 @@ module.exports = {
         // clean: true,
         // assetModuleFilename: '[name][ext]'
     },
-    devtool: "source-map",
+
+    devtool: "eval-cheap-source-map",
+
+    plugins: [
+        new HTMLWebpackPlugin({
+            template: './src/index.html'
+        }),
+    ],
+
+    target: "web",
     devServer: {
         static: {
             directory: path.resolve(__dirname, 'public')

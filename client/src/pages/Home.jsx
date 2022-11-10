@@ -102,7 +102,7 @@ const Home = () => {
                 </Typography>
                 <Container sx={{display:'flex', alignItems:'center', alignContent:'center', justifyContent:'center'}}>
                   <Button 
-                    sx={{ justifyContent: 'center'}}
+                    sx={{ justifyContent: 'center' }}
                     color='secondary' 
                     variant='contained'
                     component={Link} 

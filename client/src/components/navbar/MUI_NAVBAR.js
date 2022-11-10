@@ -13,6 +13,8 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import NorthEastOutlinedIcon from '@mui/icons-material/NorthEastOutlined';
 import { Link, NavLink } from "react-router-dom";
+import { useTheme } from '@mui/material';
+// import { color } from '@mui/system';
 
 // constants for menu/tooltip navigation 
 const pages = ['Directory', 'About', 'Messages',];
@@ -38,17 +40,26 @@ const MUI_NAVBAR = () => {
     setAnchorElUser(null);
   };
 
+  //tap into global theme written in index.js within root directory for client
+  const theme = useTheme();
+
   return (
 
     // total container sticks to top of viewport via "sticky" utilizes anchor elements 
-    <AppBar position="sticky" >
+    <AppBar position="sticky" 
+        sx={{ 
+          background: "transparent",
+          color: theme.palette.text.main,
+          }} >
       <Box sx={{
         padding:0,
         margin:0,
         width: '100%',
         maxWidth: 'xl',
+        background: "transparent",
+        color: theme.palette.text.main,
       }} >
-        <Toolbar disableGutters sx={{ maxWidth:'xl'}}>
+        <Toolbar disableGutters sx={{ maxWidth:'xl', background: 'transparent', color:theme.palette.text.main,}}>
 
           {/* medium & up viewport size */}
           <NorthEastOutlinedIcon sx={{ display: { xs: 'none', md: 'flex' }, mx: 1 }} />
@@ -62,7 +73,7 @@ const MUI_NAVBAR = () => {
               fontFamily: 'roboto',
               fontWeight: 600,
               letterSpacing: '.3rem',
-              color: 'inherit',
+              color: theme.palette.text.main,
               textDecoration: 'none',
               fontSize:'30px'
             }}
@@ -79,7 +90,7 @@ const MUI_NAVBAR = () => {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
+              color='inherit'
             >
               <MenuIcon />
             </IconButton>
@@ -144,9 +155,9 @@ const MUI_NAVBAR = () => {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color:theme.palette.text.main , display: 'block' }}
               >
-                <Link to={`/${page}`} style={{textDecoration: "none", color: "white"}}> 
+                <Link to={`/${page}`} style={{textDecoration: "none", color:theme.palette.text.main}}> 
                     {page} 
                 </Link>
               </Button>

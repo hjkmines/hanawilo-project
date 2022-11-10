@@ -60,10 +60,21 @@ module.exports = {
             {
                 test: /\.css$/i,
                 loader: "css-loader",
-                // options: {
-                //     url: true
-                // }
-            }
+                options: {
+                    url: true
+                }
+            },
+            {
+                test: /\.s[ac]ss$/i,
+                use: [
+                  // Creates `style` nodes from JS strings
+                  "style-loader",
+                  // Translates CSS into CommonJS
+                  "css-loader",
+                  // Compiles Sass to CSS
+                  "sass-loader",
+                ],
+              },
         ]
         
     },
@@ -71,7 +82,7 @@ module.exports = {
         new HTMLWebpackPlugin({
             title: 'Hanawilo Team Project',
             filename: 'index.html',
-            template: '/src/index.html'
+            template: './src/index.html'
         }),
     ],
     // target: "web",

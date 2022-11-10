@@ -12,14 +12,15 @@ import {
     Divider,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
-
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { useTheme } from '@mui/material';
 
 const Footer = () => {
+    const theme = useTheme();
 
     const StyledFooterContainer = styled(Grid)({
         display: "flex",
@@ -28,7 +29,8 @@ const Footer = () => {
         alignItems: "space-around",
         justifyContent: "space-around",
         justifyItems: "space-around",
-        backgroundColor: "#f4f4f4",
+        backgroundColor: "transparent",
+        color: theme.palette.text.main,
         padding: 3,
         minWidth: '100%',
         spacing: 2
@@ -48,20 +50,21 @@ const Footer = () => {
                     display: { xs:"block", md:"none"}
                      
             }}> 
-                <Typography mt={2} > Join Our Mailing List</Typography>
+                <Typography mt={2} sx={{ color: theme.palette.text.main}} > Join Our Mailing List</Typography>
                 <br/>
-                <Divider variant="middle" />
+                <Divider variant="middle" sx={{bgcolor: 'white', fontWeight:500 }} />
                 <br/>
-                <Container mb={2} p={0}> 
+                <Container mb={2} p={0} > 
                     
-                        <TextField type="text" placeholder='jdoe@gmail.com'>
+                        <TextField sx={{ color:theme.palette.text.main}} type="text" placeholder='jdoe@gmail.com'>
                             email 
                         </TextField>
                         <Button 
                             variant="contained"
-                            color="secondary"
                             sx={{
-                                minHeight:'3.5rem'
+                                minHeight:'3.5rem',
+                                color:theme.palette.text.main,
+                                bgcolor:theme.palette.other.main
                             }} 
                         // onClick={e => {
 
@@ -81,6 +84,7 @@ const Footer = () => {
                     alignItems:"center",
                     display: { xs:"none", md:"block"},
                     mt: 2,
+                    color: theme.palette.text.main,
             }}> 
                <Stack>
                     <Typography 
@@ -91,17 +95,18 @@ const Footer = () => {
                         Join Our Mailing List
                     </Typography>
                     <br />
-                    <Divider variant="middle" my={2} />
+                    <Divider variant="middle" my={2} sx={{bgcolor: 'white', fontWeight:500}}/>
                     <br />
                     <TextField type="text" placeholder='JohnDoe@gmail.com'>
                         email 
                     </TextField>
                     <Button 
                         size='small'
-                        variant="outlined"
-                        color="secondary"
+                        variant="contained"
                         sx={{
-                            minHeight:'3.5rem'
+                            minHeight:'3.5rem',
+                            color:theme.palette.text.main,
+                            bgcolor:theme.palette.other.main
                         }} 
                     // onClick={e => {
                     // will eventually handle email subscription
@@ -114,65 +119,84 @@ const Footer = () => {
         </Grid>
         
         {/* social links */}
-        <Grid item xs={12} md={3} my={6}>
-            <Box>
-                <Grid container  sx={{ justifyContent:"space-evenly"}}>
+        <Grid item xs={12} md={4} mt={5}>
+            <Box sx={{ display: "block", alignContent:"center", mt:2 }}>
+                <Grid container  sx={{ alignItems:"center", justifyContent:"center"}}>
                     <Grid item >
-                        <IconButton aria-label='facebook' color='success' size="large">
+                        <IconButton aria-label='facebook' >
                             <a href="https://facebook.com" target="_blank" rel="noreferrer">
-                                <FacebookIcon  fontSize='large'/>
+                                <FacebookIcon  sx={{color:theme.palette.text.main}} fontSize='large'/>
                             </a>
                         </IconButton>
-                        <IconButton aria-label='instagram' color='warning'>
+                    </Grid>
+                    <Grid item>
+                        <IconButton aria-label='instagram' >
                             <a href="https://instagram.com" target="_blank" rel="noreferrer">
-                                <InstagramIcon fontSize='large' />
+                                <InstagramIcon sx={{color:theme.palette.text.main}} fontSize='large' />
                             </a>
                         </IconButton>
-                        <IconButton aria-label='twitter' color='primary'>
+                    </Grid>
+                    <Grid item>
+                        <IconButton aria-label='twitter'>
                             <a href="https://twitter.com" target="_blank" rel="noreferrer">
-                                <TwitterIcon fontSize='large' />
+                                <TwitterIcon sx={{color:theme.palette.text.main}} fontSize='large' />
                             </a>
                         </IconButton>
+                    </Grid>
+                    <Grid item>
                         <IconButton aria-label='github' >
                             <a href="https://github.com" target="_blank" rel="noreferrer">
-                                <GitHubIcon fontSize='large' />
+                                <GitHubIcon sx={{color:theme.palette.text.main}} fontSize='large' />
                             </a>
                         </IconButton>
-                        <IconButton aria-label='linked-in' >
+                    </Grid>
+                    <Grid item>
+                        <IconButton aria-label='linked-in'>
                             <a href="https://linkedin.com" target="_blank" rel="noreferrer">
-                                <LinkedInIcon fontSize='large' /> 
+                                <LinkedInIcon sx={{color:theme.palette.text.main}} fontSize='large' /> 
                             </a>
                         </IconButton>
                     </Grid>
                 </Grid>
             </Box>
         </Grid>
+      
         
         {/* Link Tree */}
-        <Grid item xs={12} md={3} my={2}>    
-            <Stack>
-                <Button
-                    component = {Link}
-                    to='/'>
-                        Home
-                </Button>
-                <Button
-                    component = {Link}
-                    to='/about'>
-                        About
-                </Button>
-                <Button
-                    component = {Link}
-                    to='/directory'>
-                        Directory
-                </Button>
-                <Button
-                    component = {Link}
-                    to='/messages'>
-                        Messages
-                </Button>
-            </Stack>
-        </Grid>  
+        <Grid item xs={12} md={3} mb={2}>
+            <Box sx={{display:"block", alignContent:"center", mt:2}}>
+                <Stack >
+                    <Button
+                        component = {Link}
+                        to='/'
+                        sx={{color:theme.palette.text.main}}
+                        >
+                            Home
+                    </Button>
+                    <Button
+                        component = {Link}
+                        to='/about'
+                        sx={{color:theme.palette.text.main}}
+                        >
+                            About
+                    </Button>
+                    <Button
+                        component = {Link}
+                        to='/directory'
+                        sx={{color:theme.palette.text.main}}
+                        >
+                            Directory
+                    </Button>
+                    <Button
+                        component = {Link}
+                        to='/messages'
+                        sx={{color:theme.palette.text.main}}
+                        >
+                            Messages
+                    </Button>
+                </Stack>
+            </Box>
+        </Grid>
     </StyledFooterContainer> 
   )
 }

@@ -13,6 +13,7 @@ import {
 import IamgeCollage from '../components/imageCollage';
 import { Link, Navigate } from 'react-router-dom';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import { useTheme } from '@mui/material';
 
 const BannerContainer = styled(Box) ({
     display: 'flex',
@@ -20,7 +21,7 @@ const BannerContainer = styled(Box) ({
     width: '100%',
     height: '100%',
     padding: '0px 0px',
-    backgroundColor: 'lightpink',
+    // backgroundColor: 'theme.palette.primary.light',
     marginTop: 4,
     marginBottom: 4,
     // [theme.breakpoints.down('sm')]: {
@@ -48,12 +49,15 @@ const BannerTitle = styled(Typography) ({
 
 
 const Home = () => {
-
+  
+  const theme = useTheme();
 
   return (
     <>
     
-      <Box >
+      <Box sx={{
+        backgroundColor: theme.palette.secondary.main,
+      }}>
 
         {/* banner  */}
         <BannerContainer >
@@ -126,7 +130,7 @@ const Home = () => {
 
 
         {/* images are cool */}
-        <IamgeCollage />
+        {/* <IamgeCollage /> */}
       </Box>
     </> 
 

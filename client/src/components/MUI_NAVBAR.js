@@ -15,7 +15,7 @@ import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
 import NorthEastOutlinedIcon from '@mui/icons-material/NorthEastOutlined';
 import { Link, NavLink } from "react-router-dom";
-import { CssBaseline, useTheme, styled, InputBase, Stack } from '@mui/material';
+import { CssBaseline, useTheme, styled, InputBase, Stack, Paper } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 // import { color } from '@mui/system';
 
@@ -89,6 +89,22 @@ const MUI_NAVBAR = () => {
   }
   ));
 
+  const StyledPaper = styled(Paper)(({ theme }) => ({
+    bgcolor: "black"
+  }))
+
+  const StyledButton = styled(Button)(
+`border-radius: 0;
+color:white;
+
+  &:hover, &.Mui-focusVisible {
+    background-color: "black"
+  }`
+);
+
+
+
+
   return (
 
     // total container sticks to top of viewport via "sticky" utilizes anchor elements 
@@ -137,8 +153,17 @@ const MUI_NAVBAR = () => {
               >
               <MenuIcon />
             </IconButton>
-            <NorthEastOutlinedIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-            <Menu
+            <IconButton 
+              size="large"
+              component={Link}
+              to="/" 
+              color="inherit">
+              <NorthEastOutlinedIcon 
+                sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} 
+                />
+            </IconButton>
+            <StyledPaper>
+              <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
@@ -154,23 +179,35 @@ const MUI_NAVBAR = () => {
               onClose={handleCloseNavMenu}
               sx={{
                 display: { xs: 'block', md: 'none' },
-              }}
+              PaperProps: {
+                sx: { backgroundColor: "black",
+                      color: "white"
+                }
+                },
+              ListProps: {
+                sx: { backgroundColor: "black",
+                      color: "white"
+                  }
+                },
+              }
+              }
               >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page} onClick={handleCloseNavMenu} sx={{bgcolor: "black"}}>
                   <Typography textAlign="center">
-                    <Button
+                    <StyledButton
                       key={page}
                       component={Link}
                       to={`/${page}`}
-                      sx={{ my: 1, color: 'black', fontWeight: '500', display: 'block' }}
+                      sx={{ bgcolor: "black", color: 'white', fontWeight: '500', display: 'block',  }}
                       >
                       {page}
-                    </Button>
+                    </StyledButton>
                   </Typography>
                 </MenuItem>
               ))}
             </Menu>
+            </StyledPaper>
           </Stack>
             {/* <Typography
               variant="h5"

@@ -17,6 +17,7 @@ import NorthEastOutlinedIcon from '@mui/icons-material/NorthEastOutlined';
 import { Link, NavLink } from "react-router-dom";
 import { CssBaseline, useTheme, styled, InputBase, Stack, Paper } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import { bgcolor } from '@mui/system';
 // import { color } from '@mui/system';
 
 // constants for menu/user navigation (left and right navigation on navbar)
@@ -89,38 +90,21 @@ const MUI_NAVBAR = () => {
   }
   ));
 
-  const StyledPaper = styled(Paper)(({ theme }) => ({
-    bgcolor: "black"
-  }))
-
-  const StyledButton = styled(Button)(
-`border-radius: 0;
-color:white;
-
-  &:hover, &.Mui-focusVisible {
-    background-color: "black"
-  }`
-);
-
-
-
-
   return (
 
     // total container sticks to top of viewport via "sticky" utilizes anchor elements 
-  <>
-  <CssBaseline/>
-
-    <AppBar elevation={0} position="sticky"
-      sx={{
-        background: theme.palette.black,
-        color: theme.palette.white,
-      }} >
+    <>
+      <CssBaseline />
+      <AppBar elevation={0} position="sticky"
+        sx={{
+          background: theme.palette.black,
+          color: theme.palette.white,
+        }} >
         <Toolbar disableGutters sx={{ background: 'transparent', color: theme.palette.white, justifyContent: "space-between", paddingX: 2 }}>
 
           {/* medium & up viewport size left side*/}
-          <Stack direction="row" sx={{ display: { xs: 'none', md: 'flex' }, alignItems:"center" }}>
-            <NorthEastOutlinedIcon  />
+          <Stack direction="row" sx={{ display: { xs: 'none', md: 'flex' }, alignItems: "center" }}>
+            <NorthEastOutlinedIcon />
             <Typography
               variant="h6"
               component="a"
@@ -135,14 +119,14 @@ color:white;
                 textDecoration: 'none',
                 fontSize: '20px'
               }}
-              >
+            >
               Hanawilo-Edge
             </Typography>
           </Stack>
-          
+
 
           {/* less than medium viewport leftside*/}
-          <Stack direction="row" sx={{ display: { xs: 'flex', md: 'none' }, alignItems:"center" }}>
+          <Stack direction="row" sx={{ display: { xs: 'flex', md: 'none' }, alignItems: "center" }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -150,20 +134,19 @@ color:white;
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
               color='inherit'
-              >
+            >
               <MenuIcon />
             </IconButton>
-            <IconButton 
+            <IconButton
               size="large"
               component={Link}
-              to="/" 
+              to="/"
               color="inherit">
-              <NorthEastOutlinedIcon 
-                sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} 
-                />
+              <NorthEastOutlinedIcon
+                sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }}
+              />
             </IconButton>
-            <StyledPaper>
-              <Menu
+            <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
@@ -177,39 +160,31 @@ color:white;
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              PaperProps: {
-                sx: { backgroundColor: "black",
-                      color: "white"
+
+              PaperProps={{
+                style: {
+                  background: 'black'
                 }
-                },
-              ListProps: {
-                sx: { backgroundColor: "black",
-                      color: "white"
-                  }
-                },
-              }
-              }
-              >
+              }}
+            >
+
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu} sx={{bgcolor: "black"}}>
+                <MenuItem key={page} onClick={handleCloseNavMenu} sx={{ bgcolor: "black" }}>
                   <Typography textAlign="center">
-                    <StyledButton
+                    <Button
                       key={page}
                       component={Link}
                       to={`/${page}`}
-                      sx={{ bgcolor: "black", color: 'white', fontWeight: '500', display: 'block',  }}
-                      >
+                      sx={{ bgcolor: "black", color: 'white', fontWeight: '500', display: 'block', }}
+                    >
                       {page}
-                    </StyledButton>
+                    </Button>
                   </Typography>
                 </MenuItem>
               ))}
             </Menu>
-            </StyledPaper>
           </Stack>
-            {/* <Typography
+          {/* <Typography
               variant="h5"
               noWrap
               component="a"
@@ -229,26 +204,26 @@ color:white;
               Hanawilo-Edge
             </Typography> */}
 
-                {/* SEARCH COMPONENT */}
-          <Search sx={{flexGrow: 1}}>
+          {/* SEARCH COMPONENT */}
+          <Search sx={{ flexGrow: 1 }}>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
               placeholder="Search for courses, instructors..."
               inputProps={{ "aria-label": "search" }}
-              sx={{ border:1, textAlign: 'center'}}
+              sx={{ border: 1, textAlign: 'center' }}
             />
           </Search >
-         
+
 
           {/* buttons for navigation medium and up viewports */}
-          <Stack direction="row" sx={{ display:{xs:"none", md:"flex" }}}>
+          <Stack direction="row" sx={{ display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
-              key={page}
-              onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: theme.palette.white, display: 'block' }}
+                key={page}
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: theme.palette.white, display: 'block' }}
               >
                 <Link to={`/${page}`} style={{ textDecoration: "none", color: theme.palette.white }}>
                   {page}
@@ -258,46 +233,46 @@ color:white;
           </Stack>
 
           {/* avatar box - placeholder kitten image - how cute :) */}
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Place Kitten" src="http://placekitten.com/g/200/300" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-              >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">
-                    <Button
-                      key={setting}
-                      component={Link}
-                      to={`/${setting}`}
-                      sx={{ my: 1, color: 'black', fontWeight: '500', display: 'block' }}
-                      >
-                      {setting}
-                    </Button>
-                  </Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          
+          <Tooltip title="Open settings">
+            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <Avatar alt="Place Kitten" src="http://placekitten.com/g/200/300" />
+            </IconButton>
+          </Tooltip>
+          <Menu
+            sx={{ mt: '45px' }}
+            id="menu-appbar"
+            anchorEl={anchorElUser}
+            anchorOrigin={{
+              vertical: 'top',
+              horizontal: 'right',
+            }}
+            keepMounted
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'right',
+            }}
+            open={Boolean(anchorElUser)}
+            onClose={handleCloseUserMenu}
+          >
+            {settings.map((setting) => (
+              <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <Typography textAlign="center">
+                  <Button
+                    key={setting}
+                    component={Link}
+                    to={`/${setting}`}
+                    sx={{ my: 1, color: 'black', fontWeight: '500', display: 'block' }}
+                  >
+                    {setting}
+                  </Button>
+                </Typography>
+              </MenuItem>
+            ))}
+          </Menu>
+
         </Toolbar>
-    </AppBar>
-              </>
+      </AppBar>
+    </>
   );
 };
 export default MUI_NAVBAR;

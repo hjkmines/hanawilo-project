@@ -7,22 +7,15 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 //global acess to MUI theme//
 const theme = createTheme({
     palette:{
-        primary:{
-            main:"#360568",
-            mid: "#5B2A86",
-            light: "#7785AC"
-        },
-        secondary:{
-            main: "#9AC6C5",
-        },
-        other: {
-            main: "#A5E6BA"
-        },
-        text:{
-            main: "white",
-            secondary: "black"
+        // https://color.adobe.com/hanawilo-color-theme-20881290/
+            darkPurple:"#360568",
+            medPurple: "#5B2A86",
+            lightPurple: "#7785AC",
+            teal: "#9AC6C5",
+            lightGreen: "#A5E6BA",
+            white: "white",
+            black: "black"
         }
-    }
   })
 
 const rootElement = document.getElementById('root');

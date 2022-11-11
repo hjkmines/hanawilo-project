@@ -56,7 +56,7 @@ const Home = () => {
     <>
     
       <Box sx={{
-        backgroundColor: theme.palette.secondary.main,
+        backgroundColor: theme.palette.darkPurple,
       }}>
 
         {/* banner  */}

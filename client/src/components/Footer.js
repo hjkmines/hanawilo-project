@@ -30,7 +30,7 @@ const Footer = () => {
         justifyContent: "space-around",
         justifyItems: "space-around",
         backgroundColor: "transparent",
-        color: theme.palette.text.main,
+        color: theme.palette.white,
         padding: 3,
         minWidth: '100%',
         spacing: 2
@@ -50,21 +50,21 @@ const Footer = () => {
                     display: { xs:"block", md:"none"}
                      
             }}> 
-                <Typography mt={2} sx={{ color: theme.palette.text.main}} > Join Our Mailing List</Typography>
+                <Typography mt={2} sx={{ color: theme.palette.white}} > Join Our Mailing List</Typography>
                 <br/>
                 <Divider variant="middle" sx={{bgcolor: 'white', fontWeight:500 }} />
                 <br/>
                 <Container mb={2} p={0} > 
                     
-                        <TextField sx={{ bgcolor: "white", color:theme.palette.text.main}} type="text" placeholder='jdoe@gmail.com'>
+                        <TextField sx={{ bgcolor: "white", color:theme.palette.white}} type="text" placeholder='jdoe@gmail.com'>
                             email 
                         </TextField>
                         <Button 
                             variant="contained"
                             sx={{
                                 minHeight:'3.5rem',
-                                color:theme.palette.text.main,
-                                bgcolor:theme.palette.other.main
+                                color:theme.palette.white,
+                                bgcolor:theme.palette.darkPurple
                             }} 
                         // onClick={e => {
 
@@ -84,7 +84,7 @@ const Footer = () => {
                     alignItems:"center",
                     display: { xs:"none", md:"block"},
                     mt: 2,
-                    color: theme.palette.text.main,
+                    color: theme.palette.white,
             }}> 
                <Stack>
                     <Typography 
@@ -105,8 +105,8 @@ const Footer = () => {
                         variant="contained"
                         sx={{
                             minHeight:'3.5rem',
-                            color:theme.palette.text.main,
-                            bgcolor:theme.palette.other.main
+                            color:theme.palette.white,
+                            bgcolor:theme.palette.darkPurple
                         }} 
                     // onClick={e => {
                     // will eventually handle email subscription
@@ -125,35 +125,35 @@ const Footer = () => {
                     <Grid item >
                         <IconButton aria-label='facebook' >
                             <a href="https://facebook.com" target="_blank" rel="noreferrer">
-                                <FacebookIcon  sx={{color:theme.palette.text.main}} fontSize='large'/>
+                                <FacebookIcon  sx={{color:theme.palette.white}} fontSize='large'/>
                             </a>
                         </IconButton>
                     </Grid>
                     <Grid item>
                         <IconButton aria-label='instagram' >
                             <a href="https://instagram.com" target="_blank" rel="noreferrer">
-                                <InstagramIcon sx={{color:theme.palette.text.main}} fontSize='large' />
+                                <InstagramIcon sx={{color:theme.palette.white}} fontSize='large' />
                             </a>
                         </IconButton>
                     </Grid>
                     <Grid item>
                         <IconButton aria-label='twitter'>
                             <a href="https://twitter.com" target="_blank" rel="noreferrer">
-                                <TwitterIcon sx={{color:theme.palette.text.main}} fontSize='large' />
+                                <TwitterIcon sx={{color:theme.palette.white}} fontSize='large' />
                             </a>
                         </IconButton>
                     </Grid>
                     <Grid item>
                         <IconButton aria-label='github' >
                             <a href="https://github.com" target="_blank" rel="noreferrer">
-                                <GitHubIcon sx={{color:theme.palette.text.main}} fontSize='large' />
+                                <GitHubIcon sx={{color:theme.palette.white}} fontSize='large' />
                             </a>
                         </IconButton>
                     </Grid>
                     <Grid item>
                         <IconButton aria-label='linked-in'>
                             <a href="https://linkedin.com" target="_blank" rel="noreferrer">
-                                <LinkedInIcon sx={{color:theme.palette.text.main}} fontSize='large' /> 
+                                <LinkedInIcon sx={{color:theme.palette.white}} fontSize='large' /> 
                             </a>
                         </IconButton>
                     </Grid>
@@ -169,28 +169,28 @@ const Footer = () => {
                     <Button
                         component = {Link}
                         to='/'
-                        sx={{color:theme.palette.text.main}}
+                        sx={{color:theme.palette.white}}
                         >
                             Home
                     </Button>
                     <Button
                         component = {Link}
                         to='/about'
-                        sx={{color:theme.palette.text.main}}
+                        sx={{color:theme.palette.white}}
                         >
                             About
                     </Button>
                     <Button
                         component = {Link}
                         to='/directory'
-                        sx={{color:theme.palette.text.main}}
+                        sx={{color:theme.palette.white}}
                         >
                             Directory
                     </Button>
                     <Button
                         component = {Link}
                         to='/messages'
-                        sx={{color:theme.palette.text.main}}
+                        sx={{color:theme.palette.white}}
                         >
                             Messages
                     </Button>

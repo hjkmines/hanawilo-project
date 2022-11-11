@@ -14,6 +14,7 @@
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@fontsource/roboto": "^4.5.8",
+    "@fontsource/urbanist": "^4.5.14",
     "@mui/icons-material": "^5.10.6",
     "@mui/material": "^5.10.9",
     "html-webpack-plugin": "^5.5.0",

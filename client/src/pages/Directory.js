@@ -22,7 +22,6 @@ const Directory = () => {
             }}>
                 <Typography 
                     sx={{
-                        fontFamily: 'roboto',
                         fontWeight: 600,
                         fontSize: '20px',
                         

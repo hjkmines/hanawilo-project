@@ -44,10 +44,6 @@ const MUI_NAVBAR = () => {
     setAnchorElUser(null);
   };
 
-  const handleSearchOpen = () => setSearchOpen(true);
-
-  const handleSearchClose = () => setSearchOpen(false);
-
   //tap into global theme written in index.js within root directory for client
   const theme = useTheme();
 
@@ -112,7 +108,6 @@ const MUI_NAVBAR = () => {
               sx={{
                 mr: 2,
                 display: { xs: 'none', md: 'flex' },
-                fontFamily: 'roboto',
                 fontWeight: 600,
                 letterSpacing: '.3rem',
                 color: theme.palette.white,

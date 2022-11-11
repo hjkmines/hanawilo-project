@@ -14,7 +14,7 @@ import {
 } from 'react-router-dom';
 import Directory from "./pages/Directory";
 import AboutUs from './pages/AboutUs';
-import Home from "./pages/Home.jsx";
+import Home from "./pages/Home";
 import Messages from './pages/Messages';
 import Profile from './pages/Profile'; //test for right navbar routing
 import MUI_NAVBAR from "./components/MUI_NAVBAR";

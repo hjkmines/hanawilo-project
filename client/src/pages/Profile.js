@@ -14,6 +14,7 @@ import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import MessageIcon from '@mui/icons-material/Message';
+
 import BasicCard from '../components/BasicCard';
 
 
@@ -38,15 +39,15 @@ const Profile = () => {
   const theme = useTheme();
 
   return (
-    <Grid container >
-      <Grid item xs={3} sx={{ bgcolor: 'transparent', borderRadius: 5, marginTop: 5, marginLeft: 2 }}>
+    <Grid container marginTop={2} border={1} borderColor={"magenta"} >
+      <Grid item xs={3} md={2} border={1} borderColor={"magenta"} sx={{ bgcolor: 'transparent', borderRadius: 5, marginTop: 9, marginLeft: 2}}>
         <Box spacing={2} sx={{ border: 1, borderColor: "white", borderTopLeftRadius: 5, borderTopRightRadius: 5, }} >
 
           <Image src="https://placekitten.com/500/500" sx={{
             borderBottom: 1,
-            maxHeight: '25h',
-            borderColor: 'white',
-            borderRadius: 'inherit'
+            objectFit: 'fill',
+            borderColor: 'white'
+    
 
           }} />
 
@@ -161,14 +162,14 @@ const Profile = () => {
       </Grid>
 
       {/*Right side content*/}
-      <Grid item xs sx={{ bgcolor: "transparent", marginX: 2, marginTop: 4 }}>
+      <Grid item xs border={1} borderColor={"magenta"} sx={{ bgcolor: "transparent", marginX: 2, marginTop: 4 }}>
         <Box>
-
           <Typography
           variant='h6'
           fontWeight={900}
           fontSize={'1.5rem'}
-          color={'white'}>Featured</Typography>
+          color={'white'}
+          marginLeft >Featured</Typography>
           <Box sx={{ border: 1, borderColor: 'white', borderRadius: 5 }}>
 
             <Carousel sx={{ margin: 4 }}>

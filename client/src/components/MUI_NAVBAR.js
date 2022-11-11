@@ -27,7 +27,6 @@ const MUI_NAVBAR = () => {
   // constants for state -> navigation tooltips on left and right side of navbar
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const [searchOpen, setSearchOpen] = React.useState(false);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -50,22 +49,6 @@ const MUI_NAVBAR = () => {
 
   //tap into global theme written in index.js within root directory for client
   const theme = useTheme();
-
-  // search modal styling
-  const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 600,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center"
-  };
 
   const Search = styled("div")(({ theme }) => ({
     position: "relative",
@@ -119,39 +102,31 @@ const MUI_NAVBAR = () => {
       }} >
         <Toolbar disableGutters sx={{ background: 'transparent', color: theme.palette.white, justifyContent: "space-between", paddingX: 2 }}>
 
-          {/* medium & up viewport size */}
-          <NorthEastOutlinedIcon sx={{ display: { xs: 'none', md: 'flex' }, mx: 1 }} />
-          <Typography
-            variant="h6"
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'roboto',
-              fontWeight: 600,
-              letterSpacing: '.3rem',
-              color: theme.palette.white,
-              textDecoration: 'none',
-              fontSize: '30px'
-            }}
-            >
-            Hanawilo-Edge
-          </Typography>
-          <Search sx={{flexGrow: 1}}>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search for courses, instructors..."
-              inputProps={{ "aria-label": "search" }}
-              sx={{ border:1, textAlign: 'center'}}
-            />
-          </Search >
+          {/* medium & up viewport size left side*/}
+          <Stack direction="row" sx={{ display: { xs: 'none', md: 'flex' }, alignItems:"center" }}>
+            <NorthEastOutlinedIcon  />
+            <Typography
+              variant="h6"
+              component="a"
+              href="/"
+              sx={{
+                mr: 2,
+                display: { xs: 'none', md: 'flex' },
+                fontFamily: 'roboto',
+                fontWeight: 600,
+                letterSpacing: '.3rem',
+                color: theme.palette.white,
+                textDecoration: 'none',
+                fontSize: '20px'
+              }}
+              >
+              Hanawilo-Edge
+            </Typography>
+          </Stack>
+          
 
-          {/* less than medium viewport */}
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, mr: 'auto' }}>
-
+          {/* less than medium viewport leftside*/}
+          <Stack direction="row" sx={{ display: { xs: 'flex', md: 'none' }, alignItems:"center" }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -162,6 +137,7 @@ const MUI_NAVBAR = () => {
               >
               <MenuIcon />
             </IconButton>
+            <NorthEastOutlinedIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -195,30 +171,42 @@ const MUI_NAVBAR = () => {
                 </MenuItem>
               ))}
             </Menu>
-          </Box>
-          <NorthEastOutlinedIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 600,
-              fontSize: '17px',
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-            >
-            Hanawilo-Edge
-          </Typography>
+          </Stack>
+            {/* <Typography
+              variant="h5"
+              noWrap
+              component="a"
+              href="/"
+              sx={{
+                mr: 2,
+                display: { xs: 'flex', md: 'none' },
+                flexGrow: 1,
+                fontFamily: 'monospace',
+                fontWeight: 600,
+                fontSize: '17px',
+                letterSpacing: '.3rem',
+                color: 'inherit',
+                textDecoration: 'none',
+              }}
+              >
+              Hanawilo-Edge
+            </Typography> */}
+
+                {/* SEARCH COMPONENT */}
+          <Search sx={{flexGrow: 1}}>
+            <SearchIconWrapper>
+              <SearchIcon />
+            </SearchIconWrapper>
+            <StyledInputBase
+              placeholder="Search for courses, instructors..."
+              inputProps={{ "aria-label": "search" }}
+              sx={{ border:1, textAlign: 'center'}}
+            />
+          </Search >
+         
 
           {/* buttons for navigation medium and up viewports */}
-          <Stack direction="row">
+          <Stack direction="row" sx={{ display:{xs:"none", md:"flex" }}}>
             {pages.map((page) => (
               <Button
               key={page}
@@ -230,6 +218,8 @@ const MUI_NAVBAR = () => {
                 </Link>
               </Button>
             ))}
+          </Stack>
+
           {/* avatar box - placeholder kitten image - how cute :) */}
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -267,7 +257,7 @@ const MUI_NAVBAR = () => {
                 </MenuItem>
               ))}
             </Menu>
-          </Stack>
+          
         </Toolbar>
     </AppBar>
               </>

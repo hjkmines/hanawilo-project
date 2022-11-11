@@ -7,12 +7,12 @@ const Profile = () => {
 
   return (
    <Container sx={{
-    bgcolor:theme.palette.primary.light,
+    bgcolor:theme.palette.darkPurple,
    }}
    >
      {/* left container sticky? permanent drawer?  */}
      <Container sx={{
-      bgcolor:theme.palette.other.main,
+      bgcolor:theme.palette.lightPurple,
       
      }}>
        <Typography>
@@ -22,8 +22,8 @@ const Profile = () => {
 
      {/* Featured Section */}
      <Container sx={{
-      bgcolor:theme.palette.secondary.main,
-      color:theme.palette.text.main
+      bgcolor:theme.palette.teal,
+      color:theme.palette.white
      }}>
         <Typography>
           Featured Section 
@@ -32,8 +32,8 @@ const Profile = () => {
 
      {/* upcoming section */}
      <Container sx={{
-      bgcolor:theme.palette.primary.mid,
-      color:theme.palette.text.main
+      bgcolor:theme.palette.lightGreen,
+      color:theme.palette.black
      }}>
       <Typography>
         Upcoming Section

@@ -15,7 +15,7 @@ import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
 import NorthEastOutlinedIcon from '@mui/icons-material/NorthEastOutlined';
 import { Link, NavLink } from "react-router-dom";
-import { CssBaseline, useTheme, styled, InputBase } from '@mui/material';
+import { CssBaseline, useTheme, styled, InputBase, Stack } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 // import { color } from '@mui/system';
 
@@ -117,15 +117,7 @@ const MUI_NAVBAR = () => {
         background: theme.palette.black,
         color: theme.palette.white,
       }} >
-      <Box sx={{
-        padding: 0,
-        margin: 0,
-        width: '100%',
-        maxWidth: 'xl',
-        background: "transparent",
-        color: theme.palette.darkPurple,
-      }} >
-        <Toolbar disableGutters sx={{ background: 'transparent', color: theme.palette.white, justifyContent: "space-between", }}>
+        <Toolbar disableGutters sx={{ background: 'transparent', color: theme.palette.white, justifyContent: "space-between", paddingX: 2 }}>
 
           {/* medium & up viewport size */}
           <NorthEastOutlinedIcon sx={{ display: { xs: 'none', md: 'flex' }, mx: 1 }} />
@@ -226,7 +218,7 @@ const MUI_NAVBAR = () => {
           </Typography>
 
           {/* buttons for navigation medium and up viewports */}
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Stack direction="row">
             {pages.map((page) => (
               <Button
               key={page}
@@ -238,46 +230,7 @@ const MUI_NAVBAR = () => {
                 </Link>
               </Button>
             ))}
-          </Box>
-
-          {/* search modal */}
-          <Modal
-            open={searchOpen}
-            onClose={handleSearchClose}
-            aria-labelledby="search-modal"
-            aria-describedby="search-model"
-            >
-            <Box sx={style}>
-              <TextField
-                fullWidth
-                id="outlined-basic"
-                // label="Search" 
-                variant="outlined"
-                placeholder='Search ....'
-                color='primary'
-                />
-              <Button
-                variant="contained"
-                size="large"
-                sx={{
-                  color: theme.palette.darkPurple,
-                  ml: 3
-                }}
-                onClick={handleSearchClose}
-                >
-                <Typography sx={{ color: "white" }}>
-                  Search
-                </Typography>
-                <SearchIcon sx={{ color: "white" }} />
-              </Button>
-            </Box>
-          </Modal>
-
           {/* avatar box - placeholder kitten image - how cute :) */}
-          <Box sx={{ flexGrow: 0, mr: 1 }}>
-            <Button sx={{ color: "white" }} onClick={handleSearchOpen}>
-              <SearchIcon />
-            </Button>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Place Kitten" src="http://placekitten.com/g/200/300" />
@@ -314,9 +267,8 @@ const MUI_NAVBAR = () => {
                 </MenuItem>
               ))}
             </Menu>
-          </Box>
+          </Stack>
         </Toolbar>
-      </Box>
     </AppBar>
               </>
   );

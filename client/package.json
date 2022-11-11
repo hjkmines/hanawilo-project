@@ -17,8 +17,10 @@
     "@mui/icons-material": "^5.10.6",
     "@mui/material": "^5.10.9",
     "html-webpack-plugin": "^5.5.0",
+    "mui-image": "^1.0.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-material-ui-carousel": "^3.4.2",
     "react-router": "^6.4.2",
     "react-router-dom": "^6.4.2"
   },

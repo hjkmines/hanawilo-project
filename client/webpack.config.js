@@ -10,8 +10,6 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, "public"),
         filename: "bundle.js",
-        // clean: true,
-        // assetModuleFilename: '[name][ext]'
     },
 
     devtool: "eval-cheap-source-map",
@@ -30,9 +28,8 @@ module.exports = {
         port: "3000",
         open: true,
         hot: true,
-        // compress: true,
-        // historyApiFallback: true,
-        // liveReload: true
+        compress: true,
+        historyApiFallback: true,
     },
     module: {
         rules:[
@@ -56,13 +53,9 @@ module.exports = {
                 enforce: "pre",
                 use: ["source-map-loader"],
             },
-            // future potential for scss loaders 
             {
                 test: /\.css$/i,
                 loader: "css-loader",
-                options: {
-                    url: true
-                }
             },
             {
                 test: /\.s[ac]ss$/i,
@@ -85,10 +78,5 @@ module.exports = {
             template: './src/index.html'
         }),
     ],
-    // target: "web",
-    
-    // resolve: {
-    //     extensions: [".js", ".jsx", ".json", ".ts"],
-    // },
     
 };

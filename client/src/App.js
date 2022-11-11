@@ -17,9 +17,8 @@ import AboutUs from './pages/AboutUs';
 import  Home  from "./pages/Home.jsx";
 import Messages from './pages/Messages';
 import Profile from './pages/Profile'; //test for right navbar routing
-import MUI_NAVBAR from "./components/navbar/MUI_NAVBAR";
+import MUI_NAVBAR from "./components/MUI_NAVBAR";
 import Footer from './components/Footer';
-import './App.scss';
 import { useTheme } from '@mui/material';
 
 function App() {

@@ -1,17 +1,45 @@
 import { Box, Container, ImageList, Typography } from '@mui/material'
 import React from 'react'
-// import IamgeCollage from '../components/imageCollage';
+import { useTheme } from '@mui/material'
 
 const Profile = () => {
+  const theme = useTheme();
+
   return (
-    <Container>
-      <Typography variant='h3' component='h1' marginTop={3}>
-        FirstName | LastName  | Position | location
+   <Container sx={{
+    bgcolor:theme.palette.primary.light,
+   }}
+   >
+     {/* left container sticky? permanent drawer?  */}
+     <Container sx={{
+      bgcolor:theme.palette.other.main,
+      
+     }}>
+       <Typography>
+        Left section
+       </Typography>
+     </Container>
+
+     {/* Featured Section */}
+     <Container sx={{
+      bgcolor:theme.palette.secondary.main,
+      color:theme.palette.text.main
+     }}>
+        <Typography>
+          Featured Section 
+        </Typography>
+     </Container>
+
+     {/* upcoming section */}
+     <Container sx={{
+      bgcolor:theme.palette.primary.mid,
+      color:theme.palette.text.main
+     }}>
+      <Typography>
+        Upcoming Section
       </Typography>
-      <Box marginTop={3} sx={{ display:'flex'}}>
-        <img src='http://placekitten.com/200/300' alt="placeholder profile image" width={325} />
-      </Box>
-    </Container>
+     </Container>
+   </Container>
   )
 }
 

@@ -11,12 +11,15 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import Modal from '@mui/material/Modal';
+import TextField from '@mui/material/TextField';
 import NorthEastOutlinedIcon from '@mui/icons-material/NorthEastOutlined';
 import { Link, NavLink } from "react-router-dom";
-import { useTheme } from '@mui/material';
+import {  useTheme } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
 // import { color } from '@mui/system';
 
-// constants for menu/tooltip navigation 
+// constants for menu/user navigation (left and right navigation on navbar)
 const pages = ['Directory', 'About', 'Messages',];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -24,6 +27,7 @@ const MUI_NAVBAR = () => {
   // constants for state -> navigation tooltips on left and right side of navbar
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [searchOpen, setSearchOpen] = React.useState(false);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -40,15 +44,35 @@ const MUI_NAVBAR = () => {
     setAnchorElUser(null);
   };
 
+  const handleSearchOpen = () => setSearchOpen(true);
+
+  const handleSearchClose = () => setSearchOpen(false);
+
   //tap into global theme written in index.js within root directory for client
   const theme = useTheme();
+
+  // search modal styling
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 600,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
+  };
 
   return (
 
     // total container sticks to top of viewport via "sticky" utilizes anchor elements 
     <AppBar position="sticky" 
         sx={{ 
-          background: "transparent",
+          background: theme.palette.primary.main,
           color: theme.palette.text.main,
           }} >
       <Box sx={{
@@ -164,8 +188,44 @@ const MUI_NAVBAR = () => {
             ))}
           </Box>
 
+              {/* search modal */}
+              <Modal
+                open={searchOpen}
+                onClose={handleSearchClose}
+                aria-labelledby="search-modal"
+                aria-describedby="search-model"
+              >
+                <Box sx={style}>
+                  <TextField 
+                    fullWidth
+                    id="outlined-basic" 
+                    // label="Search" 
+                    variant="outlined"
+                    placeholder='Search ....'
+                    color='primary'
+                     />
+                  <Button 
+                    variant="contained"
+                    size="large"
+                    sx={{
+                      color:theme.palette.primary.main,
+                      ml: 3
+                    }}
+                    onClick={handleSearchClose}
+                  >
+                    <Typography sx={{ color:"white"}}>
+                      Search
+                    </Typography>
+                    <SearchIcon sx={{color:"white"}}/>
+                  </Button>
+                </Box>
+              </Modal>
+              
               {/* avatar box - placeholder kitten image - how cute :) */}
           <Box sx={{ flexGrow: 0, mr: 1 }}>
+            <Button sx={{color:"white"}} onClick={handleSearchOpen}>
+              <SearchIcon />
+            </Button>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Place Kitten" src="http://placekitten.com/g/200/300" />
@@ -189,7 +249,16 @@ const MUI_NAVBAR = () => {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <Typography textAlign="center">
+                    <Button
+                    key={setting}
+                    component={Link}
+                    to={`/${setting}`}
+                    sx={{ my: 1, color: 'black', fontWeight:'500', display: 'block'}}
+                    >
+                    {setting}
+                    </Button>
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>

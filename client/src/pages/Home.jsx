@@ -10,7 +10,7 @@ import {
   Stack, 
   styled, 
   Typography } from '@mui/material';
-import IamgeCollage from '../components/imageCollage';
+import IamgeCollage from '../components/ImageCollage';
 import { Link, Navigate } from 'react-router-dom';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import { useTheme } from '@mui/material';

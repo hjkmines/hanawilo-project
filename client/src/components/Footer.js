@@ -56,7 +56,7 @@ const Footer = () => {
                 <br/>
                 <Container mb={2} p={0} > 
                     
-                        <TextField sx={{ color:theme.palette.text.main}} type="text" placeholder='jdoe@gmail.com'>
+                        <TextField sx={{ bgcolor: "white", color:theme.palette.text.main}} type="text" placeholder='jdoe@gmail.com'>
                             email 
                         </TextField>
                         <Button 
@@ -97,7 +97,7 @@ const Footer = () => {
                     <br />
                     <Divider variant="middle" my={2} sx={{bgcolor: 'white', fontWeight:500}}/>
                     <br />
-                    <TextField type="text" placeholder='JohnDoe@gmail.com'>
+                    <TextField type="text" placeholder='JohnDoe@gmail.com' sx={{bgcolor:"white"}}>
                         email 
                     </TextField>
                     <Button 

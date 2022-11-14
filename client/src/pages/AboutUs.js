@@ -1,11 +1,11 @@
 import React from "react";
-// import MuiNavbar from "../components/MuiNavbar";
+import Navbar from "../components/Navbar"
 // import Footer from "../components/Footer";
 
 const AboutUs = () => { 
     return (
         <div>
-            {/* <MuiNavbar /> */}
+            <Navbar />
             <h1>this is the about us page</h1>
             {/* <Footer /> */}
 

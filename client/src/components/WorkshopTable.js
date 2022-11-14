@@ -13,12 +13,12 @@ import Button from '@mui/material/Button';
 
 
 const columns = [
-  { id: 'workshop', label: 'Workshops', minWidth: 170 },
+  { id: 'workshop', label: 'Workshops', minWidth: 100 },
   { id: 'date', label: 'Date', minWidth: 100 },
   {
     id: 'button',
     label: '',
-    minWidth: 170,
+    minWidth: 100,
     align: 'right'
   },
 ];
@@ -28,15 +28,15 @@ function createData( workshop, date, button) {
 }
 
 const rows = [
-  createData( 'Workshop1', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#5B2A86", color:"white"}}> join now </Button>),
-  createData( 'Workshop2', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#5B2A86", color:"white"}}> join now </Button>),
-  createData( 'Workshop3', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#5B2A86", color:"white"}}> join now </Button>),
-  createData( 'Workshop4', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#5B2A86", color:"white"}}> join now </Button>),
-  createData( 'Workshop5', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#5B2A86", color:"white"}}> join now </Button>),
-  createData( 'Workshop6', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#5B2A86", color:"white"}}> join now </Button>),
-  createData( 'Workshop7', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#5B2A86", color:"white"}}> join now </Button>),
-  createData( 'Workshop8', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#5B2A86", color:"white"}}> join now </Button>),
-  createData( 'Workshop9', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#5B2A86", color:"white"}}> join now </Button>),
+  createData( 'Workshop1', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#A5E6BA", color:"white"}}> join now </Button>),
+  createData( 'Workshop2', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#A5E6BA", color:"white"}}> join now </Button>),
+  createData( 'Workshop3', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#A5E6BA", color:"white"}}> join now </Button>),
+  createData( 'Workshop4', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#A5E6BA", color:"white"}}> join now </Button>),
+  createData( 'Workshop5', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#A5E6BA", color:"white"}}> join now </Button>),
+  createData( 'Workshop6', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#A5E6BA", color:"white"}}> join now </Button>),
+  createData( 'Workshop7', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#A5E6BA", color:"white"}}> join now </Button>),
+  createData( 'Workshop8', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#A5E6BA", color:"white"}}> join now </Button>),
+  createData( 'Workshop9', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#A5E6BA", color:"white"}}> join now </Button>),
 
 ];
 
@@ -57,10 +57,10 @@ const WorkshopTable= () => {
 
   return (
     <Paper sx={{ width: '100%', overflow: 'hidden', bgcolor:theme.palette.lightPurple }}>
-      <TableContainer sx={{ maxHeight: 440, bgcolor:theme.palette.lightGreen, color:theme.palette.white }}>
+      <TableContainer sx={{ maxHeight: 440, color:theme.palette.white }}>
         <Table stickyHeader aria-label="sticky table" >
           <TableHead>
-            <TableRow sx={{color:"black"}}>
+            <TableRow>
               {columns.map((column) => (
                 <TableCell
                   key={column.id}
@@ -73,18 +73,12 @@ const WorkshopTable= () => {
               ))}
             </TableRow>
           </TableHead>
-          <TableBody sx={{ bgcolor: theme.palette.lightGreen, color:"white"}} >
+          <TableBody sx={{ bgcolor: theme.palette.medPurple, color:"white"}} >
             {rows
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => {
                 return (
                   <TableRow hover role="checkbox" tabIndex={-1} key={row.workshop} 
-                    
-                  
-                //   PaperProps={{
-                //     style: {
-                //         bgcolor:theme.palette.lightGreen
-                //   }
                   >
                     {columns.map((column) => {
                       const value = row[column.id];
@@ -92,7 +86,7 @@ const WorkshopTable= () => {
                         <TableCell 
                             key={column.id} 
                             align={column.align}
-                            sx={{bgcolor:theme.palette.lightGreen, color:theme.palette.black}}
+                            sx={{bgcolor:theme.palette.medPurple, color:theme.palette.white}}
                             >
                           {column.format && typeof value === 'number'
                             ? column.format(value)

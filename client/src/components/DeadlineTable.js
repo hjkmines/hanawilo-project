@@ -13,12 +13,12 @@ import { bgcolor } from '@mui/system';
 
 
 const columns = [
-  { id: 'deadline', label: 'Deadlines', minWidth: 170 },
+  { id: 'deadline', label: 'Deadlines', minWidth: 100 },
   { id: 'dateDue', label: 'Date Due', minWidth: 100 },
   {
     id: 'button',
     label: '',
-    minWidth: 170,
+    minWidth: 100,
     align: 'right'
   },
 ];
@@ -28,13 +28,13 @@ function createData( deadline, dateDue, button) {
 }
 
 const rows = [
-  createData( 'Deadline1', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#5B2A86", color:"white"}}> press me </Button>),
-  createData('Deadline2', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#5B2A86", color:"white"}}> press me </Button>),
-  createData('Deadline3', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#5B2A86", color:"white"}}> press me </Button>),
-  createData('Deadline4', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#5B2A86", color:"white"}}> press me </Button>),
-  createData('Deadline5', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#5B2A86", color:"white"}}> press me </Button>),
-  createData('Deadline6', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#5B2A86", color:"white"}}> press me </Button>),
-  createData('Deadline7', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#5B2A86", color:"white"}}> press me </Button>),
+  createData('Deadline1', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#A5E6BA", color:"white"}}> press me </Button>),
+  createData('Deadline2', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#A5E6BA", color:"white"}}> press me </Button>),
+  createData('Deadline3', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#A5E6BA", color:"white"}}> press me </Button>),
+  createData('Deadline4', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#A5E6BA", color:"white"}}> press me </Button>),
+  createData('Deadline5', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#A5E6BA", color:"white"}}> press me </Button>),
+  createData('Deadline6', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#A5E6BA", color:"white"}}> press me </Button>),
+  createData('Deadline7', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#A5E6BA", color:"white"}}> press me </Button>),
 
 ];
 
@@ -55,15 +55,15 @@ const DeadlineTable= () => {
 
   return (
     <Paper sx={{ width: '100%', overflow: 'hidden', bgcolor:theme.palette.lightPurple }}>
-      <TableContainer sx={{ maxHeight: 440, bgcolor:theme.palette.lightGreen, color:theme.palette.white }}>
+      <TableContainer sx={{ maxHeight: 440, color:theme.palette.white }}>
         <Table stickyHeader aria-label="sticky table" >
           <TableHead>
-            <TableRow sx={{color:"black"}}>
+            <TableRow >
               {columns.map((column) => (
                 <TableCell
                   key={column.id}
                   align={column.align}
-                  style={{ minWidth: column.minWidth , }}
+                  style={{ minWidth: column.minWidth }}
                   sx={{bgcolor:theme.palette.lightPurple}}
                 >
                   {column.label}
@@ -71,26 +71,19 @@ const DeadlineTable= () => {
               ))}
             </TableRow>
           </TableHead>
-          <TableBody sx={{ bgcolor: theme.palette.lightGreen, color:"white"}} >
+          <TableBody sx={{ bgcolor: theme.palette.medPurple, color:"white"}} >
             {rows
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => {
                 return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={row.deadline} 
-                    
-                  
-                //   PaperProps={{
-                //     style: {
-                //         bgcolor:theme.palette.lightGreen
-                //   }
-                  >
+                  <TableRow hover role="checkbox" tabIndex={-1} key={row.deadline} >
                     {columns.map((column) => {
                       const value = row[column.id];
                       return (
                         <TableCell 
                             key={column.id} 
                             align={column.align}
-                            sx={{bgcolor:theme.palette.lightGreen, color:theme.palette.black}}
+                            sx={{bgcolor:theme.palette.medPurple, color:theme.palette.white}}
                             >
                           {column.format && typeof value === 'number'
                             ? column.format(value)

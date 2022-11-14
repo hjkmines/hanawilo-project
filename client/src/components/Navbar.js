@@ -17,7 +17,7 @@ import Image from 'mui-image';
 
 // constants for menu/user navigation (left and right navigation on navbar)
 const pages = ['Directory', 'About', 'Messages',];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Profile', 'Register','Register2', 'Logout'];
 
 const Navbar = () => {
     // constants for state -> navigation tooltips on left and right side of navbar
@@ -45,7 +45,7 @@ const Navbar = () => {
     const Search = styled("div")(({ theme }) => ({
         position: "relative",
         borderRadius: 50,
-        backgroundColor: 'rgb(63,255,128)',
+        backgroundColor: theme.palette.lightGreen,
         marginLeft: 50,
         marginRight: 50,
         width: "100%",
@@ -116,6 +116,57 @@ const Navbar = () => {
                                 >
                                     HanawiloEdge
                                 </Typography>
+
+                                <IconButton
+                                    size="large"
+                                    aria-label="account of current user"
+                                    aria-controls="menu-appbar"
+                                    aria-haspopup="true"
+                                    onClick={handleOpenNavMenu}
+                                    color='inherit'
+                                    sx={{ display: { xs: "flex", md: 'none' }, marginLeft: 2, position:"relative" }}
+                                >
+                                    <MenuIcon />
+                                </IconButton>
+
+
+                                <Menu
+                                    id="menu-appbar"
+                                    anchorEl={anchorElNav}
+                                    anchorOrigin={{
+                                        vertical: 'bottom',
+                                        horizontal: 'left',
+                                    }}
+                                    keepMounted
+                                    transformOrigin={{
+                                        vertical: 'top',
+                                        horizontal: 'left',
+                                    }}
+                                    open={Boolean(anchorElNav)}
+                                    onClose={handleCloseNavMenu}
+
+                                    PaperProps={{
+                                        style: {
+                                            background: 'black'
+                                        }
+                                    }}
+                                >
+
+                                    {pages.map((page) => (
+                                        <MenuItem key={page} onClick={handleCloseNavMenu} sx={{ bgcolor: "black" }}>
+                                            <Typography textAlign="center">
+                                                <Button
+                                                    key={page}
+                                                    component={Link}
+                                                    to={`/${page}`}
+                                                    sx={{ bgcolor: "black", color: 'white', fontWeight: '500', display: 'block', }}
+                                                >
+                                                    {page}
+                                                </Button>
+                                            </Typography>
+                                        </MenuItem>
+                                    ))}
+                                </Menu>
                             </Stack>
 
                         </Grid>
@@ -197,56 +248,6 @@ const Navbar = () => {
                                     ))}
                                 </Menu>
 
-                                <IconButton
-                                    size="large"
-                                    aria-label="account of current user"
-                                    aria-controls="menu-appbar"
-                                    aria-haspopup="true"
-                                    onClick={handleOpenNavMenu}
-                                    color='inherit'
-                                    sx={{ display: { xs: "flex", md: 'none' }, marginLeft: 2 }}
-                                >
-                                    <MenuIcon />
-                                </IconButton>
-
-
-                                <Menu
-                                    id="menu-appbar"
-                                    anchorEl={anchorElNav}
-                                    anchorOrigin={{
-                                        vertical: 'bottom',
-                                        horizontal: 'left',
-                                    }}
-                                    keepMounted
-                                    transformOrigin={{
-                                        vertical: 'top',
-                                        horizontal: 'left',
-                                    }}
-                                    open={Boolean(anchorElNav)}
-                                    onClose={handleCloseNavMenu}
-
-                                    PaperProps={{
-                                        style: {
-                                            background: 'black'
-                                        }
-                                    }}
-                                >
-
-                                    {pages.map((page) => (
-                                        <MenuItem key={page} onClick={handleCloseNavMenu} sx={{ bgcolor: "black" }}>
-                                            <Typography textAlign="center">
-                                                <Button
-                                                    key={page}
-                                                    component={Link}
-                                                    to={`/${page}`}
-                                                    sx={{ bgcolor: "black", color: 'white', fontWeight: '500', display: 'block', }}
-                                                >
-                                                    {page}
-                                                </Button>
-                                            </Typography>
-                                        </MenuItem>
-                                    ))}
-                                </Menu>
                             </Stack>
                         </Grid>
                     </Grid>

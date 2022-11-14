@@ -1,4 +1,4 @@
-import { Box, Container, Grid, IconButton, ImageList, ListItemSecondaryAction, Rating, Typography } from '@mui/material'
+import { Box, Container, Grid, IconButton, ImageList, ListItemSecondaryAction, Rating, Tooltip, Typography } from '@mui/material'
 import React from 'react'
 import { useTheme, styled } from '@mui/material'
 import Stack from '@mui/material/Stack'
@@ -52,16 +52,22 @@ const Profile = () => {
     <Navbar/>
 
     <Grid container marginTop={2} border={1} borderColor={"magenta"} >
-      <Grid item xs={3} md={2} border={1} borderColor={"magenta"} sx={{ bgcolor: 'transparent', borderRadius: 5, marginTop: 9, marginLeft: 2}}>
+      {/* left side content */}
+      <Grid item xs md={3} border={1} borderColor={"magenta"} 
+        sx={{ bgcolor: 'transparent', borderRadius: 5, marginTop: 9, marginLeft: 2}}
+        >
         <Box spacing={2} sx={{ border: 1, borderColor: "white", borderTopLeftRadius: 5, borderTopRightRadius: 5, }} >
-
-          <Image src="https://placekitten.com/500/500" sx={{
-            borderBottom: 1,
-            objectFit: 'fill',
-            borderColor: 'white'
-            
-            
-          }} />
+          <Box padding={3} >
+          <Image 
+            src="https://placekitten.com/500/500" 
+            sx={{
+              borderBottom: 1,
+              objectFit: 'fill',
+              borderColor: 'white',
+              overflow: "hidden"
+            }} 
+          />
+          </Box>
 
           <StyledBox sx={{ border: 1, borderColor: 'magenta', margin: 2 }}>
             <Typography
@@ -85,10 +91,10 @@ const Profile = () => {
           <StyledBox sx={{ border: 1, borderColor: 'magenta', margin: 2 }}>
             <Stack direction={'row'} justifyContent="center" spacing={2}>
               <IconButton>
-                <PersonAddIcon fontSize='large' />
+                <PersonAddIcon fontSize='large' sx={{color:theme.palette.white}} />
               </IconButton>
               <IconButton>
-                <MessageIcon fontSize='large' />
+                <MessageIcon fontSize='large' sx={{color:theme.palette.white}}/>
               </IconButton>
             </Stack>
           </StyledBox>
@@ -109,8 +115,13 @@ const Profile = () => {
             <StyledBox sx={{ textAlign: 'center' }}>
 
               <Carousel >
+                {/* card for achievements */}
+                <Tooltip title="always on time">
                   <ThumbUpOffAltIcon />
+                </Tooltip>
+                <Tooltip title="5-star Club">
                   <StarBorderIcon />
+                </Tooltip>
               </Carousel>
             </StyledBox>
           </StyledBox>
@@ -175,14 +186,14 @@ const Profile = () => {
 
       {/*Right side content*/}
       <Grid item xs border={1} borderColor={"magenta"} sx={{ bgcolor: "transparent", marginX: 2, marginTop: 4 }}>
-        <Box>
+        <Box >
           <Typography
           variant='h6'
           fontWeight={900}
           fontSize={'1.5rem'}
           color={'white'}
           marginLeft >Featured</Typography>
-          <Box sx={{ border: 1, borderColor: 'white', borderRadius: 5 }}>
+          <Box sx={{ border: 1, borderColor: 'white', borderRadius: 5 , padding: 5}}>
 
             <Carousel >
                 <BasicCard />
@@ -202,7 +213,7 @@ const Profile = () => {
           fontSize={'1.5rem'}
           color={'white'}>Courses</Typography>
 
-          <Box sx={{ border: 1, borderColor: 'white', borderRadius: 5 }}>
+          <Box sx={{ border: 1, borderColor: 'white', borderRadius: 5, padding: 5 }}>
 
           <Carousel >
            
@@ -226,7 +237,7 @@ const Profile = () => {
             Upcoming
           </Typography>
 
-          <Grid container spacing={1}>
+          <Grid container spacing={2} >
             <Grid item xs={12} sm={6}>
               <DeadlineTable  />
             </Grid>

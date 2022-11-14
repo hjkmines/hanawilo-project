@@ -19,6 +19,8 @@ import Messages from './pages/Messages';
 import Profile from './pages/Profile'; //test for right navbar routing
 import Footer from './components/Footer';
 import { useTheme } from '@mui/material';
+import Register from "./pages/Register";
+import Register2 from "./pages/Register2";
 
 function App() {
 
@@ -32,6 +34,8 @@ function App() {
                 <Route path='/about' element={<AboutUs />} />
                 <Route path='/messages' element={<Messages />} />
                 <Route path='/profile' element={<Profile />} />
+                <Route path='/register' element={<Register />} />
+                <Route path='/register2' element={<Register2 />} />
                 {/* <Route path='*' element={<NotFound />} default error not found page */}
             </Routes>
             {/* </Container > */}

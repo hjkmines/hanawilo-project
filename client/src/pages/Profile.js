@@ -10,13 +10,17 @@ import PhpIcon from '@mui/icons-material/Php';
 import HtmlIcon from '@mui/icons-material/Html';
 import DataObjectOutlinedIcon from '@mui/icons-material/DataObjectOutlined';
 import Carousel from 'react-material-ui-carousel';
+import "react-multi-carousel/lib/styles.css";
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import MessageIcon from '@mui/icons-material/Message';
-
 import BasicCard from '../components/BasicCard';
 import Navbar from '../components/Navbar';
+import DeadlineTable from '../components/DeadlineTable';
+import WorkshopTable from '../components/WorkshopTable';
+
+
 
 const StyledBox = styled(Box)(({ theme }) => ({
   justifyContent: "center",
@@ -34,6 +38,11 @@ const StyledRating = styled(Rating)(({ theme }) => ({
     color: theme.palette.lightGreen,
   },
 }));
+
+
+
+
+
 
 const Profile = () => {
   const theme = useTheme();
@@ -99,9 +108,9 @@ const Profile = () => {
             </Typography>
             <StyledBox sx={{ textAlign: 'center' }}>
 
-              <Carousel sx={{ jsutifyContent: 'center', mt: 1 }}>
-                <ThumbUpOffAltIcon />
-                <StarBorderIcon />
+              <Carousel >
+                  <ThumbUpOffAltIcon />
+                  <StarBorderIcon />
               </Carousel>
             </StyledBox>
           </StyledBox>
@@ -175,13 +184,11 @@ const Profile = () => {
           marginLeft >Featured</Typography>
           <Box sx={{ border: 1, borderColor: 'white', borderRadius: 5 }}>
 
-            <Carousel sx={{ margin: 4 }}>
-
-              <BasicCard />
-              <BasicCard />
-              <BasicCard />
-              <BasicCard />
-
+            <Carousel >
+                <BasicCard />
+                <BasicCard />
+                <BasicCard />
+                <BasicCard />
             </Carousel>
 
           </Box>
@@ -197,34 +204,37 @@ const Profile = () => {
 
           <Box sx={{ border: 1, borderColor: 'white', borderRadius: 5 }}>
 
-            <Carousel sx={{ margin: 4 }}>
-
-              <BasicCard />
-              <BasicCard />
-              <BasicCard />
-              <BasicCard />
+          <Carousel >
+           
+                <BasicCard />
+                <BasicCard />
+                <BasicCard />
+                <BasicCard />
 
             </Carousel>
 
           </Box>
         </Box>
 
-        <Box sx={{ marginTop: 2 }}>
+        <Box sx={{ marginTop: 2,  }}>
           <Typography
           variant='h6'
           fontWeight={900}
           fontSize={'1.5rem'}
-          color={'white'}>Upcoming</Typography>
+          color={'white'}
+          >
+            Upcoming
+          </Typography>
 
-        <Grid container>
-          <Grid item xs>
+          <Grid container spacing={1}>
+            <Grid item xs={12} sm={6}>
+              <DeadlineTable  />
+            </Grid>
 
+            <Grid item xs={12} sm={6}>
+              <WorkshopTable />
+            </Grid>
           </Grid>
-
-          <Grid item xs>
-
-          </Grid>
-        </Grid>
         </Box>
 
       </Grid>

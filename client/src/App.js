@@ -17,25 +17,13 @@ import AboutUs from './pages/AboutUs';
 import Home from "./pages/Home";
 import Messages from './pages/Messages';
 import Profile from './pages/Profile'; //test for right navbar routing
-import MUI_NAVBAR from "./components/MUI_NAVBAR";
 import Footer from './components/Footer';
 import { useTheme } from '@mui/material';
 
 function App() {
-    const theme = useTheme();
 
     return (
         <>
-            <MUI_NAVBAR />
-
-            {/* <Container 
-                 maxWidth='xl'
-                 sx={{
-                     marginY: 2,
-                     p: 0
-                    }}
-                 >  */}
-
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/directory' element={<Directory />} />

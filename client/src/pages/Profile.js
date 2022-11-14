@@ -16,7 +16,7 @@ import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import MessageIcon from '@mui/icons-material/Message';
 
 import BasicCard from '../components/BasicCard';
-
+import Navbar from '../components/Navbar';
 
 const StyledBox = styled(Box)(({ theme }) => ({
   justifyContent: "center",
@@ -39,6 +39,9 @@ const Profile = () => {
   const theme = useTheme();
 
   return (
+    <>
+    <Navbar/>
+
     <Grid container marginTop={2} border={1} borderColor={"magenta"} >
       <Grid item xs={3} md={2} border={1} borderColor={"magenta"} sx={{ bgcolor: 'transparent', borderRadius: 5, marginTop: 9, marginLeft: 2}}>
         <Box spacing={2} sx={{ border: 1, borderColor: "white", borderTopLeftRadius: 5, borderTopRightRadius: 5, }} >
@@ -47,15 +50,15 @@ const Profile = () => {
             borderBottom: 1,
             objectFit: 'fill',
             borderColor: 'white'
-    
-
+            
+            
           }} />
 
           <StyledBox sx={{ border: 1, borderColor: 'magenta', margin: 2 }}>
             <Typography
               variant='h3'
               sx={{ fontSize: '1.4rem', fontWeight: 900 }}
-            >
+              >
               First, Last
             </Typography>
             <Typography
@@ -65,7 +68,7 @@ const Profile = () => {
             </Typography>
             <Typography
               variant='body2'
-            >
+              >
               region / area
             </Typography>
           </StyledBox>
@@ -91,7 +94,7 @@ const Profile = () => {
             <Typography
               variant='h6'
               fontWeight={900}
-            >
+              >
               Achievements
             </Typography>
             <StyledBox sx={{ textAlign: 'center' }}>
@@ -110,7 +113,7 @@ const Profile = () => {
               <Typography
                 variant='h6'
                 fontWeight={900}
-              >
+                >
                 Skills
               </Typography>
 
@@ -123,7 +126,7 @@ const Profile = () => {
                     readOnly
                     icon={<CodeIcon fontSize='inherit' />}
                     emptyIcon={<DataObjectOutlinedIcon fontSize='inherit' />}
-                  />
+                    />
                 </Stack>
                 <Stack direction={"row"} justifyContent='flex-start' spacing={2}>
                   <JavascriptIcon fontSize='large' />
@@ -133,7 +136,7 @@ const Profile = () => {
                     readOnly
                     icon={<CodeIcon fontSize='inherit' />}
                     emptyIcon={<DataObjectOutlinedIcon fontSize='inherit' />}
-                  />
+                    />
                 </Stack>
                 <Stack direction={"row"} justifyContent='flex-start' spacing={2}>
                   <HtmlIcon fontSize='large' />
@@ -143,7 +146,7 @@ const Profile = () => {
                     readOnly
                     icon={<CodeIcon fontSize='inherit' />}
                     emptyIcon={<DataObjectOutlinedIcon fontSize='inherit' />}
-                  />
+                    />
                 </Stack>
                 <Stack direction={"row"} justifyContent='flex-start' spacing={2}>
                   <PhpIcon fontSize='large' />
@@ -153,7 +156,7 @@ const Profile = () => {
                     readOnly
                     icon={<CodeIcon fontSize='inherit' />}
                     emptyIcon={<DataObjectOutlinedIcon fontSize='inherit' />}
-                  />
+                    />
                 </Stack>
               </Box>
             </StyledBox>
@@ -228,6 +231,7 @@ const Profile = () => {
     </Grid>
 
 
+          </>
   )
 }
 

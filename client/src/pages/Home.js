@@ -67,12 +67,11 @@ const Home = () => {
   const theme = useTheme();
 
   return (
-    <Box sx={{ background: `url(${darkBackground})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover', minHeight: "100vh", padding: 2 }}>
+    <Box  display="flex" minHeight='100vh' maxWidth='100vw' width={1} flexDirection="column" sx={{  background: `url(${darkBackground})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover'}}>
       <Navbar />
 
-      <Grid container>
-
-        <Grid item xs={3} md={5} marginX={2} marginTop={14} >
+      <Grid container >
+        <Grid item xs={3} md={5} paddingLeft={6} paddingTop={20} >
 
           <Typography variant='h1' fontWeight={900} sx={{fontSize: {xs:'3rem', md:'5rem'}}} >
             Web Developers <br></br>on Demand.
@@ -99,10 +98,8 @@ const Home = () => {
 
         </Grid>
 
-        <Grid item container xs md={5} sx={{ alignSelf: 'bottom', marginTop: 10, marginLeft:20}}>
-          <Box sx={{ flexDirection: 'column-reverse', maxHeight:'80vh' }}>
-            <Image src={Tony} fit="contain" />
-          </Box>
+        <Grid  item xs={3} md={5} sx={{ paddingTop: 8, marginLeft:20}}>
+            <Image src={Tony}  />
         </Grid>
 
       </Grid>

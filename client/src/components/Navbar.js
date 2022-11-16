@@ -92,7 +92,7 @@ const Navbar = () => {
                     color: theme.palette.white,
                 }} >
                 <Toolbar disableGutters sx={{ background: 'transparent', color: theme.palette.white }}>
-                    <Grid container alignItems={'center'} justifyContent={"center"} paddingX={3}>
+                    <Grid container alignItems={'center'} justifyContent={"center"} paddingX={6} paddingTop={2}>
                         <Grid item xs={2} md={4} lg={3} sx={{ display: 'block', alignItems: 'inherit' }}>
                             <Stack direction={'row'} alignItems={'inherit'} >
                                 <Icon sx={{ marginRight: 2, height: '3rem', width: "3rem", borderColor: 1 }}

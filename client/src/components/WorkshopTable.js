@@ -7,7 +7,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
-import { useTheme } from '@mui/material';
+import { makeStyles, Menu, styled, useTheme } from '@mui/material';
 import Button from '@mui/material/Button';
 
 
@@ -116,12 +116,12 @@ const WorkshopTable = () => {
           MenuProps: { 
             PaperProps: {
                 style:{
-                  background: theme.palette.black
+                  background: "black"
                 }
             }
           } 
         }}
-      /> */} 
+      />
     </Paper>
   );
 }

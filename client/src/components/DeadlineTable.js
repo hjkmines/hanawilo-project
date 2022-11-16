@@ -106,7 +106,16 @@ const DeadlineTable= () => {
         page={page}
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
-      /> */}
+        SelectProps={{
+          MenuProps: { 
+            PaperProps: {
+                style:{
+                  background: "black"
+                }
+            }
+          } 
+        }}
+      />
     </Paper>
   );
 }

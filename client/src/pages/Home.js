@@ -15,9 +15,9 @@ import Image from 'mui-image';
 import { Link, Navigate } from 'react-router-dom';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import { useTheme } from '@mui/material';
-import darkBackground from '../../public/darkBackground.svg'
+import darkBackground from '../assets/darkBackground.svg'
 import Navbar from '../components/Navbar';
-import Tony from '../../public/tony.png';
+import Tony from '../assets/tony.png';
 import { fontSize } from '@mui/system';
 
 const BannerContainer = styled(Box)({

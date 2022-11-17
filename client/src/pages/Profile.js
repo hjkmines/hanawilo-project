@@ -51,9 +51,9 @@ const Profile = () => {
     <>
     <Navbar/>
 
-    <Grid container marginTop={2} border={1} borderColor={"magenta"} >
+    <Grid container marginTop={2}  >
       {/* left side content */}
-      <Grid item xs md={3} border={1} borderColor={"magenta"} 
+      <Grid item xs md={3}  
         sx={{ bgcolor: 'transparent', borderRadius: 5, marginTop: 9, marginLeft: 2}}
         >
         <Box spacing={2} sx={{ border: 1, borderColor: "white", borderTopLeftRadius: 5, borderTopRightRadius: 5, }} >
@@ -69,7 +69,7 @@ const Profile = () => {
           />
           </Box>
 
-          <StyledBox sx={{ border: 1, borderColor: 'magenta', margin: 2 }}>
+          <StyledBox sx={{  margin: 2 }}>
             <Typography
               variant='h3'
               sx={{ fontSize: '1.4rem', fontWeight: 900 }}
@@ -88,7 +88,7 @@ const Profile = () => {
             </Typography>
           </StyledBox>
 
-          <StyledBox sx={{ border: 1, borderColor: 'magenta', margin: 2 }}>
+          <StyledBox sx={{  margin: 2 }}>
             <Stack direction={'row'} justifyContent="center" spacing={2}>
               <IconButton>
                 <PersonAddIcon fontSize='large' sx={{color:theme.palette.white}} />
@@ -99,13 +99,13 @@ const Profile = () => {
             </Stack>
           </StyledBox>
 
-          <StyledBox sx={{ border: 1, borderColor: 'magenta', margin: 2 }}>
+          <StyledBox sx={{  margin: 2 }}>
             <Typography fontWeight={400}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempor dictum metus, vitae vulputate felis sagittis eu. Aenean porttitor enim ut leo semper cursus. Pellentesque commodo dictum elit vitae congue. Aliquam eget euismod elit. Phasellus.
             </Typography>
           </StyledBox>
 
-          <StyledBox sx={{ border: 1, borderColor: 'magenta', margin: 2 }}>
+          <StyledBox sx={{  margin: 2 }}>
             <Typography
               variant='h6'
               fontWeight={900}
@@ -126,7 +126,7 @@ const Profile = () => {
             </StyledBox>
           </StyledBox>
 
-          <StyledBox sx={{ border: 1, borderColor: 'magenta', margin: 2 }}>
+          <StyledBox sx={{  margin: 2 }}>
 
             <StyledBox>
 
@@ -185,7 +185,7 @@ const Profile = () => {
       </Grid>
 
       {/*Right side content*/}
-      <Grid item xs border={1} borderColor={"magenta"} sx={{ bgcolor: "transparent", marginX: 2, marginTop: 4 }}>
+      <Grid item xs  sx={{ bgcolor: "transparent", marginX: 2, marginTop: 4 }}>
         <Box >
           <Typography
           variant='h6'
@@ -237,7 +237,7 @@ const Profile = () => {
             Upcoming
           </Typography>
 
-          <Grid container spacing={2} >
+          <Grid container spacing={2} marginTop={2} >
             <Grid item xs={12} sm={6}>
               <DeadlineTable  />
             </Grid>
@@ -247,10 +247,8 @@ const Profile = () => {
             </Grid>
           </Grid>
         </Box>
-
       </Grid>
     </Grid>
-
 
           </>
   )

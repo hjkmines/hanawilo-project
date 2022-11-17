@@ -23,26 +23,26 @@ const columns = [
   },
 ];
 
-function createData( workshop, date, button) {
+function createData(workshop, date, button) {
   return { workshop, date, button };
 }
 
 const rows = [
-  createData( 'Workshop1', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#A5E6BA", color:"white"}}> join now </Button>),
-  createData( 'Workshop2', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#A5E6BA", color:"white"}}> join now </Button>),
-  createData( 'Workshop3', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#A5E6BA", color:"white"}}> join now </Button>),
-  createData( 'Workshop4', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#A5E6BA", color:"white"}}> join now </Button>),
-  createData( 'Workshop5', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#A5E6BA", color:"white"}}> join now </Button>),
-  createData( 'Workshop6', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#A5E6BA", color:"white"}}> join now </Button>),
-  createData( 'Workshop7', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#A5E6BA", color:"white"}}> join now </Button>),
-  createData( 'Workshop8', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#A5E6BA", color:"white"}}> join now </Button>),
-  createData( 'Workshop9', 'xx/xx/20xx', <Button variant="outlined" sx={{bgcolor:"#A5E6BA", color:"white"}}> join now </Button>),
+  createData('Workshop1', 'xx/xx/20xx', <Button variant="outlined" sx={{ bgcolor: "#3FFF80", color: "black", borderRadius: 50 }}> join now </Button>),
+  createData('Workshop2', 'xx/xx/20xx', <Button variant="outlined" sx={{ bgcolor: "#3FFF80", color: "black", borderRadius: 50 }}> join now </Button>),
+  createData('Workshop3', 'xx/xx/20xx', <Button variant="outlined" sx={{ bgcolor: "#3FFF80", color: "black", borderRadius: 50 }}> join now </Button>),
+  createData('Workshop4', 'xx/xx/20xx', <Button variant="outlined" sx={{ bgcolor: "#3FFF80", color: "black", borderRadius: 50 }}> join now </Button>),
+  createData('Workshop5', 'xx/xx/20xx', <Button variant="outlined" sx={{ bgcolor: "#3FFF80", color: "black", borderRadius: 50 }}> join now </Button>),
+  createData('Workshop6', 'xx/xx/20xx', <Button variant="outlined" sx={{ bgcolor: "#3FFF80", color: "black", borderRadius: 50 }}> join now </Button>),
+  createData('Workshop7', 'xx/xx/20xx', <Button variant="outlined" sx={{ bgcolor: "#3FFF80", color: "black", borderRadius: 50 }}> join now </Button>),
+  createData('Workshop8', 'xx/xx/20xx', <Button variant="outlined" sx={{ bgcolor: "#3FFF80", color: "black", borderRadius: 50 }}> join now </Button>),
+  createData('Workshop9', 'xx/xx/20xx', <Button variant="outlined" sx={{ bgcolor: "#3FFF80", color: "black", borderRadius: 50 }}> join now </Button>),
 
 ];
 
-const WorkshopTable= () => {
+const WorkshopTable = () => {
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [rowsPerPage, setRowsPerPage] = React.useState(20);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -53,41 +53,45 @@ const WorkshopTable= () => {
     setPage(0);
   };
 
+
   const theme = useTheme();
 
+
   return (
-    <Paper sx={{ width: '100%', overflow: 'hidden', bgcolor:theme.palette.lightPurple }}>
-      <TableContainer sx={{ maxHeight: 440, color:theme.palette.white }}>
+    <Paper elevation={0} sx={{ width: '100%', overflow: 'hidden', bgcolor: 'transparent' }}>
+      <TableContainer sx={{ maxHeight: 440, color: 'transparent', border:1, borderRadius: '18px', borderColor: 'white' }}>
         <Table stickyHeader aria-label="sticky table" >
-          <TableHead>
-            <TableRow>
+          <TableHead sx={{ border: 1 }} >
+            <TableRow
+            >
               {columns.map((column) => (
                 <TableCell
                   key={column.id}
                   align={column.align}
-                  style={{ minWidth: column.minWidth , }}
-                  sx={{bgcolor:theme.palette.lightPurple}}
+                  style={{ minWidth: column.minWidth, }}
+
                 >
                   {column.label}
                 </TableCell>
               ))}
             </TableRow>
           </TableHead>
-          <TableBody sx={{ bgcolor: theme.palette.medPurple, color:"white"}} >
+          <TableBody sx={{ bgcolor: 'transparent', color: "black" }} >
             {rows
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => {
                 return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={row.workshop} 
+                  <TableRow hover role="checkbox" tabIndex={-1} key={row.workshop}
+                  sx={{ '&:last-child td, &:last-child th': { borderBottom: 0}, bgcolor: 'transparent' }}
                   >
                     {columns.map((column) => {
                       const value = row[column.id];
                       return (
-                        <TableCell 
-                            key={column.id} 
-                            align={column.align}
-                            sx={{bgcolor:theme.palette.medPurple, color:theme.palette.white}}
-                            >
+                        <TableCell
+                          key={column.id}
+                          align={column.align}
+                          sx={{ bgcolor: 'transparent', color: theme.palette.white }}
+                        >
                           {column.format && typeof value === 'number'
                             ? column.format(value)
                             : value}
@@ -100,7 +104,7 @@ const WorkshopTable= () => {
           </TableBody>
         </Table>
       </TableContainer>
-      <TablePagination
+   {/*    <TablePagination
         rowsPerPageOptions={[5, 10, 20]}
         component="div"
         count={rows.length}
@@ -108,7 +112,16 @@ const WorkshopTable= () => {
         page={page}
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
-      />
+        SelectProps={{
+          MenuProps: { 
+            PaperProps: {
+                style:{
+                  background: theme.palette.black
+                }
+            }
+          } 
+        }}
+      /> */} 
     </Paper>
   );
 }

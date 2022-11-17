@@ -25,6 +25,7 @@ const Footer = () => {
     const StyledFooterContainer = styled(Grid)({
         display: "flex",
         margin: 2,
+        marginTop: 6,
         justifyContent: "space-around",
         alignItems: "space-around",
         justifyContent: "space-around",

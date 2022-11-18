@@ -1,11 +1,11 @@
 import React from 'react'
-// import MuiNavbar from '../components/MuiNavbar'
+import Navbar from "../components/Navbar"
 // import Footer from '../components/Footer'
 
 const Messages = () => {
   return (
     <div>
-        {/* <MuiNavbar /> */}
+        <Navbar />
             <h1>This is Messages Page!</h1>
         {/* <Footer />  */}
     </div>

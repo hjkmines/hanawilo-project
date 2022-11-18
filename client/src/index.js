@@ -15,10 +15,14 @@ const theme = createTheme({
         lightPurple: "#7785AC",
         teal: "#9AC6C5",
         lightGreen: "#A5E6BA",
+        green: "#3FFF80",
         white: "white",
         black: "black",
         background: {
             default: "#360568"
+        },
+        text: {
+            primary: '#FFFFFF'
         }
     },
 
@@ -45,7 +49,7 @@ const root = createRoot(rootElement); // createRoot(container!) if you use TypeS
 root.render(
     <BrowserRouter>
         <ThemeProvider theme={theme}>
-            <CssBaseline/>
+            <CssBaseline />
             <App />
         </ThemeProvider>
     </BrowserRouter>

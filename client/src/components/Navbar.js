@@ -12,7 +12,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { Link, NavLink } from "react-router-dom";
 import { CssBaseline, useTheme, styled, InputBase, Stack, Paper, Grid, Icon } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import logo from '../../public/he-logo.svg'
+import logo from '../assets/he-logo.svg';
 import Image from 'mui-image';
 
 // constants for menu/user navigation (left and right navigation on navbar)
@@ -45,7 +45,7 @@ const Navbar = () => {
     const Search = styled("div")(({ theme }) => ({
         position: "relative",
         borderRadius: 50,
-        backgroundColor: theme.palette.lightGreen,
+        backgroundColor: theme.palette.green,
         marginLeft: 50,
         marginRight: 50,
         width: "100%",
@@ -92,8 +92,8 @@ const Navbar = () => {
                     color: theme.palette.white,
                 }} >
                 <Toolbar disableGutters sx={{ background: 'transparent', color: theme.palette.white }}>
-                    <Grid container alignItems={'center'} justifyContent={"center"} paddingX={3}>
-                        <Grid item xs={2} md={4} lg={3} sx={{ display: 'block', alignItems: 'inherit' }}>
+                    <Grid container alignItems={'center'} justifyContent={"space-between"} paddingX={6} paddingTop={2}>
+                        <Grid item xs={1} md={4} lg={3} sx={{ alignItems: 'inherit' }}>
                             <Stack direction={'row'} alignItems={'inherit'} >
                                 <Icon sx={{ marginRight: 2, height: '3rem', width: "3rem", borderColor: 1 }}
                                     component={Link}
@@ -170,8 +170,8 @@ const Navbar = () => {
                             </Stack>
 
                         </Grid>
-
-                        <Grid item xs sx={{ alignContent: 'center' }}>
+                        
+                        <Grid item  xs  sx={{  alignContent: 'center' }}>
 
                             {/* SEARCH COMPONENT */}
                             <Search >

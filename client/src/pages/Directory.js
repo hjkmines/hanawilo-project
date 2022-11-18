@@ -3,7 +3,7 @@ import { Container, Paper, Typography } from '@mui/material';
 import React from 'react';
 import Grid from '@mui/material/Grid';
 import DirectoryCard from '../components/DirectoryCard';
-import { fontWeight } from '@mui/system';
+import Navbar from "../components/Navbar"
 
 
 
@@ -13,6 +13,7 @@ const Directory = () => {
 
     return (
         <>
+        <Navbar />
             <Container 
                 sx={{
                     alignItems:'center',

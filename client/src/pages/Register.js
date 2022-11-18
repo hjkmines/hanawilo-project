@@ -4,7 +4,7 @@ import Typography  from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import { Container, useTheme, styled, Grid, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, Button, Stack, Tooltip } from '@mui/material';
 import { Link } from 'react-router-dom';
-import HElogo from "../../public/he-logo.svg";
+import HElogo from "../assets/he-logo.png";
 import Image from 'mui-image';
 import Navbar from "../components/Navbar"
 
@@ -153,6 +153,7 @@ const Register = () => {
                             </Button>    
                         </Container>
                     </Grid>
+
                     <Grid item xs={6}>
                         <Stack direction="row" spacing={0.5} sx={{ display:"flex", alignItems:"center", justifyContent:"center"}}>
                             {/* <Box sx={{ display:"flex", justifyContent:"center", alignItems:"center", justifyItems:"center", alignText:"center"}}> */}

@@ -1,139 +1,109 @@
 import React from 'react';
-import { 
-  Box, 
-  Button, 
-  Card, 
-  Container, 
-  Divider, 
-  Grid, 
-  Paper, 
-  Stack, 
-  styled, 
-  Typography } from '@mui/material';
-import IamgeCollage from '../components/ImageCollage';
+import {
+  Box,
+  Button,
+  Card,
+  Container,
+  Divider,
+  Grid,
+  Paper,
+  Stack,
+  styled,
+  Typography
+} from '@mui/material';
+import Image from 'mui-image';
 import { Link, Navigate } from 'react-router-dom';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import { useTheme } from '@mui/material';
+import darkBackground from '../assets/darkBackground.svg'
+import Navbar from '../components/Navbar';
+import Tony from '../assets/tony.png';
+import { fontSize } from '@mui/system';
 
-const BannerContainer = styled(Box) ({
-    display: 'flex',
-    justifyContent: 'center',
-    width: '100%',
-    height: '100%',
-    padding: '0px 0px',
-    // backgroundColor: 'theme.palette.primary.light',
-    marginTop: 4,
-    marginBottom: 4,
-    // [theme.breakpoints.down('sm')]: {
-    //     flexDirection: 'column',
-    //     alignItems: 'center',
-    // }
+const BannerContainer = styled(Box)({
+  display: 'flex',
+  justifyContent: 'center',
+  width: '100%',
+  height: '100%',
+  padding: '0px 0px',
+  // backgroundColor: 'theme.palette.primary.light',
+  marginTop: 4,
+  marginBottom: 4,
+  // [theme.breakpoints.down('sm')]: {
+  //     flexDirection: 'column',
+  //     alignItems: 'center',
+  // }
 
 });
 
-const BannerContent = styled(Box) ({
-    display: 'flex',
-    // flexDirection: 'column',
-    justifyContent: 'center',
-    alignContent: 'center',
-    maxWidth: '100%',
-    padding: '20px'
+const BannerContent = styled(Box)({
+  display: 'flex',
+  // flexDirection: 'column',
+  justifyContent: 'center',
+  alignContent: 'center',
+  maxWidth: '100%',
+  padding: '20px'
 })
 
-const BannerTitle = styled(Typography) ({
-    lineHeight: 1.5,
-    fontSize: '30px',
-    marginBottom: '10px',
-    textAlign: 'center',
+const BannerTitle = styled(Typography)({
+  lineHeight: 1.5,
+  fontSize: '30px',
+  marginBottom: '10px',
+  textAlign: 'center',
+})
+
+const ActionButton = styled(Button)({
+  background: "#3FFF80",
+  color: 'black',
+  fontWeight: 900,
+  textTransform: 'capitalized',
+  borderRadius: 50,
+  marginTop: 20
 })
 
 
 const Home = () => {
-  
+
   const theme = useTheme();
 
   return (
-    <>
-    
-      <Box sx={{
-        backgroundColor: theme.palette.darkPurple,
-      }}>
+    <Box  display="flex" minHeight='100vh' maxWidth='100vw' width={1} flexDirection="column" sx={{  background: `url(${darkBackground})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover'}}>
+      <Navbar />
 
-        {/* banner  */}
-        <BannerContainer >
-          <BannerContent>
-            <BannerTitle> Find Your Developer Today!</BannerTitle>
-          </BannerContent>
-        </BannerContainer>
+      <Grid container >
+        <Grid item xs={3} md={5} paddingLeft={6} paddingTop={20} >
 
-        {/* additional info / what can you do with this site? */}
+          <Typography variant='h1' fontWeight={900} sx={{fontSize: {xs:'3rem', md:'5rem'}}} >
+            Web Developers <br></br>on Demand.
+          </Typography>
 
-        {/* <Container> */}
-          <Grid container>
+          <Typography
+            variant='h6'
+            fontWeight={400}
+            color='#3FFF80'
+          >
+            Reduce development time by up to 50%.
+          </Typography>
 
-            <Grid item xs={12} md={6} padding={2}>
-                <Paper 
-                  elevation={3} 
-                  sx={{
-                    display: 'flex',
-                    minHeight:'200px',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignContent: 'center',
-                    alignItems: 'center',
-                    }}>
-                  <Typography textAlign={'center'} >
-                    Cut down your development time by 50%!!!
-                  </Typography>
-                  <Divider variant='middle'  />
-                  <Typography textAlign={'center'} >
-                    Save time and resources looking for the right employee for the right job
-                  </Typography>
-                </Paper>
-              </Grid>
+          <Typography
+            variant='h5'
+            fontWeight={400}
+          >
+            Save time and resources looking for the right <br></br> developer for your projects.
+          </Typography>
 
-            <Grid item xs={12} md={6} padding={2}>
-              <Paper 
-                elevation={3} 
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center',
-                  minHeight: '200px',
-              }}>
-                <Typography textAlign={'center'}>
-                  Looking for a Software Engineer or Developer?
-                </Typography>
-                <Container sx={{display:'flex', alignItems:'center', alignContent:'center', justifyContent:'center'}}>
-                  <Button 
-                    sx={{ justifyContent: 'center' }}
-                    color='secondary' 
-                    variant='contained'
-                    component={Link} 
-                    endIcon={<ThumbUpIcon />}
-                    to = '/directory'
-                    >       
-                      Find Your Next Engineer
-                  </Button>
-                </Container>
-              </Paper>
-            </Grid> 
-            <Grid item xs={12} md={6} margin={1}>
-              <Paper elevation={3} sx={{minHeight:'60px'}}>
-                <Typography>
-                  Place holder text
-                </Typography>
-              </Paper>
-            </Grid>
-          </Grid>
-        {/* </Container> */}
+          <ActionButton variant='contained'>
+            Discover Now
+          </ActionButton>
 
+        </Grid>
 
-        {/* images are cool */}
-        {/* <IamgeCollage /> */}
-      </Box>
-    </> 
+        <Grid  item xs={3} md={5} sx={{ paddingTop: 8, marginLeft:20}}>
+            <Image src={Tony}  />
+        </Grid>
 
+      </Grid>
+    </Box>
   )
 }
 

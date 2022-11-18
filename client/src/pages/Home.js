@@ -104,8 +104,6 @@ const Home = () => {
 
       </Grid>
     </Box>
-
-
   )
 }
 

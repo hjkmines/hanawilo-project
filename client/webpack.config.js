@@ -10,10 +10,17 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, "public"),
         filename: "bundle.js",
-        // clean: true,
-        // assetModuleFilename: '[name][ext]'
     },
-    devtool: "source-map",
+
+    devtool: "eval-cheap-source-map",
+
+    plugins: [
+        new HTMLWebpackPlugin({
+            template: './src/index.html'
+        }),
+    ],
+
+    target: "web",
     devServer: {
         static: {
             directory: path.resolve(__dirname, 'public')
@@ -21,9 +28,8 @@ module.exports = {
         port: "3000",
         open: true,
         hot: true,
-        // compress: true,
-        // historyApiFallback: true,
-        // liveReload: true
+        compress: true,
+        historyApiFallback: true,
     },
     module: {
         rules:[
@@ -47,14 +53,21 @@ module.exports = {
                 enforce: "pre",
                 use: ["source-map-loader"],
             },
-            // future potential for scss loaders 
             {
                 test: /\.css$/i,
                 loader: "css-loader",
-                // options: {
-                //     url: true
-                // }
-            }
+            },
+            {
+                test: /\.s[ac]ss$/i,
+                use: [
+                  // Creates `style` nodes from JS strings
+                  "style-loader",
+                  // Translates CSS into CommonJS
+                  "css-loader",
+                  // Compiles Sass to CSS
+                  "sass-loader",
+                ],
+              },
         ]
         
     },
@@ -62,13 +75,8 @@ module.exports = {
         new HTMLWebpackPlugin({
             title: 'Hanawilo Team Project',
             filename: 'index.html',
-            template: '/src/index.html'
+            template: './src/index.html'
         }),
     ],
-    // target: "web",
-    
-    // resolve: {
-    //     extensions: [".js", ".jsx", ".json", ".ts"],
-    // },
     
 };

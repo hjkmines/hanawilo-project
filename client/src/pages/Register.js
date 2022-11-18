@@ -4,7 +4,7 @@ import Typography  from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import { Container, useTheme, styled, Grid, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, Button, Stack, Tooltip } from '@mui/material';
 import { Link } from 'react-router-dom';
-import HElogo from "../assets/he-logo.png";
+import HElogo from "../assets/he-logo.svg";
 import Image from 'mui-image';
 import Navbar from "../components/Navbar"
 

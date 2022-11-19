@@ -1,5 +1,5 @@
-import { Box, Container, Grid, IconButton, ImageList, ListItemSecondaryAction, Rating, Tooltip, Typography } from '@mui/material'
 import React from 'react'
+import { Box, Container, Grid, IconButton, ImageList, ListItemSecondaryAction, Rating, Tooltip, Typography } from '@mui/material'
 import { useTheme, styled } from '@mui/material'
 import Stack from '@mui/material/Stack'
 import Image from 'mui-image';
@@ -20,8 +20,6 @@ import Navbar from '../components/Navbar';
 import DeadlineTable from '../components/DeadlineTable';
 import WorkshopTable from '../components/WorkshopTable';
 
-
-
 const StyledBox = styled(Box)(({ theme }) => ({
   justifyContent: "center",
   margin: 2,
@@ -38,11 +36,6 @@ const StyledRating = styled(Rating)(({ theme }) => ({
     color: theme.palette.lightGreen,
   },
 }));
-
-
-
-
-
 
 const Profile = () => {
   const theme = useTheme();
@@ -110,6 +103,7 @@ const Profile = () => {
               variant='h6'
               fontWeight={900}
               >
+
               Achievements
             </Typography>
             <StyledBox sx={{ textAlign: 'center' }}>
@@ -122,11 +116,13 @@ const Profile = () => {
                 <Tooltip title="5-star Club">
                   <StarBorderIcon />
                 </Tooltip>
+
               </Carousel>
             </StyledBox>
           </StyledBox>
 
           <StyledBox sx={{  margin: 2 }}>
+
 
             <StyledBox>
 
@@ -157,6 +153,7 @@ const Profile = () => {
                     icon={<CodeIcon fontSize='inherit' />}
                     emptyIcon={<DataObjectOutlinedIcon fontSize='inherit' />}
                     />
+
                 </Stack>
                 <Stack direction={"row"} justifyContent='flex-start' spacing={2}>
                   <HtmlIcon fontSize='large' />
@@ -168,6 +165,7 @@ const Profile = () => {
                     emptyIcon={<DataObjectOutlinedIcon fontSize='inherit' />}
                     />
                 </Stack>
+                
                 <Stack direction={"row"} justifyContent='flex-start' spacing={2}>
                   <PhpIcon fontSize='large' />
                   <StyledRating
@@ -221,13 +219,13 @@ const Profile = () => {
                 <BasicCard />
                 <BasicCard />
                 <BasicCard />
-
             </Carousel>
 
           </Box>
         </Box>
 
         <Box sx={{ marginTop: 2,  }}>
+
           <Typography
           variant='h6'
           fontWeight={900}

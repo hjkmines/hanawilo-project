@@ -170,7 +170,7 @@ const Navbar = () => {
                             </Stack>
 
                         </Grid>
-
+                        
                         <Grid item  xs  sx={{  alignContent: 'center' }}>
 
                             {/* SEARCH COMPONENT */}
@@ -184,7 +184,6 @@ const Navbar = () => {
                                     sx={{ border: 1, textAlign: 'center' }}
                                 />
                             </Search >
-
                         </Grid>
 
 

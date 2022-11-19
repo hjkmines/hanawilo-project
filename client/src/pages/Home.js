@@ -67,11 +67,12 @@ const Home = () => {
   const theme = useTheme();
 
   return (
-    <Box  display="flex" minHeight='100vh' maxWidth='100vw' width={1} flexDirection="column" sx={{  background: `url(${darkBackground})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover'}}>
+    <Box   height='100vh' width='100vw'  flexDirection="column" sx={{ overflow:'auto',  border:1, borderColor: 'magenta', background: `url(${darkBackground})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover'}}>
+      <Box height="10%" border={1}>
       <Navbar />
-
-      <Grid container >
-        <Grid item xs={3} md={5} paddingLeft={6} paddingTop={20} >
+      </Box>
+      <Grid container height='90%'   >
+        <Grid item flex  xs={12} md={5}  paddingLeft={6} paddingTop={20} >
 
           <Typography variant='h1' fontWeight={900} sx={{fontSize: {xs:'3rem', md:'5rem'}}} >
             Web Developers <br></br>on Demand.
@@ -98,10 +99,11 @@ const Home = () => {
 
         </Grid>
 
-        <Grid  item xs={3} md={5} sx={{ paddingTop: 8, marginLeft:20}}>
-            <Image src={Tony}  />
+        <Grid  item  xs={12} md height="100%" sx={{border:1, borderColor:'magenta', marginTop:{xs:-4, md: 0}}}>
+            <Box display="flex" height="100%" justifyContent="flex-end">
+            <Image src={Tony} fit='contain' height="100%" sx={{border:4, borderColor: 'magenta', }}  />
+            </Box>
         </Grid>
-
       </Grid>
     </Box>
   )

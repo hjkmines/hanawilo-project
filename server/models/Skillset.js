@@ -3,14 +3,14 @@ const Schema = mongoose.Schema;
 
 const SkillSetSchema = new Schema({
   skillSet: {
-    type: [String],
+    type: String,
     required: [true, "Please choose a skillset"],
     unique: false,
-    enum: ["Programming Languages", "Frameworks", "Other Technologies"],
+    enum: ["Programming Language", "Framework", "Other Technologie"],
   },
   programmingCategory: {
-    type: [String],
-    unique: true,
+    type: String,
+    unique: false,
     enum: [
       "JavaScript",
       "Java",
@@ -28,8 +28,8 @@ const SkillSetSchema = new Schema({
     ],
   },
   frameworkCategory: {
-    type: [String],
-    unique: true,
+    type: String,
+    unique: false,
     enum: [
       "React",
       "Django",
@@ -44,8 +44,8 @@ const SkillSetSchema = new Schema({
     ],
   },
   otherTechnologies: {
-    type: [String],
-    unique: true,
+    type: String,
+    unique: false,
     enum: ["git", "SQL", "NoSQL", "CI/CD", "DevOps", "Cloud Development"],
   },
 });

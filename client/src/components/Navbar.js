@@ -9,6 +9,7 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import Box from '@mui/material/Box'
 import { Link, NavLink } from "react-router-dom";
 import { CssBaseline, useTheme, styled, InputBase, Stack, Paper, Grid, Icon } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
@@ -17,7 +18,7 @@ import Image from 'mui-image';
 
 // constants for menu/user navigation (left and right navigation on navbar)
 const pages = ['Directory', 'About', 'Messages',];
-const settings = ['Profile', 'Register','Register2', 'Logout'];
+const settings = ['Profile', 'Register', 'Register2', 'Logout'];
 
 const Navbar = () => {
     // constants for state -> navigation tooltips on left and right side of navbar
@@ -46,8 +47,8 @@ const Navbar = () => {
         position: "relative",
         borderRadius: 50,
         backgroundColor: theme.palette.green,
-        marginLeft: 50,
-        marginRight: 50,
+        marginLeft: 5,
+        marginRight: 5,
         width: "100%",
         [theme.breakpoints.up("sm")]: {
             width: "auto"
@@ -92,10 +93,10 @@ const Navbar = () => {
                     color: theme.palette.white,
                 }} >
                 <Toolbar disableGutters sx={{ background: 'transparent', color: theme.palette.white }}>
-                    <Grid container alignItems={'center'} justifyContent={"space-between"} paddingX={6} paddingTop={2}>
-                        <Grid item xs={1} md={4} lg={3} sx={{ alignItems: 'inherit' }}>
-                            <Stack direction={'row'} alignItems={'inherit'} >
-                                <Icon sx={{ marginRight: 2, height: '3rem', width: "3rem", borderColor: 1 }}
+                    <Grid container spacing={0}  alignItems={'center'} justifyContent={"space-between"} paddingTop={2} sx={{ paddingX:{xs:2, md:6} }} >
+                        <Grid  item xs={1} sm={3} md={4} lg={3} sx={{ alignItems: 'inherit' }}>
+                            <Box display='flex'  alignItems={'inherit'} >
+                                <Icon sx={{ height: '3rem', width: "3rem", borderColor: 1 }}
                                     component={Link}
                                     to="/" >
                                     <Image src={logo} />
@@ -106,7 +107,7 @@ const Navbar = () => {
                                     component="a"
                                     href="/"
                                     sx={{
-                                        mr: 2,
+                                        ml: 2,
                                         display: { xs: 'none', md: 'flex' },
                                         fontWeight: 900,
                                         color: theme.palette.white,
@@ -117,14 +118,94 @@ const Navbar = () => {
                                     HanawiloEdge
                                 </Typography>
 
+
+                            </Box>
+
+                        </Grid>
+
+                        <Grid item xs={5} md sx={{ alignContent: 'center' }}>
+
+                            {/* SEARCH COMPONENT */}
+                            <Search >
+                                <SearchIconWrapper>
+                                    <SearchIcon />
+                                </SearchIconWrapper>
+                                <StyledInputBase
+                                    placeholder="Search for courses, instructors..."
+                                    inputProps={{ "aria-label": "search" }}
+                                    sx={{ border: 1, textAlign: 'center', }}
+                                />
+                            </Search >
+                        </Grid>
+
+
+                        <Grid  item xs={3} md={4} lg={3} >
+                            <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+                                {pages.map((page) => (
+                                    <Button
+                                        key={page}
+                                        onClick={handleCloseNavMenu}
+                                        sx={{ my: 2, color: theme.palette.white, display: { xs: 'none', md: "block" } }}
+                                    >
+                                        <Link to={`/${page}`} style={{ textDecoration: "none", color: theme.palette.white }}>
+                                            {page}
+                                        </Link>
+                                    </Button>
+                                ))}
+
+                                {/* avatar box - placeholder kitten image - how cute :) */}
+
+                                <Tooltip title="Open settings">
+                                    <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, marginLeft: 0 }}>
+                                        <Avatar alt="Place Kitten" src="http://placekitten.com/g/200/300" sx={{ border: 1, borderColor: 'white' }} />
+                                    </IconButton>
+                                </Tooltip>
+
+                                <Menu
+                                    sx={{ mt: '45px' }}
+                                    id="menu-appbar"
+                                    anchorEl={anchorElUser}
+                                    anchorOrigin={{
+                                        vertical: 'top',
+                                        horizontal: 'right',
+                                    }}
+                                    keepMounted
+                                    transformOrigin={{
+                                        vertical: 'top',
+                                        horizontal: 'right',
+                                    }}
+                                    open={Boolean(anchorElUser)}
+                                    onClose={handleCloseUserMenu}
+
+                                    PaperProps={{
+                                        style: {
+                                            background: 'black'
+                                        }
+                                    }}
+                                >
+                                    {settings.map((setting) => (
+                                        <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                                            <Typography textAlign="center">
+                                                <Button
+                                                    key={setting}
+                                                    component={Link}
+                                                    to={`/${setting}`}
+                                                    sx={{ my: 1, color: 'white', fontWeight: '500', display: 'block' }}
+                                                >
+                                                    {setting}
+                                                </Button>
+                                            </Typography>
+                                        </MenuItem>
+                                    ))}
+                                </Menu>
                                 <IconButton
                                     size="large"
-                                    aria-label="account of current user"
+                                    aria-label="navigaton menu"
                                     aria-controls="menu-appbar"
                                     aria-haspopup="true"
                                     onClick={handleOpenNavMenu}
                                     color='inherit'
-                                    sx={{ display: { xs: "flex", md: 'none' }, marginLeft: 2, position:"relative" }}
+                                    sx={{ display: { xs: "block", md: 'none' }, position: "relative" }}
                                 >
                                     <MenuIcon />
                                 </IconButton>
@@ -167,88 +248,7 @@ const Navbar = () => {
                                         </MenuItem>
                                     ))}
                                 </Menu>
-                            </Stack>
-
-                        </Grid>
-                        
-                        <Grid item  xs  sx={{  alignContent: 'center' }}>
-
-                            {/* SEARCH COMPONENT */}
-                            <Search >
-                                <SearchIconWrapper>
-                                    <SearchIcon />
-                                </SearchIconWrapper>
-                                <StyledInputBase
-                                    placeholder="Search for courses, instructors..."
-                                    inputProps={{ "aria-label": "search" }}
-                                    sx={{ border: 1, textAlign: 'center' }}
-                                />
-                            </Search >
-                        </Grid>
-
-
-                        <Grid item xs={2} md={4} lg={3} >
-                            <Stack direction="row" justify='flex-end' sx={{ display: "flex", justifyContent: "flex-end" }}>
-
-                                {pages.map((page) => (
-                                    <Button
-                                        key={page}
-                                        onClick={handleCloseNavMenu}
-                                        sx={{ my: 2, color: theme.palette.white, display: { xs: 'none', md: "block" } }}
-                                    >
-                                        <Link to={`/${page}`} style={{ textDecoration: "none", color: theme.palette.white }}>
-                                            {page}
-                                        </Link>
-                                    </Button>
-                                ))}
-
-                                {/* avatar box - placeholder kitten image - how cute :) */}
-
-                                <Tooltip title="Open settings">
-                                    <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, marginLeft: 2 }}>
-                                        <Avatar alt="Place Kitten" src="http://placekitten.com/g/200/300" sx={{ border: 1, borderColor: 'white' }} />
-                                    </IconButton>
-                                </Tooltip>
-
-                                <Menu
-                                    sx={{ mt: '45px' }}
-                                    id="menu-appbar"
-                                    anchorEl={anchorElUser}
-                                    anchorOrigin={{
-                                        vertical: 'top',
-                                        horizontal: 'right',
-                                    }}
-                                    keepMounted
-                                    transformOrigin={{
-                                        vertical: 'top',
-                                        horizontal: 'right',
-                                    }}
-                                    open={Boolean(anchorElUser)}
-                                    onClose={handleCloseUserMenu}
-
-                                    PaperProps={{
-                                        style: {
-                                            background: 'black'
-                                        }
-                                    }}
-                                >
-                                    {settings.map((setting) => (
-                                        <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                            <Typography textAlign="center">
-                                                <Button
-                                                    key={setting}
-                                                    component={Link}
-                                                    to={`/${setting}`}
-                                                    sx={{ my: 1, color: 'white', fontWeight: '500', display: 'block' }}
-                                                >
-                                                    {setting}
-                                                </Button>
-                                            </Typography>
-                                        </MenuItem>
-                                    ))}
-                                </Menu>
-
-                            </Stack>
+                            </Box>
                         </Grid>
                     </Grid>
                 </Toolbar>

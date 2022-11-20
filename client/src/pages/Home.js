@@ -2,23 +2,16 @@ import React from 'react';
 import {
   Box,
   Button,
-  Card,
-  Container,
-  Divider,
   Grid,
-  Paper,
-  Stack,
   styled,
   Typography
 } from '@mui/material';
 import Image from 'mui-image';
-import { Link, Navigate } from 'react-router-dom';
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import { useTheme, responsiveFontSizes } from '@mui/material/styles';
 import darkBackground from '../assets/darkBackground.svg'
 import Navbar from '../components/Navbar';
 import Tony from '../assets/tony.png';
-import { fontSize } from '@mui/system';
+
 
 
 const ActionButton = styled(Button)({
@@ -90,7 +83,6 @@ const Home = () => {
 
         <Grid item xs={12} md sx={{ alignSelf: 'flex-end', border: 1, borderColor: 'magenta', marginTop:{xs:-8, md:0}, paddingTop: { md: 5 }, paddingLeft: {xs:10, md:0} }}>
           <Box display="flex" sx={{ alignContent: 'flex-end', justifyContent: { xs: "flex-end", lg: "center" } }}>
-
             <Image
               src={Tony}
               fit='contain'
@@ -101,7 +93,6 @@ const Home = () => {
                 height: '100%'
               }} />
           </Box>
-          {/* </Container> */}
         </Grid>
       </Grid>
     </Box >

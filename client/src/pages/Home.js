@@ -40,12 +40,12 @@ const Home = () => {
   theme = responsiveFontSizes(theme);
 
   return (
-    <Box flex  sx={{ border: 1, borderColor: 'magenta', background: `url(${darkBackground})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover', minHeight:{md:'100vh'} }}>
+    <Box flex sx={{  background: `url(${darkBackground})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover', minHeight:{md:'100vh'}}}>
       <Box height="10%">
         <Navbar />
       </Box>
 
-      <Grid container height='90%' sx={{ border: 3, borderColor:'magenta'}} >
+      <Grid container height='90%' >
         <Grid item flex xs md={5}
           sx={{
             marginBottom: { xs: 0, md: 0 },
@@ -81,15 +81,13 @@ const Home = () => {
 
         </Grid>
 
-        <Grid item xs={12} md sx={{ alignSelf: 'flex-end', border: 1, borderColor: 'magenta', marginTop:{xs:-8, md:0}, paddingTop: { md: 5 }, paddingLeft: {xs:10, md:0} }}>
+        <Grid item xs={12} md sx={{ alignSelf: 'flex-end',  marginTop:{xs:-8, md:0}, paddingTop: { md: 5 }, paddingLeft: {xs:10, md:0} }}>
           <Box display="flex" sx={{ alignContent: 'flex-end', justifyContent: { xs: "flex-end", lg: "center" } }}>
             <Image
               src={Tony}
               fit='contain'
               width="auto"
               sx={{
-                border: 4,
-                borderColor: 'magenta',
                 height: '100%'
               }} />
           </Box>

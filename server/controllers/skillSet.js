@@ -1,47 +1,44 @@
-const SkillSet = require('../models/skillSet');
+const SkillSets = require('../models/skillSet');
 
-const getSkillSet = async (req, res, next) => {
+const getSkillSets = async (req, res, next) => {
     try {
-        const skillSet = await SkillSet.find();
+        const skillSets = await SkillSets.find();
         res
         .status(200)
         .setHeader('Content-Type', 'application/json')
-        .json(skillSet);
+        .json(skillSets);
     } catch (err){
-        console.log('Error getting skill set');
         next(err);
     }
 }
 
-const createSkillSet = async (req, res, next) => {
+const createSkillSets = async (req, res, next) => {
     try {
-        const skillSet = await SkillSet.create(req.body);
+        const skillSets = await SkillSets.create(req.body);
         res
-        .status(200)
+        .status(201)
         .setHeader('Content-Type', 'application/json')
-        .json(skillSet);
+        .json(skillSets);
     } catch {
-        console.log('Error creating skill set');
         next(err)
     }
 }
 
-const deleteSkillSet = async (req, res, next) => {
+const deleteSkillSets = async (req, res, next) => {
     try {
-        const skillSet = await SkillSet.deleteSkillSet();
+        const skillSets = await SkillSets.deleteSkillSets();
         res
         .status(200)
         .setHeader('Content-Type', 'application/json')
-        .json(response);
+        .json(skillSets);
     } catch (err) {
-        console.log('Error deleting skill sets');
         next(err);
     }
 }
 
 // Exports
 module.exports = {
-    getSkillSet,
-    createSkillSet,
-    deleteSkillSet,
+    getSkillSets,
+    createSkillSets,
+    deleteSkillSets,
 }

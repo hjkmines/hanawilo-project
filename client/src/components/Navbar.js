@@ -18,7 +18,7 @@ import Image from 'mui-image';
 
 // constants for menu/user navigation (left and right navigation on navbar)
 const pages = ['Directory', 'About', 'Messages',];
-const settings = ['Profile', 'Register', 'Register2', 'Logout'];
+const settings = ['Profile', 'Register', 'Logout'];
 
 const Navbar = () => {
     // constants for state -> navigation tooltips on left and right side of navbar

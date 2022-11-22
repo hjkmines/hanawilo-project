@@ -95,42 +95,42 @@ const AboutUs = () => {
           </Grid>
         </Paper>
         <Grid container>
-            <Grid>
-        <Box sx={{
-                  position: "relative",
-                  p: { xs: 3, md: 6 },
-                  pr: { md: 0 },
-                 
-               
-                }}>
-        <Typography  sx={{
-                        fontWeight: 600,
-                        fontSize: '35px',
-                        textDecoration: "underline",
-                        textDecorationThickness: 6,
-                        textDecorationColor:'#A5E6BB',
-                        textDecorationSkipInk: "none",
-                     textUnderlinePosition: "under",
-                    
-                }} 
-                variant="title" 
-              title
-        >
-           Our philosophy
+          <Grid>
+            <Box sx={{
+              position: "relative",
+              p: { xs: 3, md: 6 },
+              pr: { md: 0 },
+
+
+            }}>
+              <Typography sx={{
+                fontWeight: 600,
+                fontSize: '35px',
+                textDecoration: "underline",
+                textDecorationThickness: 6,
+                textDecorationColor: '#A5E6BB',
+                textDecorationSkipInk: "none",
+                textUnderlinePosition: "under",
+
+              }}
+                variant="title"
+                title
+              >
+                Our philosophy
               </Typography>
               <Typography sx={{
-              fontSize: '30px',
-               }} 
-               variant="h5" 
-               color="inherit" 
-               paragraph 
-        >
-           Ullamcorper malesuada at leo at. Egestas viverra vulputate tincidunt tellus. Nisl, nulla est, amet enim fringilla. Enim nunc velit mattis felis tempus, cursus. Nisi orci convallis phasellus cursus orci, nisl, lorem eget quis. Adipiscing posuere tortor, morbi at praesent.
+                fontSize: '30px',
+              }}
+                variant="h5"
+                color="inherit"
+                paragraph
+              >
+                Ullamcorper malesuada at leo at. Egestas viverra vulputate tincidunt tellus. Nisl, nulla est, amet enim fringilla. Enim nunc velit mattis felis tempus, cursus. Nisi orci convallis phasellus cursus orci, nisl, lorem eget quis. Adipiscing posuere tortor, morbi at praesent.
               </Typography >
               <Card sx={{
                 borderLeft: "10px solid red",
-                display:"flex",
-                mr:10,
+                display: "flex",
+                mr: 10,
                 position: "relative",
                 p: { xs: 3, md: 6 },
                 pr: { md: 0 },
@@ -139,56 +139,56 @@ const AboutUs = () => {
               }}>
                 <CardContent>
                   <Typography sx={{
-              fontSize: '30px',
-               }} 
-               variant="h5" 
-               color="black"  >
-                  At in in rhoncus, purus. on, turpis neque bibendum enim id nibh habitant venenatis. Hendrerit in tellus molestie morbi ultrices. Suspendisse adipiscing arcu est, neque a, mattis eget habitant. 
+                    fontSize: '30px',
+                  }}
+                    variant="h5"
+                    color="black"  >
+                    At in in rhoncus, purus. on, turpis neque bibendum enim id nibh habitant venenatis. Hendrerit in tellus molestie morbi ultrices. Suspendisse adipiscing arcu est, neque a, mattis eget habitant.
                   </Typography>
                 </CardContent>
               </Card>
-              </Box>
-              </Grid>
-              <Grid>
-        <Box sx={{
-                  position: "relative",
-                  p: { xs: 3, md: 6 },
-                  pr: { md: 0 },
-                }}>
-        <Typography  sx={{
-                        fontWeight: 600,
-                        fontSize: '35px',
-                        textDecoration: "underline",
-                        textDecorationThickness: 6,
-                        textDecorationColor:'#A5E6BB',
-                        textDecorationSkipInk: "none",
-                     textUnderlinePosition: "under"
-              
+            </Box>
+          </Grid>
+          <Grid>
+            <Box sx={{
+              position: "relative",
+              p: { xs: 3, md: 6 },
+              pr: { md: 0 },
+            }}>
+              <Typography sx={{
+                fontWeight: 600,
+                fontSize: '35px',
+                textDecoration: "underline",
+                textDecorationThickness: 6,
+                textDecorationColor: '#A5E6BB',
+                textDecorationSkipInk: "none",
+                textUnderlinePosition: "under"
 
-                }} 
+
+              }}
                 variant="title"
-           
-        >
-           Our values
+
+              >
+                Our values
               </Typography>
               <Typography sx={{
-              fontSize: '30px',
-               }} 
-               variant="h5" 
-               color="inherit" 
-               paragraph
-        >
-           Ullamcorper malesuada at leo at. Egestas viverra vulputate tincidunt tellus. Nisl, nulla est, amet enim fringilla. Enim nunc velit mattis felis tempus, cursus. Nisi orci convallis phasellus cursus orci, nisl, lorem eget quis. Adipiscing posuere tortor, morbi at praesent.
+                fontSize: '30px',
+              }}
+                variant="h5"
+                color="inherit"
+                paragraph
+              >
+                Ullamcorper malesuada at leo at. Egestas viverra vulputate tincidunt tellus. Nisl, nulla est, amet enim fringilla. Enim nunc velit mattis felis tempus, cursus. Nisi orci convallis phasellus cursus orci, nisl, lorem eget quis. Adipiscing posuere tortor, morbi at praesent.
               </Typography >
-            
-              </Box>
-              </Grid>
-              </Grid>
-              
-      
+
+            </Box>
+          </Grid>
+        </Grid>
+
+
       </Box>
-      
-    
+
+
       {/* <Footer /> */}
     </div>
   );

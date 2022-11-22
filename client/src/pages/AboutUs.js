@@ -8,6 +8,8 @@ import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import Box from "@mui/material/Box";
 import darkBackground from "../assets/darkBackground.svg";
+import { blue } from "@mui/material/colors";
+import { Card, CardContent } from "@mui/material";
 
 const mainFeaturedPost = {
   title: "Empowering and pioneering the future engineers",
@@ -66,7 +68,7 @@ const AboutUs = () => {
             }}
           />
           <Grid container>
-            <Grid item md={6}>
+            <Grid item md={4}>
               <Box
                 sx={{
                   position: "relative",
@@ -92,7 +94,101 @@ const AboutUs = () => {
             </Grid>
           </Grid>
         </Paper>
+        <Grid container>
+            <Grid>
+        <Box sx={{
+                  position: "relative",
+                  p: { xs: 3, md: 6 },
+                  pr: { md: 0 },
+                 
+               
+                }}>
+        <Typography  sx={{
+                        fontWeight: 600,
+                        fontSize: '35px',
+                        textDecoration: "underline",
+                        textDecorationThickness: 6,
+                        textDecorationColor:'#A5E6BB',
+                        textDecorationSkipInk: "none",
+                     textUnderlinePosition: "under",
+                    
+                }} 
+                variant="title" 
+              title
+        >
+           Our philosophy
+              </Typography>
+              <Typography sx={{
+              fontSize: '30px',
+               }} 
+               variant="h5" 
+               color="inherit" 
+               paragraph 
+        >
+           Ullamcorper malesuada at leo at. Egestas viverra vulputate tincidunt tellus. Nisl, nulla est, amet enim fringilla. Enim nunc velit mattis felis tempus, cursus. Nisi orci convallis phasellus cursus orci, nisl, lorem eget quis. Adipiscing posuere tortor, morbi at praesent.
+              </Typography >
+              <Card sx={{
+                borderLeft: "10px solid red",
+                display:"flex",
+                mr:10,
+                position: "relative",
+                p: { xs: 3, md: 6 },
+                pr: { md: 0 },
+                backgroundColor: "CCE4E6",
+                opacity: 0.5
+              }}>
+                <CardContent>
+                  <Typography sx={{
+              fontSize: '30px',
+               }} 
+               variant="h5" 
+               color="black"  >
+                  At in in rhoncus, purus. on, turpis neque bibendum enim id nibh habitant venenatis. Hendrerit in tellus molestie morbi ultrices. Suspendisse adipiscing arcu est, neque a, mattis eget habitant. 
+                  </Typography>
+                </CardContent>
+              </Card>
+              </Box>
+              </Grid>
+              <Grid>
+        <Box sx={{
+                  position: "relative",
+                  p: { xs: 3, md: 6 },
+                  pr: { md: 0 },
+                }}>
+        <Typography  sx={{
+                        fontWeight: 600,
+                        fontSize: '35px',
+                        textDecoration: "underline",
+                        textDecorationThickness: 6,
+                        textDecorationColor:'#A5E6BB',
+                        textDecorationSkipInk: "none",
+                     textUnderlinePosition: "under"
+              
+
+                }} 
+                variant="title"
+           
+        >
+           Our values
+              </Typography>
+              <Typography sx={{
+              fontSize: '30px',
+               }} 
+               variant="h5" 
+               color="inherit" 
+               paragraph
+        >
+           Ullamcorper malesuada at leo at. Egestas viverra vulputate tincidunt tellus. Nisl, nulla est, amet enim fringilla. Enim nunc velit mattis felis tempus, cursus. Nisi orci convallis phasellus cursus orci, nisl, lorem eget quis. Adipiscing posuere tortor, morbi at praesent.
+              </Typography >
+            
+              </Box>
+              </Grid>
+              </Grid>
+              
+      
       </Box>
+      
+    
       {/* <Footer /> */}
     </div>
   );

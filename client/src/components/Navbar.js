@@ -1,7 +1,10 @@
-import * as React from 'react';
+import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
+import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
+import Icon from '@mui/material/Icon';
+import InputBase from '@mui/material/InputBase';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -9,9 +12,10 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import Box from '@mui/material/Box'
-import { Link, NavLink } from "react-router-dom";
-import { CssBaseline, useTheme, styled, InputBase, Stack, Paper, Grid, Icon } from '@mui/material';
+import Box from '@mui/material/Box';
+import { Link } from "react-router-dom";
+import { useTheme, styled } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 import SearchIcon from '@mui/icons-material/Search';
 import logo from '../assets/he-logo.svg';
 import Image from 'mui-image';
@@ -93,9 +97,9 @@ const Navbar = () => {
                     color: theme.palette.white,
                 }} >
                 <Toolbar disableGutters sx={{ background: 'transparent', color: theme.palette.white }}>
-                    <Grid container spacing={0}  alignItems={'center'} justifyContent={"space-between"} paddingTop={2} sx={{ paddingX:{xs:2, md:6} }} >
-                        <Grid  item xs={1} sm={3} md={4} lg={3} sx={{ alignItems: 'inherit' }}>
-                            <Box display='flex'  alignItems={'inherit'} >
+                    <Grid container spacing={0} alignItems={'center'} justifyContent={"space-between"} paddingTop={2} sx={{ paddingX: { xs: 2, md: 6 } }} >
+                        <Grid item xs={1} sm={3} md={4} lg={3} sx={{ alignItems: 'inherit' }}>
+                            <Box display='flex' alignItems={'inherit'} >
                                 <Icon sx={{ height: '3rem', width: "3rem", borderColor: 1 }}
                                     component={Link}
                                     to="/" >
@@ -139,7 +143,7 @@ const Navbar = () => {
                         </Grid>
 
 
-                        <Grid  item xs={3} md={4} lg={3} >
+                        <Grid item xs={3} md={4} lg={3} >
                             <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
                                 {pages.map((page) => (
                                     <Button

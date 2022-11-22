@@ -1,17 +1,13 @@
 import React from 'react';
-import {
-  Box,
-  Button,
-  Grid,
-  styled,
-  Typography
-} from '@mui/material';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
 import Image from 'mui-image';
-import { useTheme, responsiveFontSizes } from '@mui/material/styles';
-import darkBackground from '../assets/darkBackground.svg'
+import { useTheme, styled, responsiveFontSizes } from '@mui/material/styles';
+import darkBackground from '../assets/darkBackground.svg';
 import Navbar from '../components/Navbar';
 import Tony from '../assets/tony.png';
-
 
 
 const ActionButton = styled(Button)({
@@ -40,7 +36,7 @@ const Home = () => {
   theme = responsiveFontSizes(theme);
 
   return (
-    <Box flex sx={{  background: `url(${darkBackground})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover', minHeight:{md:'100vh'}}}>
+    <Box flex sx={{ background: `url(${darkBackground})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover', minHeight: { md: '100vh' } }}>
       <Box height="10%">
         <Navbar />
       </Box>
@@ -81,7 +77,7 @@ const Home = () => {
 
         </Grid>
 
-        <Grid item xs={12} md sx={{ alignSelf: 'flex-end',  marginTop:{xs:-8, md:0}, paddingTop: { md: 5 }, paddingLeft: {xs:10, md:0} }}>
+        <Grid item xs={12} md sx={{ alignSelf: 'flex-end', marginTop: { xs: -8, md: 0 }, paddingTop: { md: 5 }, paddingLeft: { xs: 10, md: 0 } }}>
           <Box display="flex" sx={{ alignContent: 'flex-end', justifyContent: { xs: "flex-end", lg: "center" } }}>
             <Image
               src={Tony}

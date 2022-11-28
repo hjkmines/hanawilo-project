@@ -1,7 +1,6 @@
 
 import React from 'react'
 import { Box, Container, Grid, IconButton, ImageList, ListItemSecondaryAction, Rating, Tooltip, Typography } from '@mui/material'
->>>>>>> ab9eada8efbd1c9dbe50962f2ccd7aa0569f4d55
 import { useTheme, styled } from '@mui/material'
 import Stack from '@mui/material/Stack'
 import Image from 'mui-image';

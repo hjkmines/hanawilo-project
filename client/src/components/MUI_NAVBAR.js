@@ -22,7 +22,7 @@ import { bgcolor } from '@mui/system';
 
 // constants for menu/user navigation (left and right navigation on navbar)
 const pages = ['Directory', 'About', 'Messages',];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Profile','Register', 'Login'];
 
 const MUI_NAVBAR = () => {
   // constants for state -> navigation tooltips on left and right side of navbar
@@ -103,8 +103,8 @@ const MUI_NAVBAR = () => {
             <NorthEastOutlinedIcon />
             <Typography
               variant="h6"
-              component="a"
-              href="/"
+              component={Link}
+              to="/"
               sx={{
                 mr: 2,
                 display: { xs: 'none', md: 'flex' },
@@ -145,13 +145,13 @@ const MUI_NAVBAR = () => {
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
+                vertical: "bottom",
+                horizontal: "left",
               }}
               keepMounted
               transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
+                vertical: "top",
+                horizontal: "left",
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}

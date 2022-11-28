@@ -20,25 +20,24 @@ import Profile from './pages/Profile'; //test for right navbar routing
 import Footer from './components/Footer';
 import { useTheme } from '@mui/material';
 import Register from "./pages/Register";
-import Register2 from "./pages/Register2";
+import Login from "./pages/Login";
 
 function App() {
+    const theme = useTheme();
 
     return (
         <>
+
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/directory' element={<Directory />} />
-                {/* route for each individual within the directory - using a dynamic variable */}
-                {/* <Route path='/directory/:id' element={ <Directory /> } /> */}
                 <Route path='/about' element={<AboutUs />} />
                 <Route path='/messages' element={<Messages />} />
                 <Route path='/profile' element={<Profile />} />
                 <Route path='/register' element={<Register />} />
-                <Route path='/register2' element={<Register2 />} />
+                <Route path='/login' element={<Login />} />
                 {/* <Route path='*' element={<NotFound />} default error not found page */}
             </Routes>
-            {/* </Container > */}
             <Footer />
 
         </>

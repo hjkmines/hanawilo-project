@@ -1,15 +1,16 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-// import Footer from "../components/Footer";
-import PropTypes from "prop-types";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import Box from "@mui/material/Box";
 import darkBackground from "../assets/darkBackground.svg";
-import { blue } from "@mui/material/colors";
 import { Card, CardContent } from "@mui/material";
+import Container from '@mui/material/Container';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import { palette } from '@mui/system';
 
 const mainFeaturedPost = {
   title: "Empowering and pioneering the future engineers",
@@ -114,7 +115,6 @@ const AboutUs = () => {
 
               }}
                 variant="title"
-                title
               >
                 Our philosophy
               </Typography>
@@ -185,11 +185,64 @@ const AboutUs = () => {
           </Grid>
         </Grid>
 
+        <Grid>
+            <Box sx={{
+              position: "relative",
+              p: { xs: 3, md: 6 },
+              pr: { md: 0 },
+            }}>
+              <Typography sx={{
+                fontWeight: 600,
+                fontSize: '35px',
+                textDecoration: "underline",
+                textDecorationThickness: 6,
+                textDecorationColor: '#A5E6BB',
+                textDecorationSkipInk: "none",
+                textUnderlinePosition: "under"
+
+
+              }}
+                variant="title"
+
+              >
+                What Others Say About Us
+              </Typography>
+              <Typography sx={{
+                fontSize: '30px',
+              }}
+                variant="h5"
+                color="inherit"
+                paragraph
+              >
+                Ullamcorper malesuada at leo at. Egestas viverra vulputate tincidunt tellus. Nisl, nulla est, amet enim fringilla. Enim nunc velit mattis felis tempus, cursus. Nisi orci convallis phasellus cursus orci, nisl, lorem eget quis. Adipiscing posuere tortor, morbi at praesent.
+              </Typography >
+
+            </Box>
+          </Grid>
+          <Box
+          sx={{
+             bgcolor: '#7785AC',
+            pt: 8,
+            pb: 6,
+          }}
+        >
+          <Container maxWidth="md">
+            <Typography variant="h3" align="center" color="text.secondary" paragraph>
+              Contact Us Today To Get Started
+            </Typography>
+            <Stack
+              sx={{ pt: 4 }}
+              direction="row"
+              spacing={2}
+              justifyContent="center"
+            >
+              <Button variant="contained" size="large">Contact Us</Button>
+            </Stack>
+          </Container>
+        </Box>
 
       </Box>
 
-
-      {/* <Footer /> */}
     </div>
   );
 };

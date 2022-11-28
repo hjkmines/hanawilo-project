@@ -17,7 +17,11 @@ import Image from 'mui-image';
 
 // constants for menu/user navigation (left and right navigation on navbar)
 const pages = ['Directory', 'About', 'Messages',];
+<<<<<<< HEAD
+const settings = ['Profile', 'Register', 'Logout'];
+=======
 const settings = ['Profile', 'Register','Register2', 'Login', 'Logout'];
+>>>>>>> ab9eada8efbd1c9dbe50962f2ccd7aa0569f4d55
 
 const Navbar = () => {
     // constants for state -> navigation tooltips on left and right side of navbar
@@ -95,7 +99,11 @@ const Navbar = () => {
                     <Grid container alignItems={'center'} justifyContent={"space-between"} paddingX={6} paddingTop={2}>
                         <Grid item xs={1} md={4} lg={3} sx={{ alignItems: 'inherit' }}>
                             <Stack direction={'row'} alignItems={'inherit'} >
+<<<<<<< HEAD
+                                <Icon sx={{ marginRight: 1, height: '3rem', width: "3rem", borderColor: 1 }}
+=======
                                 <Icon sx={{ marginRight: 2, height: '3rem', width: "3rem", borderColor: 1 }}
+>>>>>>> ab9eada8efbd1c9dbe50962f2ccd7aa0569f4d55
                                     component={Link}
                                     to="/" >
                                     <Image src={logo} />
@@ -170,7 +178,11 @@ const Navbar = () => {
                             </Stack>
 
                         </Grid>
+<<<<<<< HEAD
+
+=======
                         
+>>>>>>> ab9eada8efbd1c9dbe50962f2ccd7aa0569f4d55
                         <Grid item  xs  sx={{  alignContent: 'center' }}>
 
                             {/* SEARCH COMPONENT */}
@@ -184,6 +196,10 @@ const Navbar = () => {
                                     sx={{ border: 1, textAlign: 'center' }}
                                 />
                             </Search >
+<<<<<<< HEAD
+
+=======
+>>>>>>> ab9eada8efbd1c9dbe50962f2ccd7aa0569f4d55
                         </Grid>
 
 

@@ -57,7 +57,7 @@ const Footer = () => {
                 <br/>
                 <Container mb={2} p={0} > 
                     
-                        <TextField sx={{ bgcolor: "white", color:theme.palette.white}} type="text" placeholder='jdoe@gmail.com'>
+                        <TextField sx={{ bgcolor: "white", color:theme.palette.text.main}} type="text" placeholder='jdoe@gmail.com'>
                             email 
                         </TextField>
                         <Button 

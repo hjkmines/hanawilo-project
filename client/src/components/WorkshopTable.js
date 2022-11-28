@@ -123,7 +123,6 @@ const WorkshopTable = () => {
         }}
       />*/}
     </Paper>
-  );
-}
+  );    }
 
 export default WorkshopTable;

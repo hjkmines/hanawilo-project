@@ -3,7 +3,6 @@ import Navbar from "../components/Navbar";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
-import Link from "@mui/material/Link";
 import Box from "@mui/material/Box";
 import darkBackground from "../assets/darkBackground.svg";
 import { Card, CardContent } from "@mui/material";
@@ -11,6 +10,7 @@ import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import { palette } from '@mui/system';
+import { Link } from "react-router-dom";
 
 const mainFeaturedPost = {
   title: "Empowering and pioneering the future engineers",
@@ -236,7 +236,8 @@ const AboutUs = () => {
               spacing={2}
               justifyContent="center"
             >
-              <Button variant="contained" size="large">Contact Us</Button>
+              <Button variant="contained" size="large">
+                <Link to='/messages'>Contact Us</Link></Button>
             </Stack>
           </Container>
         </Box>

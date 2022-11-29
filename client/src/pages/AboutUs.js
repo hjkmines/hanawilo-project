@@ -14,6 +14,7 @@ import { Link } from "react-router-dom";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardMedia from "@mui/material/CardMedia";
 import James from "../assets/james.png";
+import Chris from "../assets/chris.png";
 
 const mainFeaturedPost = {
   title: "Empowering and pioneering the future engineers",
@@ -28,6 +29,12 @@ const post = {
   title: "Wouldn't miss it!", 
   image: {James},
   description: "Highly recommended for any students to join to enhance and further develop their skills"
+}
+
+const post2 = {
+  title: "Insightful and engaging!", 
+  image: {Chris},
+  description: "Always learning new skills and would recommend to anyone!"
 }
 
 const AboutUs = () => {
@@ -248,9 +255,11 @@ const AboutUs = () => {
             >
               You don't have to take our words for it.
             </Typography>
-          
-          {/* <CardActionArea component="a" href="#"> */}
-            <Card sx={{ display: "flex-end" }}>
+            <br/>
+          <Grid container spacing={4}>
+            <Grid item xs={12} md={6}>
+          {/* James card */}
+            <Card sx={{ display: "flex" }}>
               <CardContent sx={{ flex: 1 }}>
                 <Typography component="h1" variant="h3" color="#000000">
                   {post.title}
@@ -270,7 +279,32 @@ const AboutUs = () => {
                 alt="James"
               />
             </Card>
-          {/* </CardActionArea> */}
+            </Grid>
+            
+          {/* Chris card */}
+          <Grid item xs={12} md={6}>
+          <Card sx={{ display: "flex" }}>
+              <CardContent sx={{ flex: 1 }}>
+                <Typography component="h1" variant="h3" color="#000000">
+                  {post2.title}
+                </Typography>
+  
+                <Typography variant="subtitle1" paragraph color ="text.secondary">
+                  {post2.description}
+                </Typography>
+                <Typography variant="subtitle1" color="primary">
+                  Continue reading...
+                </Typography>
+              </CardContent>
+              <CardMedia
+                component="img"
+                sx={{ width: 160, display: { xs: "none", sm: "block" } }}
+                image={Chris}
+                alt="Chris"
+              />
+            </Card>
+            </Grid>
+            </Grid>
           </Box>
         </Grid>
 <br/>

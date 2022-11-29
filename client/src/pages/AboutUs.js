@@ -6,11 +6,14 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import darkBackground from "../assets/darkBackground.svg";
 import { Card, CardContent } from "@mui/material";
-import Container from '@mui/material/Container';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import { palette } from '@mui/system';
+import Container from "@mui/material/Container";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+import { palette } from "@mui/system";
 import { Link } from "react-router-dom";
+import CardActionArea from "@mui/material/CardActionArea";
+import CardMedia from "@mui/material/CardMedia";
+import James from "../assets/james.png";
 
 const mainFeaturedPost = {
   title: "Empowering and pioneering the future engineers",
@@ -20,6 +23,12 @@ const mainFeaturedPost = {
   imageText: "main image description",
   linkText: "Continue reading…",
 };
+
+const post = {
+  title: "Wouldn't miss it!", 
+  image: {James},
+  description: "Highly recommended for any students to join to enhance and further develop their skills"
+}
 
 const AboutUs = () => {
   return (
@@ -95,155 +104,211 @@ const AboutUs = () => {
             </Grid>
           </Grid>
         </Paper>
+
+        {/* Our Philosophy */}
         <Grid container>
           <Grid>
-            <Box sx={{
-              position: "relative",
-              p: { xs: 3, md: 6 },
-              pr: { md: 0 },
-
-
-            }}>
-              <Typography sx={{
-                fontWeight: 600,
-                fontSize: '35px',
-                textDecoration: "underline",
-                textDecorationThickness: 6,
-                textDecorationColor: '#A5E6BB',
-                textDecorationSkipInk: "none",
-                textUnderlinePosition: "under",
-
+            <Box
+              sx={{
+                position: "relative",
+                p: { xs: 3, md: 6 },
+                pr: { md: 0 },
               }}
+            >
+              <Typography
+                sx={{
+                  fontWeight: 600,
+                  fontSize: "35px",
+                  textDecoration: "underline",
+                  textDecorationThickness: 6,
+                  textDecorationColor: "#A5E6BB",
+                  textDecorationSkipInk: "none",
+                  textUnderlinePosition: "under",
+                }}
                 variant="title"
               >
                 Our philosophy
               </Typography>
-              <Typography sx={{
-                fontSize: '30px',
-              }}
+              <Typography
+                sx={{
+                  fontSize: "30px",
+                }}
                 variant="h5"
                 color="inherit"
                 paragraph
               >
-                Ullamcorper malesuada at leo at. Egestas viverra vulputate tincidunt tellus. Nisl, nulla est, amet enim fringilla. Enim nunc velit mattis felis tempus, cursus. Nisi orci convallis phasellus cursus orci, nisl, lorem eget quis. Adipiscing posuere tortor, morbi at praesent.
-              </Typography >
-              <Card sx={{
-                borderLeft: "10px solid red",
-                display: "flex",
-                mr: 10,
-                position: "relative",
-                p: { xs: 3, md: 6 },
-                pr: { md: 0 },
-                backgroundColor: "CCE4E6",
-                opacity: 0.5
-              }}>
+                Ullamcorper malesuada at leo at. Egestas viverra vulputate
+                tincidunt tellus. Nisl, nulla est, amet enim fringilla. Enim
+                nunc velit mattis felis tempus, cursus. Nisi orci convallis
+                phasellus cursus orci, nisl, lorem eget quis. Adipiscing posuere
+                tortor, morbi at praesent.
+              </Typography>
+              <Card
+                sx={{
+                  borderLeft: "10px solid red",
+                  display: "flex",
+                  mr: 10,
+                  position: "relative",
+                  p: { xs: 3, md: 6 },
+                  pr: { md: 0 },
+                  backgroundColor: "CCE4E6",
+                  opacity: 0.5,
+                }}
+              >
                 <CardContent>
-                  <Typography sx={{
-                    fontSize: '30px',
-                  }}
+                  <Typography
+                    sx={{
+                      fontSize: "30px",
+                    }}
                     variant="h5"
-                    color="black"  >
-                    At in in rhoncus, purus. on, turpis neque bibendum enim id nibh habitant venenatis. Hendrerit in tellus molestie morbi ultrices. Suspendisse adipiscing arcu est, neque a, mattis eget habitant.
+                    color="black"
+                  >
+                    At in in rhoncus, purus. on, turpis neque bibendum enim id
+                    nibh habitant venenatis. Hendrerit in tellus molestie morbi
+                    ultrices. Suspendisse adipiscing arcu est, neque a, mattis
+                    eget habitant.
                   </Typography>
                 </CardContent>
               </Card>
             </Box>
           </Grid>
+
+          {/* Our Values */}
           <Grid>
-            <Box sx={{
-              position: "relative",
-              p: { xs: 3, md: 6 },
-              pr: { md: 0 },
-            }}>
-              <Typography sx={{
-                fontWeight: 600,
-                fontSize: '35px',
-                textDecoration: "underline",
-                textDecorationThickness: 6,
-                textDecorationColor: '#A5E6BB',
-                textDecorationSkipInk: "none",
-                textUnderlinePosition: "under"
-
-
+            <Box
+              sx={{
+                position: "relative",
+                p: { xs: 3, md: 6 },
+                pr: { md: 0 },
               }}
+            >
+              <Typography
+                sx={{
+                  fontWeight: 600,
+                  fontSize: "35px",
+                  textDecoration: "underline",
+                  textDecorationThickness: 6,
+                  textDecorationColor: "#A5E6BB",
+                  textDecorationSkipInk: "none",
+                  textUnderlinePosition: "under",
+                }}
                 variant="title"
-
               >
                 Our values
               </Typography>
-              <Typography sx={{
-                fontSize: '30px',
-              }}
+              <Typography
+                sx={{
+                  fontSize: "30px",
+                }}
                 variant="h5"
                 color="inherit"
                 paragraph
               >
-                Ullamcorper malesuada at leo at. Egestas viverra vulputate tincidunt tellus. Nisl, nulla est, amet enim fringilla. Enim nunc velit mattis felis tempus, cursus. Nisi orci convallis phasellus cursus orci, nisl, lorem eget quis. Adipiscing posuere tortor, morbi at praesent.
-              </Typography >
-
+                Ullamcorper malesuada at leo at. Egestas viverra vulputate
+                tincidunt tellus. Nisl, nulla est, amet enim fringilla. Enim
+                nunc velit mattis felis tempus, cursus. Nisi orci convallis
+                phasellus cursus orci, nisl, lorem eget quis. Adipiscing posuere
+                tortor, morbi at praesent.
+              </Typography>
             </Box>
           </Grid>
         </Grid>
 
-        <Grid>
-            <Box sx={{
+
+{/* Testominals */}
+        <Grid container>
+          <Box
+            sx={{
               position: "relative",
               p: { xs: 3, md: 6 },
               pr: { md: 0 },
-            }}>
-              <Typography sx={{
+            }}
+          >
+            <Typography
+              sx={{
                 fontWeight: 600,
-                fontSize: '35px',
+                fontSize: "35px",
                 textDecoration: "underline",
                 textDecorationThickness: 6,
-                textDecorationColor: '#A5E6BB',
+                textDecorationColor: "#A5E6BB",
                 textDecorationSkipInk: "none",
-                textUnderlinePosition: "under"
-
-
+                textUnderlinePosition: "under",
               }}
-                variant="title"
-
-              >
-                What Others Say About Us
-              </Typography>
-              <Typography sx={{
-                fontSize: '30px',
+              variant="title"
+            >
+              What Others Say About Us
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: "30px",
               }}
-                variant="h5"
-                color="inherit"
-                paragraph
-              >
-                Ullamcorper malesuada at leo at. Egestas viverra vulputate tincidunt tellus. Nisl, nulla est, amet enim fringilla. Enim nunc velit mattis felis tempus, cursus. Nisi orci convallis phasellus cursus orci, nisl, lorem eget quis. Adipiscing posuere tortor, morbi at praesent.
-              </Typography >
-
-            </Box>
-          </Grid>
-          <Box
+              variant="h5"
+              color="inherit"
+              paragraph
+            >
+              You don't have to take our words for it.
+            </Typography>
+          
+          {/* <CardActionArea component="a" href="#"> */}
+            <Card sx={{ display: "flex-end" }}>
+              <CardContent sx={{ flex: 1 }}>
+                <Typography component="h1" variant="h3" color="#000000">
+                  {post.title}
+                </Typography>
+  
+                <Typography variant="subtitle1" paragraph color ="text.secondary">
+                  {post.description}
+                </Typography>
+                <Typography variant="subtitle1" color="primary">
+                  Continue reading...
+                </Typography>
+              </CardContent>
+              <CardMedia
+                component="img"
+                sx={{ width: 160, display: { xs: "none", sm: "block" } }}
+                image={James}
+                alt="James"
+              />
+            </Card>
+          {/* </CardActionArea> */}
+          </Box>
+        </Grid>
+<br/>
+        {/* Contact Us feature */}
+        <Grid>
+        <Box
           sx={{
-             bgcolor: '#7785AC',
-            pt: 8,
-            pb: 6,
+            bgcolor: "#7785AC",
+            // pt: 8,
+            // pb: 6,
+            position: "relative",
+              p: { xs: 3, md: 6 },
+              pr: { md: 0 },
           }}
         >
           <Container maxWidth="md">
-            <Typography variant="h3" align="center" color="text.secondary" paragraph>
+            <Typography
+              variant="h3"
+              align="center"
+              color="text.secondary"
+              paragraph
+            >
               Contact Us Today To Get Started
             </Typography>
             <Stack
-              sx={{ pt: 4 }}
+              sx={{ pt: 2}}
               direction="row"
               spacing={2}
               justifyContent="center"
             >
               <Button variant="contained" size="large">
-                <Link to='/messages'>Contact Us</Link></Button>
+                <Link to="/messages">Contact Us</Link>
+              </Button>
             </Stack>
           </Container>
         </Box>
-
+        </Grid>
       </Box>
-
     </div>
   );
 };

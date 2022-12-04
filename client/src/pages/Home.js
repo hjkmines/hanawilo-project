@@ -1,56 +1,14 @@
 import React from 'react';
-import {
-  Box,
-  Button,
-  Card,
-  Container,
-  Divider,
-  Grid,
-  Paper,
-  Stack,
-  styled,
-  Typography
-} from '@mui/material';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
 import Image from 'mui-image';
-import { Link, Navigate } from 'react-router-dom';
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import { useTheme } from '@mui/material';
-import darkBackground from '../assets/darkBackground.svg'
+import { useTheme, styled, responsiveFontSizes } from '@mui/material/styles';
+import darkBackground from '../assets/darkBackground.svg';
 import Navbar from '../components/Navbar';
 import Tony from '../assets/tony.png';
-import { fontSize } from '@mui/system';
 
-const BannerContainer = styled(Box)({
-  display: 'flex',
-  justifyContent: 'center',
-  width: '100%',
-  height: '100%',
-  padding: '0px 0px',
-  // backgroundColor: 'theme.palette.primary.light',
-  marginTop: 4,
-  marginBottom: 4,
-  // [theme.breakpoints.down('sm')]: {
-  //     flexDirection: 'column',
-  //     alignItems: 'center',
-  // }
-
-});
-
-const BannerContent = styled(Box)({
-  display: 'flex',
-  // flexDirection: 'column',
-  justifyContent: 'center',
-  alignContent: 'center',
-  maxWidth: '100%',
-  padding: '20px'
-})
-
-const BannerTitle = styled(Typography)({
-  lineHeight: 1.5,
-  fontSize: '30px',
-  marginBottom: '10px',
-  textAlign: 'center',
-})
 
 const ActionButton = styled(Button)({
   background: "#3FFF80",
@@ -58,22 +16,42 @@ const ActionButton = styled(Button)({
   fontWeight: 900,
   textTransform: 'capitalized',
   borderRadius: 50,
-  marginTop: 20
-})
+  marginTop: 20,
+  '&:hover': {
+    backgroundColor: 'rgba(63,255,128,.8)'
 
+  },
+  '&:active': {
+    backgroundColor: 'rgba(63,255,128,.8)'
+  },
+  '&:focus': {
+    backgroundColor: 'rgba(63,255,128,.8)'
+  },
+
+})
 
 const Home = () => {
 
-  const theme = useTheme();
+  let theme = useTheme();
+  theme = responsiveFontSizes(theme);
 
   return (
-    <Box  display="flex" minHeight='100vh' maxWidth='100vw' width={1} flexDirection="column" sx={{  background: `url(${darkBackground})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover'}}>
-      <Navbar />
+    <Box flex sx={{ background: `url(${darkBackground})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover', minHeight: { md: '100vh' } }}>
+      <Box height="10%">
+        <Navbar />
+      </Box>
 
-      <Grid container >
-        <Grid item xs={3} md={5} paddingLeft={6} paddingTop={20} >
+      <Grid container height='90%' >
+        <Grid item flex xs md={5}
+          sx={{
+            marginBottom: { xs: 0, md: 0 },
+            paddingTop: { xs: 2, md: 20 },
+            paddingLeft: { xs: 2, md: 6 },
+            paddingRight: { xs: 2, md: 0 },
+          }}
 
-          <Typography variant='h1' fontWeight={900} sx={{fontSize: {xs:'3rem', md:'5rem'}}} >
+        >
+          <Typography variant='h1' fontWeight={900} sx={{ fontSize: { xs: '3rem', md: '5rem' } }} >
             Web Developers <br></br>on Demand.
           </Typography>
 
@@ -88,6 +66,7 @@ const Home = () => {
           <Typography
             variant='h5'
             fontWeight={400}
+            sx={{ display: { xs: 'none', sm: 'block' } }}
           >
             Save time and resources looking for the right <br></br> developer for your projects.
           </Typography>
@@ -98,12 +77,19 @@ const Home = () => {
 
         </Grid>
 
-        <Grid  item xs={3} md={5} sx={{ paddingTop: 8, marginLeft:20}}>
-            <Image src={Tony}  />
+        <Grid item xs={12} md sx={{ alignSelf: 'flex-end', marginTop: { xs: -8, md: 0 }, paddingTop: { md: 5 }, paddingLeft: { xs: 10, md: 0 } }}>
+          <Box display="flex" sx={{ alignContent: 'flex-end', justifyContent: { xs: "flex-end", lg: "center" } }}>
+            <Image
+              src={Tony}
+              fit='contain'
+              width="auto"
+              sx={{
+                height: '100%'
+              }} />
+          </Box>
         </Grid>
-
       </Grid>
-    </Box>
+    </Box >
   )
 }
 

@@ -22,6 +22,7 @@ import Image from 'mui-image';
 
 // constants for menu/user navigation (left and right navigation on navbar)
 const pages = ['Directory', 'About', 'Messages',];
+
 const settings = ['Profile', 'Register', 'Logout'];
 
 const Navbar = () => {

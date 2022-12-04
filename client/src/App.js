@@ -13,6 +13,7 @@ import Profile from './pages/Profile'; //test for right navbar routing
 import Footer from './components/Footer';
 import { useTheme } from '@mui/material';
 import Register from "./pages/Register";
+import Login from "./pages/Login";
 
 function App() {
     const theme = useTheme();
@@ -26,6 +27,7 @@ function App() {
                 <Route path='/messages' element={<Messages />} />
                 <Route path='/profile' element={<Profile />} />
                 <Route path='/register' element={<Register />} />
+                <Route path='/login' element={<Login />} />
                 {/* <Route path='*' element={<NotFound />} default error not found page */}
             </Routes>
             <Footer />

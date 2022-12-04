@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { Box, Container, Grid, IconButton, ImageList, ListItemSecondaryAction, Rating, Tooltip, Typography } from '@mui/material'
 import { useTheme, styled } from '@mui/material'
@@ -36,6 +37,7 @@ const StyledRating = styled(Rating)(({ theme }) => ({
     color: theme.palette.lightGreen,
   },
 }));
+
 
 const Profile = () => {
   const theme = useTheme();

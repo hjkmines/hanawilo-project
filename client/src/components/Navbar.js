@@ -23,7 +23,9 @@ import Image from 'mui-image';
 // constants for menu/user navigation (left and right navigation on navbar)
 const pages = ['Directory', 'About', 'Messages',];
 
+
 const settings = ['Profile', 'Register', 'Logout'];
+
 
 const Navbar = () => {
     // constants for state -> navigation tooltips on left and right side of navbar
@@ -98,6 +100,7 @@ const Navbar = () => {
                     color: theme.palette.white,
                 }} >
                 <Toolbar disableGutters sx={{ background: 'transparent', color: theme.palette.white }}>
+
                     <Grid container spacing={0} alignItems={'center'} justifyContent={"space-between"} paddingTop={2} sx={{ paddingX: { xs: 2, md: 6 } }} >
                         <Grid item xs={1} sm={3} md={4} lg={3} sx={{ alignItems: 'inherit' }}>
                             <Box display='flex' alignItems={'inherit'} >
@@ -129,6 +132,7 @@ const Navbar = () => {
                         </Grid>
 
                         <Grid item xs={5} md sx={{ alignContent: 'center' }}>
+
 
                             {/* SEARCH COMPONENT */}
                             <Search >

@@ -117,7 +117,7 @@ const DeadlineTable= () => {
         }}
       />*/}
     </Paper>
-  );
+      ); 
 }
 
 export default DeadlineTable;

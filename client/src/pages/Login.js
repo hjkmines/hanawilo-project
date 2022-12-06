@@ -52,7 +52,7 @@ export default function Login() {
       password: data.get("password"),
     }
     console.log(user)
-    dispatch(setCurrentUser(user ));
+    dispatch(setCurrentUser(user));
   };
 
   return (

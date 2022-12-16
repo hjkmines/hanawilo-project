@@ -336,7 +336,7 @@ const AboutUs = () => {
               justifyContent="center"
             >
               <Button variant="contained" size="large">
-                <Link to="/messages">Contact Us</Link>
+                <Link to="/contact">Contact Us</Link>
               </Button>
             </Stack>
           </Container>

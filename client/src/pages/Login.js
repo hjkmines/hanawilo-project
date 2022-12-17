@@ -11,7 +11,7 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
-import {useTheme} from "@mui/material";
+import { useTheme } from "@mui/material";
 import Navbar from "../components/Navbar";
 import { useDispatch } from "react-redux";
 import { setCurrentUser } from "../features/usersSlice";
@@ -42,6 +42,7 @@ export default function Login() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    const emailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     const data = new FormData(event.currentTarget);
     // console.log({
     //   email: data.get("email"),
@@ -51,13 +52,22 @@ export default function Login() {
       email: data.get("email"),
       password: data.get("password"),
     }
-    console.log(user)
-    dispatch(setCurrentUser(user));
+    if (user.email.length == 0 || user.password.length == 0) {
+      alert("Email and Password cannot be empty!")
+    }
+    else if (!user.email.match(emailFormat)) {
+      alert("Email format is not valid!")
+    } else if (user.password.length < 8) {
+      alert("Password caanot be less than 8 characters!")
+    } else {
+      console.log(user)
+      dispatch(setCurrentUser(user));
+    }
   };
 
   return (
     <>
-    <Navbar />
+      <Navbar />
       <Grid container component="main" sx={{ height: "100vh" }}>
         <CssBaseline />
         <Grid
@@ -147,6 +157,6 @@ export default function Login() {
           </Box>
         </Grid>
       </Grid>
-      </>
+    </>
   );
 }

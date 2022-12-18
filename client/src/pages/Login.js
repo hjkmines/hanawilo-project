@@ -13,6 +13,8 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import {useTheme} from "@mui/material";
 import Navbar from "../components/Navbar";
+import { useDispatch } from "react-redux";
+import { setCurrentUser } from "../features/usersSlice";
 
 function Copyright(props) {
   return (
@@ -35,16 +37,22 @@ function Copyright(props) {
 
 
 export default function Login() {
-  
+  const dispatch = useDispatch();
   const theme = useTheme();
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
+    // console.log({
+    //   email: data.get("email"),
+    //   password: data.get("password"),
+    // });
+    const user = {
       email: data.get("email"),
       password: data.get("password"),
-    });
+    }
+    console.log(user)
+    dispatch(setCurrentUser(user));
   };
 
   return (
@@ -120,7 +128,7 @@ export default function Login() {
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
-                Sign In
+                Log In
               </Button>
               <Grid container>
                 <Grid item xs>

@@ -19,12 +19,13 @@ import CssBaseline from '@mui/material/CssBaseline';
 import SearchIcon from '@mui/icons-material/Search';
 import logo from '../assets/he-logo.svg';
 import Image from 'mui-image';
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from '../features/usersSlice';
 
 // constants for menu/user navigation (left and right navigation on navbar)
 const pages = ['Directory', 'About', 'Messages',];
 
-
-const settings = ['Profile', 'Register', 'Logout'];
+const settings = ['Profile', 'Register', 'Logout', 'Login'];
 
 
 const Navbar = () => {
@@ -46,6 +47,9 @@ const Navbar = () => {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
+
+    const currentUser = useSelector(selectCurrentUser);
+    console.log(currentUser)
 
     //tap into global theme written in index.js within root directory for client
     const theme = useTheme();
@@ -164,11 +168,13 @@ const Navbar = () => {
 
                                 {/* avatar box - placeholder kitten image - how cute :) */}
 
-                                <Tooltip title="Open settings">
+{/* tooltip => pull userName */}
+                                <Tooltip title={currentUser ? currentUser.email : "not logged in"}>
                                     <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, marginLeft: 0 }}>
                                         <Avatar alt="Place Kitten" src="http://placekitten.com/g/200/300" sx={{ border: 1, borderColor: 'white' }} />
                                     </IconButton>
                                 </Tooltip>
+                               
 
                                 <Menu
                                     sx={{ mt: '45px' }}

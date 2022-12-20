@@ -49,7 +49,7 @@ const Navbar = () => {
     };
 
     const currentUser = useSelector(selectCurrentUser);
-    console.log(currentUser)
+    // console.log(currentUser)
 
     //tap into global theme written in index.js within root directory for client
     const theme = useTheme();

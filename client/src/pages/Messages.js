@@ -11,7 +11,8 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import VideoCallIcon from '@mui/icons-material/VideoCall';
 import PostAddIcon from '@mui/icons-material/PostAdd';
 import { theme } from '../theme';
-
+import InputBase from '@mui/material/InputBase';
+import SearchIcon from '@mui/icons-material/Search';
 // Chat design reference https://medium.com/@awaisshaikh94/chat-component-built-with-react-and-material-ui-c2b0d9ccc491
 
 
@@ -22,23 +23,26 @@ const ChatSection = styled(Grid)(({ theme }) => ({
     minHeight: "600px",
     marginLeft:"1%",
     marginRight:"1%",
-    backgroundColor: theme.palette.lightGreen, 
-    color: "#7785AC"
+    backgroundColor: theme.palette.darkPurple,
+    color: "#7785AC",
+    border: "1px solid white",
+    borderRadius: "10px"
 
 }))
 
 const BorderRight500 = styled(Grid)(({ theme }) => ({
-    borderRight: "1px solid #7785AC"
+    borderRight: "1px solid white"
 }))
 
 const MessageArea = styled(List)(({ theme }) => ({
     height: '85%',
     overflowY: 'auto',
     minHeight: "10%"
+   
 }))
-
+ 
 const LeftChatContainer = styled(ListItem)(({ theme }) => ({
-    color: theme.palette.lightGreen,
+    color: theme.palette.white,
     backgroundColor: theme.palette.medPurple,
     
 }))
@@ -49,15 +53,16 @@ const RightSideMessage = styled(Grid)(({ theme }) => ({
     width: "auto",
     marginLeft: "auto",
     paddingRight: "10px",
-    color: theme.palette.lightGreen,
+    color: theme.palette.white,
     borderRadius: "10px"
 }))
 
 const LeftSideMessage = styled(Grid)(({ theme }) => ({
-    backgroundColor: theme.palette.teal,
+    backgroundColor: theme.palette.green,
     width: "auto",
     paddingLeft: "10px",
-    color: theme.palette.darkPurple,
+    color: theme.palette.black,
+    borderColor:theme.palette.white,
     borderRadius: "10px"
 }))
 
@@ -93,6 +98,45 @@ const TypingField = styled(TextField)({
     }
 
   });
+
+  const Search = styled("div")(({ theme }) => ({
+    position: "relative",
+    borderRadius: 50,
+    backgroundColor: theme.palette.green,
+    marginLeft: 5,
+    marginRight: 5,
+    width: "100%",
+    [theme.breakpoints.up("sm")]: {
+        width: "auto"
+    }
+}));
+
+const SearchIconWrapper = styled("div")(({ theme }) => ({
+    padding: theme.spacing(0, 2),
+    height: "100%",
+    color: 'black',
+    position: "absolute",
+    pointerEvents: "none",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    elevation: 0,
+}));
+
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    color: "black",
+    width: "100%",
+    borderRadius: 50,
+    align: 'center',
+    textAlign: 'center',
+    "& .MuiInputBase-input": {
+        textAlign: 'center',
+        padding: theme.spacing(1, 1, 1, 0),
+        // vertical padding + font size from searchIcon
+        paddingLeft: `calc(1em + ${theme.spacing(4)})`
+    }
+}
+));
 
 
 
@@ -132,8 +176,18 @@ const Messages = () => {
                         </Grid>
                     </Grid>
                     <Divider />
-                    <Grid item xs={12} style={{padding: '10px'}}>
-                        <TypingField id="outlined-basic" label="Search" variant="outlined" fullWidth />
+                    <Grid item xs={12} style={{padding: '10px'}} >
+                        {/* SEARCH COMPONENT */}
+                        <Search >
+                                <SearchIconWrapper>
+                                    <SearchIcon />
+                                </SearchIconWrapper>
+                                <StyledInputBase
+                                    placeholder="Search"
+                                    inputProps={{ "aria-label": "search" }}
+                                    sx={{ border: 1, textAlign: 'center', }}
+                                />
+                            </Search >
                     </Grid>
                     <Divider />
                     <List sx={{paddingTop:"0px"}}>

@@ -72,7 +72,7 @@ const TimeStamp = styled(Typography)(({ theme }) => ({
 
 const TypingField = styled(TextField)({
     '& label.Mui-focused': {
-      color: '#360568',
+      color: '#FFFFFF',
     },
     '& .MuiInput-underline:after': {
       borderBottomColor: '#360568',
@@ -83,16 +83,16 @@ const TypingField = styled(TextField)({
         color: '#360568'
       },
       '&:hover fieldset': {
-        borderColor: "#360568",
+        borderColor: "#FFFFFF",
       },
       '&.Mui-focused fieldset': {
-        borderColor: "#360568",
+        borderColor: "#FFFFFF",
       },
     },
     'input':{
-        color: '#360568',
+        color: theme.palette.white,
         '&::placeholder':{
-            color: '#360568',
+            color: theme.palette.white,
         },
         
     }
@@ -152,7 +152,7 @@ const Messages = () => {
                 <BorderRight500 item xs={3}>
                     <Grid container marginLeft="15px" marginBottom="5px" marginTop="5px" wrap="nowrap">
                         <Grid item xs={5}>
-                            <Typography variant="h5" className="header-message" sx={{color: theme.palette.darkPurple}}>Chat</Typography>   
+                            <Typography variant="h5" className="header-message" sx={{color: theme.palette.white}}>Chat</Typography>   
                         </Grid>
                         <Grid container item xs={7} justifyContent="flex-end" marginRight="20px"  marginTop="auto" marginBottom="auto" >
                             <Stack direction="row" spacing={0.5} sx={{display: {xs:'none',md:"flex"}}}>

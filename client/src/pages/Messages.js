@@ -19,8 +19,8 @@ import SearchIcon from '@mui/icons-material/Search';
 
 const ChatSection = styled(Grid)(({ theme }) => ({
     width: '98%',
-    height: "90%",
-    minHeight: "600px",
+    height: "80vh",
+    // minHeight: "100px",
     marginLeft:"1%",
     marginRight:"1%",
     backgroundColor: theme.palette.darkPurple,
@@ -31,13 +31,16 @@ const ChatSection = styled(Grid)(({ theme }) => ({
 }))
 
 const BorderRight500 = styled(Grid)(({ theme }) => ({
-    borderRight: "1px solid white"
+    borderRight: "1px solid white",
+    height: "100%",
 }))
 
 const MessageArea = styled(List)(({ theme }) => ({
-    height: '85%',
+    height: '87.5%',
     overflowY: 'auto',
-    minHeight: "10%"
+    // minHeight: "10%",
+    maxHeight: "600px",
+    borderBottom: "1px solid white"
    
 }))
  
@@ -50,7 +53,7 @@ const LeftChatContainer = styled(ListItem)(({ theme }) => ({
 //styles
 const RightSideMessage = styled(Grid)(({ theme }) => ({
     backgroundColor: theme.palette.medPurple,
-    width: "auto",
+    width: "40%",
     marginLeft: "auto",
     paddingRight: "10px",
     color: theme.palette.white,
@@ -59,7 +62,7 @@ const RightSideMessage = styled(Grid)(({ theme }) => ({
 
 const LeftSideMessage = styled(Grid)(({ theme }) => ({
     backgroundColor: theme.palette.green,
-    width: "auto",
+    width: "40%",
     paddingLeft: "10px",
     color: theme.palette.black,
     borderColor:theme.palette.white,
@@ -93,15 +96,16 @@ const TypingField = styled(TextField)({
     },
     'input':{
         color: theme.palette.white,
+        color: theme.palette.white,
         '&::placeholder':{
+            color: theme.palette.white,
             color: theme.palette.white,
         },
         
     }
+});
 
-  });
-
-  const Search = styled("div")(({ theme }) => ({
+const Search = styled("div")(({ theme }) => ({
     position: "relative",
     borderRadius: 50,
     backgroundColor: theme.palette.green,
@@ -163,6 +167,11 @@ const ActionButton = styled(Button)({
 
 const Messages = () => {
     
+    //fetch chats
+
+    //fetch messages
+
+
     //import theme form theme.js
     const theme = useTheme();
 
@@ -238,7 +247,7 @@ const Messages = () => {
                 </BorderRight500>
 
                 {/* This is the individual chat section */}
-                <Grid item xs={9} >
+                <Grid item xs={9} height="100%" width="100%">
                     <MessageArea>
                         <ListItem key="1" >
                             <RightSideMessage container>
@@ -264,6 +273,76 @@ const Messages = () => {
                             <RightSideMessage container>
                                 <Grid item xs={12}>
                                     <Typography align="right">Cool. i am good, let's catch up!</Typography>
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TimeStamp align="right">10:30</TimeStamp>
+                                </Grid>
+                            </RightSideMessage>
+                        </ListItem>
+                        <ListItem key="4">
+                            <RightSideMessage container>
+                                <Grid item xs={12}>
+                                    <Typography align="right">Cool. i am good, let's catch up!</Typography>
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TimeStamp align="right">10:30</TimeStamp>
+                                </Grid>
+                            </RightSideMessage>
+                        </ListItem>
+                        <ListItem key="5">
+                            <RightSideMessage container>
+                                <Grid item xs={12}>
+                                    <Typography align="right">Cool. i am good, let's catch up! Cool. i am good, let's catch up! Cool. i am good, let's catch up! Cool. i am good, let's catch up! Cool. i am good, let's catch up!</Typography>
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TimeStamp align="right">10:30</TimeStamp>
+                                </Grid>
+                            </RightSideMessage>
+                        </ListItem>
+                        <ListItem key="6">
+                            <RightSideMessage container>
+                                <Grid item xs={12}>
+                                    <Typography align="right">Cool. i am good, let's catch up! Cool. i am good, let's catch up! Cool. i am good, let's catch up! Cool. i am good, let's catch up! Cool. i am good, let's catch up!</Typography>
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TimeStamp align="right">10:30</TimeStamp>
+                                </Grid>
+                            </RightSideMessage>
+                        </ListItem>
+                        <ListItem key="7">
+                            <RightSideMessage container>
+                                <Grid item xs={12}>
+                                    <Typography align="right">Cool. i am good, let's catch up! Cool. i am good, let's catch up! Cool. i am good, let's catch up! Cool. i am good, let's catch up! Cool. i am good, let's catch up!</Typography>
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TimeStamp align="right">10:30</TimeStamp>
+                                </Grid>
+                            </RightSideMessage>
+                        </ListItem>
+                        <ListItem key="8">
+                            <RightSideMessage container>
+                                <Grid item xs={12}>
+                                    <Typography align="right">Cool. i am good, let's catch up! Cool. i am good, let's catch up! Cool. i am good, let's catch up! Cool. i am good, let's catch up! Cool. i am good, let's catch up!</Typography>
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TimeStamp align="right">10:30</TimeStamp>
+                                </Grid>
+                            </RightSideMessage>
+                        </ListItem>
+                        <ListItem key="9">
+                            <RightSideMessage container>
+                                <Grid item xs={12}>
+                                    <Typography align="right">Cool. i am good, let's catch up! Cool. i am good, let's catch up! Cool. i am good, let's catch up! Cool. i am good, let's catch up! Cool. i am good, let's catch up!</Typography>
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TimeStamp align="right">10:30</TimeStamp>
+                                </Grid>
+                            </RightSideMessage>
+                        </ListItem>
+                        <ListItem key="10">
+                            <RightSideMessage container>
+                                <Grid item xs={12}>
+                                    <Typography align="right">Cool. i am good, let's catch up! Cool. i am good, let's catch up! Cool. i am good, let's catch up! Cool. i am good, let's catch up! Cool. i am good, let's catch up!</Typography>
                                 </Grid>
                                 <Grid item xs={12}>
                                     <TimeStamp align="right">10:30</TimeStamp>

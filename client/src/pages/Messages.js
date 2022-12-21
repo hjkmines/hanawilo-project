@@ -24,7 +24,7 @@ const ChatSection = styled(Grid)(({ theme }) => ({
     marginLeft:"1%",
     marginRight:"1%",
     backgroundColor: theme.palette.darkPurple,
-    color: "#7785AC",
+    color: theme.palette.white,
     border: "1px solid white",
     borderRadius: "10px"
 
@@ -71,28 +71,30 @@ const TimeStamp = styled(Typography)(({ theme }) => ({
 }))
 
 const TypingField = styled(TextField)({
+    borderColor: theme.palette.white,
+    
     '& label.Mui-focused': {
-      color: '#360568',
+      color: theme.palette.white,
     },
     '& .MuiInput-underline:after': {
-      borderBottomColor: '#360568',
+      borderBottomColor: theme.palette.white,
     },
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
-        borderColor: '#7785AC',
-        color: '#360568'
+        borderColor: theme.palette.white,
+        color: theme.palette.white
       },
       '&:hover fieldset': {
-        borderColor: "#360568",
+        borderColor: theme.palette.white,
       },
       '&.Mui-focused fieldset': {
-        borderColor: "#360568",
+        borderColor: theme.palette.white,
       },
     },
     'input':{
-        color: '#360568',
+        color: theme.palette.white,
         '&::placeholder':{
-            color: '#360568',
+            color: theme.palette.white,
         },
         
     }
@@ -138,6 +140,25 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }
 ));
 
+const ActionButton = styled(Button)({
+    background: "#3FFF80",
+    color: 'black',
+    fontWeight: 900,
+    textTransform: 'capitalized',
+    marginLeft: '20px',
+    borderRadius: 50,
+    '&:hover': {
+      backgroundColor: 'rgba(63,255,128,.8)'
+  
+    },
+    '&:active': {
+      backgroundColor: 'rgba(63,255,128,.8)'
+    },
+    '&:focus': {
+      backgroundColor: 'rgba(63,255,128,.8)'
+    },
+  
+  })
 
 
 const Messages = () => {
@@ -148,11 +169,11 @@ const Messages = () => {
     return (
         <div>
             <Navbar />
-            <ChatSection container component={Paper}  >
+            <ChatSection container component={Paper} elevation={0}  >
                 <BorderRight500 item xs={3}>
-                    <Grid container marginLeft="15px" marginBottom="5px" marginTop="5px" wrap="nowrap">
-                        <Grid item xs={5}>
-                            <Typography variant="h5" className="header-message" sx={{color: theme.palette.darkPurple}}>Chat</Typography>   
+                    <Grid container marginLeft="15px" marginBottom="5px" marginTop="5px" wrap="nowrap"  >
+                        <Grid item xs={5} >
+                            <Typography variant="h5" className="header-message" sx={{color: theme.palette.white}}>Chat</Typography>   
                         </Grid>
                         <Grid container item xs={7} justifyContent="flex-end" marginRight="20px"  marginTop="auto" marginBottom="auto" >
                             <Stack direction="row" spacing={0.5} sx={{display: {xs:'none',md:"flex"}}}>
@@ -175,7 +196,7 @@ const Messages = () => {
                             </Stack>
                         </Grid>
                     </Grid>
-                    <Divider />
+                 
                     <Grid item xs={12} style={{padding: '10px'}} >
                         {/* SEARCH COMPONENT */}
                         <Search >
@@ -251,24 +272,14 @@ const Messages = () => {
                         </ListItem>
                     </MessageArea>
                     <Divider />
-                    <Grid container spacing={1} style={{margin: '15px'}} paddingRight="30px" >
-                        <Grid item xs={11} >
+                    <Grid container direction="row" justifyContent="flex-start" marginTop="15px"  alignItems="center" >
+                        <Grid item xs={10} marginLeft={2} >
                             <TypingField fullWidth id="outlined-basic" placeholder="Type Something"/>
                         </Grid>
-                        <Grid item xs={1} align="center" marginTop="auto" marginBottom="auto">
-                            <Button 
-                                variant="contained"
-                            
-                                sx={{
-                                    bgcolor:theme.palette.medPurple,
-                                    color: theme.palette.white,
-                                    '&:hover': {
-                                        bgcolor:theme.palette.darkPurple,
-                                        color: theme.palette.white,
-                                    }
-                                }}
-                            >Send</Button>
+                        <Grid item xs={1} marginLeft={4}>
+                            <ActionButton >Send</ActionButton>
                         </Grid>
+
                     </Grid>
                 </Grid>
             </ChatSection>

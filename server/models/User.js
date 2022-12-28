@@ -1,6 +1,28 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+const RatingSchema = new Schema({
+    rating: {
+      type: Number,
+      min: 1,
+      max: 5,
+      required: true,
+      validate: (rating) => {
+        return typeof rating === "number";
+      },
+    },
+    text: {
+      type: String,
+      required: true,
+    },
+    tutor: {
+      type: mongoose.Schema.Types.ObjectID,
+      ref: "User",
+    },
+  }, {
+    timestamps: true
+  });
+
 const UserSchema = new Schema(
   {
     userName: {
@@ -34,28 +56,8 @@ const UserSchema = new Schema(
     profileImage: {
       type: String,
     },
-    child: new mongoose.Schema({
-      rating: {
-        type: Number,
-        min: 1,
-        max: 5,
-        required: true,
-        validate: (rating) => {
-          return typeof rating === "number";
-        },
-      },
-      text: {
-        type: String,
-        required: true,
-      },
-      tutor: {
-        type: mongoose.Schema.Types.ObjectID,
-        ref: 'User'
-      }
-    }),
-  },
-
-  {
+    ratings: [RatingSchema]
+  }, {
     timestamps: true,
   }
 );

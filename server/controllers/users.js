@@ -76,6 +76,32 @@ const deleteOneUser = async (req, res, next) => {
   }
 };
 
+//forget password
+const forgotPassword = async (req, res, next) => {
+  const user = await User.findOne({ email: req.body.email });
+
+  if (!user) throw new Error('No user found');
+
+  const resetToken = user.getResetPasswordToken(); 
+
+  try {
+      await user.save({ validateBeforeSave: false });
+
+      res
+      .status(200)
+      .json({ 
+          success: true, 
+          msg: `Password has been reset with token: ${resetToken}` 
+      });
+  } catch (err) {
+      user.resetPasswordToken = undefined; 
+      user.resetPasswordExpire = undefined; 
+
+      await user.save({ validateBeforeSave: false }); 
+
+      throw new Error('Failed to save new password');
+  }
+}
 
 module.exports = {
     getUsers,
@@ -83,7 +109,8 @@ module.exports = {
     deleteUsers,
     getOneuser,
   updateOneUser,
-  deleteOneUser
+  deleteOneUser,
+  forgotPassword
 }
 
 

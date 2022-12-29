@@ -82,6 +82,7 @@ const forgotPassword = async (req, res, next) => {
 
   if (!user) throw new Error('No user found');
 
+  //generate new token
   const resetToken = user.getResetPasswordToken(); 
 
   try {

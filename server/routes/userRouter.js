@@ -1,14 +1,15 @@
 const userRouter = require("express").Router();
 const {
-  getUser,
+  getOneuser,
   getUsers,
   createUser,
   updateOneUser,
   deleteUsers,
   deleteOneUser,
+  forgotPassword
 } = require("../controllers/users");
 
-userRouter.route("/login").post(getUser);
+userRouter.route("/login").post(getOneuser);
 
 userRouter.route("/")
 .get(getUsers)
@@ -17,8 +18,11 @@ userRouter.route("/")
 
 userRouter
   .route("/:userId")
-  .get(getUser)
+  .get(getOneuser)
   .put(updateOneUser)
   .delete(deleteOneUser);
+
+userRouter.route("/forgotpassword")
+  .post(forgotPassword)
 
 module.exports = userRouter;

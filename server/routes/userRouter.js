@@ -1,4 +1,5 @@
 const userRouter = require("express").Router();
+
 const {
   getUser,
   getUsers,

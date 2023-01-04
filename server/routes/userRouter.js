@@ -8,7 +8,7 @@ const {
   deleteOneUser,
 } = require("../controllers/users");
 
-userRouter.route("/login").post(getUser);
+userRouter.route("/login").post(getUsers);
 
 userRouter.route("/")
 .get(getUsers)
@@ -17,7 +17,7 @@ userRouter.route("/")
 
 userRouter
   .route("/:userId")
-  .get(getUser)
+  .get(getUsers)
   .put(updateOneUser)
   .delete(deleteOneUser);
 

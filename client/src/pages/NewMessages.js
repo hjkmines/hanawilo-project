@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
@@ -7,11 +7,9 @@ import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import {
-  Container,
   Grid,
   useTheme,
   Button,
-  ListItemButton,
   Avatar,
   Paper,
   styled,
@@ -31,9 +29,11 @@ import { useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
+import Sidebar from "../components/Sidebar";
+import Conversation from "../components/Conversation";
 // Chat design reference https://medium.com/@awaisshaikh94/chat-component-built-with-react-and-material-ui-c2b0d9ccc491
 
-const ChatSection = styled(Grid)(({ theme }) => ({
+const ChatSection = styled(Stack)(({ theme }) => ({
   width: "98%",
   height: "80vh",
   // minHeight: "100px",
@@ -43,6 +43,7 @@ const ChatSection = styled(Grid)(({ theme }) => ({
   color: theme.palette.white,
   border: "1px solid white",
   borderRadius: "10px",
+  direction:"row"
 }));
 
 const BorderRight500 = styled(Grid)(({ theme }) => ({
@@ -108,6 +109,7 @@ const TypingField = styled(TextField)({
     },
   },
   input: {
+    
     color: theme.palette.white,
     color: theme.palette.white,
     "&::placeholder": {
@@ -173,168 +175,102 @@ const ActionButton = styled(Button)({
   },
 });
 
-const Messages = ({ currentUser, }) => {
+const NewMessages = ({ socket }) => {
   const dispatch = useDispatch();
-  const handleMessageSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
+  const [message, setMessage] = useState('');
+  const [conversation, setConversation] = useState(null);
 
-    const message = {
-      content: data.get("message"),
-    };
-    console.log(message.content);
-    dispatch(
-      sendMessage({
-        messageId: uuidv4(),
-        messageContent: message.content,
-        timeStamp: new Date().toLocaleString(),
-      })
-    );
-  };
-
+  const [messagesRecieved, setMessagesReceived] = useState([]);
+  const inputRef = useRef();
   const theme = useTheme();
+ 
+
+  const handleMessageChange = (event) => {
+    // event.preventDefault();
+    setMessage(event.target.value)
+    // console.log(message)
+  }
+
+  //replace dispatch() with socket.emit()//
+  const handleMessageSubmit = (event) => {
+    event.preventDefault(); 
+    if (message === "") return
+    console.log(message)
+    socket.emit('send_message', message)
+      // dispatch(
+      //     sendMessage({
+      //         messageId: uuidv4(),
+      //         messageContent: message,
+      //         timeStamp: new Date().toLocaleString(),
+      //       })
+      //     );
+          setMessage('');
+        };
+  
+  // conversation change
+  const handleConversationChange = (event) => {
+    setConversation(event.target)
+    console.log(conversation)
+  }
+
+   // Runs whenever a socket event is recieved from the server
+   useEffect(() => {
+    socket.on('receive_message', (data) => {
+      console.log(data);
+      setMessagesReceived((state) => [
+        ...state,
+        {
+          message: data.message,
+          username: data.username,
+          __createdtime__: data.__createdtime__,
+        },
+      ]);
+    });
+
+	// Remove event listener on component unmount
+    return () => socket.off('receive_message');
+  }, [socket]);
+
+  // dd/mm/yyyy, hh:mm:ss
+  function formatDateFromTimestamp(timestamp) {
+    const date = new Date(timestamp);
+    return date.toLocaleString();
+  }
+
 
   return (
     <div>
       <Navbar />
-      <ChatSection container component={Paper} elevation={0}>
-        <BorderRight500 item xs={3}>
-          <Grid
-            container
-            marginLeft="15px"
-            marginBottom="5px"
-            marginTop="5px"
-            wrap="nowrap"
-          >
-            <Grid item xs={5}>
-              <Typography
-                variant="h5"
-                className="header-message"
-                sx={{ color: theme.palette.white }}
-              >
-                Chat
-              </Typography>
-            </Grid>
-            <Grid
-              container
-              item
-              xs={7}
-              justifyContent="flex-end"
-              marginRight="20px"
-              marginTop="auto"
-              marginBottom="auto"
-            >
-              <Stack
-                direction="row"
-                spacing={0.5}
-                sx={{ display: { xs: "none", md: "flex" } }}
-              >
-                {/* add a tooltip for when hovering over the button */}
-                <Tooltip title="More">
-                  <Avatar
-                    alt="dot dot dot"
-                    sx={{ maxWidth: 30, maxHeight: 30 }}
-                  >
-                    <MoreHorizIcon />
-                  </Avatar>
-                </Tooltip>
-                <Tooltip title="Add Media">
-                  <Avatar
-                    alt="add a photo"
-                    sx={{ maxWidth: 30, maxHeight: 30 }}
-                  >
-                    <VideoCallIcon />
-                  </Avatar>
-                </Tooltip>
-                <Tooltip title="New Message">
-                  <Avatar alt="add a post" sx={{ maxWidth: 30, maxHeight: 30 }}>
-                    <PostAddIcon />
-                  </Avatar>
-                </Tooltip>
-              </Stack>
-            </Grid>
-          </Grid>
-
-          <Grid item xs={12} style={{ padding: "10px" }}>
-            {/* SEARCH COMPONENT */}
-            <Search>
-              <SearchIconWrapper>
-                <SearchIcon />
-              </SearchIconWrapper>
-              <StyledInputBase
-                placeholder="Search"
-                inputProps={{ "aria-label": "search" }}
-                sx={{ border: 1, textAlign: "center" }}
-              />
-            </Search>
-          </Grid>
-          <Divider />
-          <List sx={{ paddingTop: "0px" }}>
-            <LeftChatContainer button key="RemySharp">
-              <ListItemIcon>
-                <Avatar
-                  alt="Remy Sharp"
-                  src="https://material-ui.com/static/images/avatar/1.jpg"
-                  
-                />
-              </ListItemIcon>
-              <ListItemText primary="Remy Sharp">Remy Sharp</ListItemText>
-              <ListItemText
-                secondary="online"
-                secondaryTypographyProps={{ style: { color: "white" } }}
-                align="right"
-              ></ListItemText>
-            </LeftChatContainer>
-            <Divider />
-            <LeftChatContainer button key="Alice">
-              <ListItemIcon>
-                <Avatar
-                  alt="Alice"
-                  src="https://material-ui.com/static/images/avatar/3.jpg"
-                />
-              </ListItemIcon>
-              <ListItemText primary="Alice">Alice</ListItemText>
-            </LeftChatContainer>
-            <Divider />
-            <LeftChatContainer button key="CindyBaker">
-              <ListItemIcon>
-                <Avatar
-                  alt="Cindy Baker"
-                  src="https://material-ui.com/static/images/avatar/2.jpg"
-                />
-              </ListItemIcon>
-              <ListItemText primary="Cindy Baker">Cindy Baker</ListItemText>
-            </LeftChatContainer>
-            <Divider />
-          </List>
-        </BorderRight500>
-
+      <ChatSection component={Paper} elevation={0}>
+        {/* left side contacts / conversations */}
+        <Sidebar socket={socket} />
+     
         {/* This is the individual chat section */}
-        <Grid item xs={9}>
-          <MessageArea >
-           
-            <IntialConversation />
-            
-          </MessageArea>
+        <Stack direction="column">
+          <Box>
+            <Conversation sx={{ width:'70%', height: '60%'}} socket={socket}/>
+          </Box>
           <Divider />
-
-            <Box component={"form"} onSubmit={handleMessageSubmit}>
-          <Stack direction="row" sx={{padding:0}}>
+          
+          <Box component={"form"} onSubmit={handleMessageSubmit}>
+            <Stack direction="row" sx={{padding:0}}>
               <TypingField
                 name="message"
                 id="message"
+                value={message}
+                onChange={handleMessageChange}
                 placeholder="Type Something"
                 fullWidth
               />
               <ActionButton type="submit">S e n d</ActionButton>
-          </Stack>
-            </Box>
-          
-        </Grid>
+            </Stack>
+          </Box>
+        </Stack>
+            
       </ChatSection>
       
     </div>
   );
 };
 
-export default Messages;
+export default NewMessages;

@@ -17,16 +17,18 @@ import { useDispatch } from "react-redux";
 import { setCurrentUser } from "../features/usersSlice";
 
 function Copyright(props) {
+  const theme = useTheme();
+  
   return (
     <Typography
       variant="body2"
-      color="text.secondary"
+      color={theme.palette.lightPurple}
       align="center"
       {...props}
     >
       {"Copyright © "}
       <Link color="inherit" href="https://mui.com/">
-        Your Website
+        HanawiloEdge
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -58,7 +60,13 @@ export default function Login() {
   return (
     <>
     <Navbar />
-      <Grid container component="main" sx={{ height: "100vh" }}>
+      <Grid 
+        container 
+        component="main" 
+        sx={{ 
+          height: "100vh"
+          }}
+        >
         <CssBaseline />
         <Grid
           item
@@ -89,14 +97,19 @@ export default function Login() {
             <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
               <LockOutlinedIcon />
             </Avatar>
-            <Typography component="h1" variant="h5">
+            <Typography 
+              component="h1" 
+              variant="h5"
+              sx={{ color: "white", backgroundColor:"pink"}}
+            >
               Sign in
             </Typography>
             <Box
               component="form"
-              noValidate
+              required
               onSubmit={handleSubmit}
-              sx={{ mt: 1 }}
+              sx={{ mt: 1,
+                backgroundColor: theme.palette.medPurple}}
             >
               <TextField
                 margin="normal"
@@ -107,6 +120,7 @@ export default function Login() {
                 name="email"
                 autoComplete="email"
                 autoFocus
+                sx={{color:"black"}}
               />
               <TextField
                 margin="normal"
@@ -137,7 +151,7 @@ export default function Login() {
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link href="#" variant="body2">
+                  <Link href="/register" variant="body2">
                     {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>

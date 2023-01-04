@@ -26,7 +26,7 @@ const TimeStamp = styled(Typography)(({ theme }) => ({
 
 const IntialConversation = () => {
   const messages = useSelector(selectCurrentMessage);
-  console.log(messages);
+  // console.log(messages);
 //messages[]
   return (
     <>

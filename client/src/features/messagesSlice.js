@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from 'uuid';
 
 const initialState = { 
+    // query DB to get existing messages //
     currentMessage: [{
         messageId: 1,
         messageContent: "Hey man, What's Up?",
@@ -28,6 +29,7 @@ export const messageSlice = createSlice({
     reducers: {
         sendMessage: (state, action) => {
             state.currentMessage.push(action.payload)
+        
         },
     }
 });

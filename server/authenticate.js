@@ -15,7 +15,7 @@ dotenv.config({ path: "./config/config.env" });
 const SECRET_KEY = process.env.SECRET_KEY;
 
 exports.getToken = function(user) {
-    return jwt.sign(user, config.secretKey, {expiresIn: 3600});
+    return jwt.sign(user, SECRET_KEY, {expiresIn: 3600});
 };
 
 const opts = {};

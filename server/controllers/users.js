@@ -1,8 +1,10 @@
 const User = require('../models/user');
 const passport = require('passport');
+const { authenticate } = require('passport');
 
 const loginUser = async (req, res) => {
   passport.authenticate('local');
+  const token = authenticate.getToken({_id: req.user._id});
   res.status(200)
     .setHeader('Content-Type', 'application/json')
     .json({ success: true, status: 'You are successfully logged in!' });

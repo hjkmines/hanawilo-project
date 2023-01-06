@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 const morgan = require("morgan");
 const connectDB = require('./config/db'); 
 const userRouter = require('./routes/userRouter'); 
+const passport = require("passport");
 
 
 //configure our project to access config values from this location
@@ -17,6 +18,8 @@ const app = express();
 if (process.env.NODE_ENV === "dev") {
   app.use(morgan("dev"));
 }
+
+app.use(passport.initialize());
 
 app.use('/user', userRouter); 
 

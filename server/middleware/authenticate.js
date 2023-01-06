@@ -1,6 +1,6 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-const User = require('./models/User');
+const User = require('../models/User');
 const dotenv = require("dotenv");
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
@@ -27,6 +27,7 @@ exports.jwtPassport = passport.use(
         opts,
         (jwt_payload, done) => {
             console.log('JWT payload:', jwt_payload);
+            console.log('Login successful')
             User.findOne({_id: jwt_payload._id}, (err, user) => {
                 if (err) {
                     return done(err, false);

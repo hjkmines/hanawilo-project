@@ -1,10 +1,10 @@
 const User = require('../models/user');
 const passport = require('passport');
-const { authenticate } = require('passport');
+const authenticate = require('../middleware/authenticate');
 
 const loginUser = async (req, res) => {
-  passport.authenticate('local');
-  const token = authenticate.getToken({_id: req.user._id});
+
+  const token = authenticate.getToken({ _id: req.user._id });
   res.status(200)
     .setHeader('Content-Type', 'application/json')
     .json({ success: true, status: 'You are successfully logged in!' });
@@ -33,6 +33,7 @@ const createUser = async (req, res) => {
           .setHeader('Content-Type', 'application/json')
           .json({ err: err });
       } else {
+        
         passport.authenticate('local')(req, res, () => {
           res.status(200)
             .setHeader('Content-Type', 'application/json')
@@ -56,7 +57,7 @@ const deleteUsers = async (req, res, next) => {
   }
 }
 
-const getOneuser = async (req, res, next) => {
+const getOneUser = async (req, res, next) => {
   try {
     const user = await User.findById(req.params.userId);
     res.status(200).setHeader("Content-type", "application/json").json(oneUser);
@@ -99,7 +100,7 @@ module.exports = {
   getUsers,
   createUser,
   deleteUsers,
-  getOneuser,
+  getOneUser,
   updateOneUser,
   deleteOneUser
 }

@@ -1,6 +1,6 @@
 const SkillSet = require('../models/Skillset');
 
-cont getSkill = async (req, res, next) => {
+const getSkill = async (req, res, next) => {
     try { 
         const skillSet = await SkillSet.find();
         res

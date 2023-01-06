@@ -1,17 +1,8 @@
 const mongoose = require('mongoose');
+const passportLocalMongoose = require('passport-local-mongoose');
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-    userName: {
-        type: String,
-        unique: true,
-        required: [true, 'Please provide a user name'],
-        maxLength: [12, 'User name cannot exceed 12 characters']
-    },
-    password:{
-        type: String,
-        required: [true, 'please provide a password'],
-    },
     email: {
         type: String,
         unique: true,
@@ -25,16 +16,16 @@ const UserSchema = new Schema({
         type: String,
         required: [true, 'please provide a last name']
     },
-    gender:{
+    gender: {
         type: String,
         required: [true, 'please select your gender'],
-        enum: [ 
-                'Male', 
-                'Female', 
-                'Non-Binary', 
-                'Other',
-                'prefer not to answer', 
-            ]
+        enum: [
+            'Male',
+            'Female',
+            'Non-Binary',
+            'Other',
+            'prefer not to answer',
+        ]
     },
     profileImage: {
         type: String,
@@ -43,4 +34,5 @@ const UserSchema = new Schema({
     timestamps: true,
 })
 
+UserSchema.plugin(passportLocalMongoose);
 module.exports = mongoose.model('User', UserSchema);

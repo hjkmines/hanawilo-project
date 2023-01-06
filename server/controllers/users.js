@@ -1,42 +1,57 @@
 const User = require('../models/user');
+const passport = require('passport');
 
-const getUsers = async (req, res, next) => {
-    try {
-        const users = await User.find();
-        res
-        .status(200)
-        .setHeader('Content-Type', 'application/json')
-        .json(users);
-    } catch (err) {
-        console.log('Error getting users');
-        next(err);
-    }
+const loginUser = async (req, res) => {
+  passport.authenticate('local');
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'application/json');
+  res.json({ success: true, status: 'You are successfully logged in!' });
 }
 
-const createUser = async (req, res, next) => {
-    try {
-        const user = await User.create(req.body);
-        res
-        .status(200)
-        .setHeader('Content-Type', 'application/json')
-        .json(user);
-    } catch (err) {
-        console.log('Error creating user');
-        next(err);
+const getUsers = async (req, res, next) => {
+  try {
+    const users = await User.find();
+    res
+      .status(200)
+      .setHeader('Content-Type', 'application/json')
+      .json(users);
+  } catch (err) {
+    console.log('Error getting users');
+    next(err);
+  }
+}
+
+const createUser = async (req, res) => {
+  User.register(
+    new User({ username: req.body.username }),
+    req.body.password,
+    err => {
+      if (err) {
+        res.status(500)
+          .setHeader('Content-Type', 'application/json')
+          .json({ err: err });
+      } else {
+        passport.authenticate('local')(req, res, () => {
+          res.status(200)
+            .setHeader('Content-Type', 'application/json')
+            .json({ success: true, status: 'Registration Successful!' });
+        });
+      }
     }
+  );
 }
 
 const deleteUsers = async (req, res, next) => {
-    try {
-        const response = await User.deleteMany();
-        res
-        .status(200)
-        .setHeader('Content-Type', 'application/json')
-        .json(response);
-    } catch (err) {
-        console.log('Error deleting users');
-        next(err);
-    }
+  try {
+    const response = await User.deleteMany();
+    res
+      .status(200)
+      .setHeader('Content-Type', 'application/json')
+      .json(response);
+  } catch (err) {
+    console.log('Error deleting users');
+    next(err);
+  }
 }
 
 const getOneuser = async (req, res, next) => {
@@ -78,10 +93,11 @@ const deleteOneUser = async (req, res, next) => {
 
 
 module.exports = {
-    getUsers,
-    createUser,
-    deleteUsers,
-    getOneuser,
+  loginUser,
+  getUsers,
+  createUser,
+  deleteUsers,
+  getOneuser,
   updateOneUser,
   deleteOneUser
 }

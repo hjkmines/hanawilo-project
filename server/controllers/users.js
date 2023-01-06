@@ -3,9 +3,9 @@ const passport = require('passport');
 
 const loginUser = async (req, res) => {
   passport.authenticate('local');
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'application/json');
-  res.json({ success: true, status: 'You are successfully logged in!' });
+  res.status(200)
+    .setHeader('Content-Type', 'application/json')
+    .json({ success: true, status: 'You are successfully logged in!' });
 }
 
 const getUsers = async (req, res, next) => {

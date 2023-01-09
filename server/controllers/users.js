@@ -3,11 +3,10 @@ const passport = require('passport');
 const authenticate = require('../middleware/authenticate');
 
 const loginUser = async (req, res) => {
-
   const token = authenticate.getToken({ _id: req.user._id });
   res.status(200)
     .setHeader('Content-Type', 'application/json')
-    .json({ success: true, status: 'You are successfully logged in!' });
+    .json({ success: true, token: token, status: 'You are successfully logged in!' });
 }
 
 const getUsers = async (req, res, next) => {

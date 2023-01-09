@@ -11,7 +11,7 @@ const {
   loginUser
 } = require("../controllers/users");
 
-userRouter.route("/login").post(passport.authenticate('local'),loginUser);
+userRouter.route("/login").post(passport.authenticate('local'), loginUser);
 userRouter.route("/register").post(createUser);
 
 userRouter.route("/")

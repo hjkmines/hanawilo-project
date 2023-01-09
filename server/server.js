@@ -21,7 +21,8 @@ if (process.env.NODE_ENV === "dev") {
 
 app.use(passport.initialize());
 
-app.use('/', userRouter); 
+
+app.use('/user', userRouter); 
 
 const PORT = process.env.PORT || 5000;
 

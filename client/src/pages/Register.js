@@ -6,7 +6,8 @@ import { Container, useTheme, styled, Grid, FormControl, FormLabel, RadioGroup, 
 import { Link } from 'react-router-dom';
 import HElogo from "../assets/he-logo.svg";
 import Image from 'mui-image';
-import Navbar from "../components/Navbar"
+import Navbar from "../components/Navbar";
+import axios from "axios";
 
 
 const StyledTextField = styled(TextField)(({ theme }) => ({
@@ -15,13 +16,29 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
 
 
 const Register = () => {
+    
 
- const theme = useTheme();
+    const theme = useTheme();
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const data = new FormData(e.currentTarget);
+        const user = {
+        username: data.get('User-Name'),
+        password: data.get('Password'),
+        firstName: data.get('First-Name'),
+        lastName: data.get('Last-Name'),
+        email: data.get('Email'),
+        gender: data.get('row-radio-buttons-group-label')
+    }
+        axios.post('http://localhost:5001/register', {
+            ...user
+        })
+    }
 
   return (
     <>
     <Navbar />
-    <Container padding={10} marginY={2}  sx={{ display: { xs: 'none', md:"inline" }}}>
+    <Container padding={10}   sx={{ display: { xs: 'none', md:"inline" }}}>
         <Image 
             src={HElogo} 
             height={250} 
@@ -47,6 +64,7 @@ const Register = () => {
             container 
             component={"form"} 
             spacing={3} 
+            onSubmit={handleSubmit}
         >
             <Grid item xs={12}>
                 <Box 
@@ -94,7 +112,7 @@ const Register = () => {
                     fullWidth
                     variant="filled"
                     id="outlined-required"
-                    label="First Name"
+                    label="First-Name"
                     placeholder="First Name"
                     sx={{ bgcolor: theme.palette.teal}}
                 />
@@ -147,7 +165,7 @@ const Register = () => {
                                 sx={{
                                     bgcolor:theme.palette.darkPurple
                                 }}
-                                // onClick={handleSubmit}
+                                type="submit"
                             >
                                 Submit
                             </Button>    

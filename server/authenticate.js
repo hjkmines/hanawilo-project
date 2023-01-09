@@ -1,6 +1,6 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-const User = require('./models/User');
+const User = require('./models/user');
 const dotenv = require("dotenv");
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
@@ -15,7 +15,7 @@ dotenv.config({ path: "./config/config.env" });
 const SECRET_KEY = process.env.SECRET_KEY;
 
 exports.getToken = function(user) {
-    return jwt.sign(user, SECRET_KEY, {expiresIn: 3600});
+    return jwt.sign(user, SECRET_KEY, {expiresIn:"30s"});
 };
 
 const opts = {};

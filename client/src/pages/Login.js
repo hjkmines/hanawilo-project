@@ -15,6 +15,7 @@ import {useTheme} from "@mui/material";
 import Navbar from "../components/Navbar";
 import { useDispatch } from "react-redux";
 import { setCurrentUser } from "../features/usersSlice";
+import axios from 'axios';
 
 function Copyright(props) {
   return (
@@ -53,6 +54,11 @@ export default function Login() {
     }
     console.log(user)
     dispatch(setCurrentUser(user));
+    
+    //api call to server / db // 
+    axios.post('http://localhost:5001/login', {
+      ...user
+    })
   };
 
   return (

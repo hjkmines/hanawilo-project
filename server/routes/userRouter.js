@@ -1,6 +1,6 @@
 const userRouter = require("express").Router();
 const {
-  getUser,
+  getOneUser,
   getUsers,
   createUser,
   updateOneUser,
@@ -8,17 +8,21 @@ const {
   deleteOneUser,
   loginUser
 } = require("../controllers/users");
-
-userRouter.route("/login").post(loginUser);
+const cors = require('../cors');
+// const { authenticate } = require("../models/user");
 
 userRouter.route("/")
-.get(getUsers)
-.post(createUser)
-.delete(deleteUsers)
+.get(cors.cors, getUsers)
+.post(cors.corsWithOptions, createUser)
+.delete(cors.corsWithOptions, deleteUsers)
+
+userRouter.route("/login").post( cors.corsWithOptions, loginUser);
+
+userRouter.route("/register").post(cors.corsWithOptions, createUser);
 
 userRouter
   .route("/:userId")
-  .get(getUser)
+  .get(getOneUser)
   .put(updateOneUser)
   .delete(deleteOneUser);
 

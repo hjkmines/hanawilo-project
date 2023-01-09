@@ -1,17 +1,20 @@
 const User = require('../models/user');
 const passport = require('passport');
-const { authenticate } = require('passport');
+const  authenticate  = require('../authenticate');
+const user = require('../models/user');
+
 
 const loginUser = async (req, res) => {
   passport.authenticate('local');
-  const token = authenticate.getToken({_id: req.user._id});
+  const token = authenticate.getToken({_id: req.body._id});
   res.status(200)
     .setHeader('Content-Type', 'application/json')
-    .json({ success: true, status: 'You are successfully logged in!' });
+    .json({ success: true, token: token, status: 'You are successfully logged in!' });
 }
 
 const getUsers = async (req, res, next) => {
   try {
+    //
     const users = await User.find();
     res
       .status(200)
@@ -23,25 +26,40 @@ const getUsers = async (req, res, next) => {
   }
 }
 
-const createUser = async (req, res) => {
-  User.register(
-    new User({ username: req.body.username }),
+const createUser = async (req, res, next) => {
+  console.log('registering user....');
+   User.register(
+    new User({ 
+      username: req.body.username, 
+      firstName: req.body.firstName, 
+      lastName: req.body.lastName,
+      gender: req.body.gender,
+      email: req.body.email }),
     req.body.password,
-    err => {
+    function(err, user) {
       if (err) {
-        res.status(500)
-          .setHeader('Content-Type', 'application/json')
-          .json({ err: err });
+       console.log('error while registering user!', err);
+       return next(err)
       } else {
-        passport.authenticate('local')(req, res, () => {
-          res.status(200)
-            .setHeader('Content-Type', 'application/json')
-            .json({ success: true, status: 'Registration Successful!' });
-        });
+        // user.save()
+        console.log('user registered')
+        console.log(user)
+          // err => {
+          // if (err) {
+          //     res.statusCode = 500;
+          //     res.setHeader('Content-Type', 'applicatoin/json');
+          //     res.json("second error");
+          //     return;
+          // }
+            passport.authenticate('local')(req, res, () => {
+                res.statusCode = 200;
+                res.setHeader('Content-Type', 'application/json');
+                res.json({success: true, status: 'Registration Successful!'});
+            });
+        }
       }
+   )
     }
-  );
-}
 
 const deleteUsers = async (req, res, next) => {
   try {
@@ -56,7 +74,7 @@ const deleteUsers = async (req, res, next) => {
   }
 }
 
-const getOneuser = async (req, res, next) => {
+const getOneUser = async (req, res, next) => {
   try {
     const user = await User.findById(req.params.userId);
     res.status(200).setHeader("Content-type", "application/json").json(oneUser);
@@ -99,7 +117,7 @@ module.exports = {
   getUsers,
   createUser,
   deleteUsers,
-  getOneuser,
+  getOneUser,
   updateOneUser,
   deleteOneUser
 }

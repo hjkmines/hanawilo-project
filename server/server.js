@@ -30,9 +30,11 @@ app.use((req,res,next) => {
   next()
 })
 
+app.use(express.json());
 app.use(passport.initialize());
 
-// app.use()
+
+
 app.use('/user', userRouter); 
 
 const PORT = process.env.PORT || 5000;

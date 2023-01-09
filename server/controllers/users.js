@@ -10,6 +10,7 @@ const loginUser = async (req, res) => {
   res.status(200)
     .setHeader('Content-Type', 'application/json')
     .json({ success: true, token: token, status: 'You are successfully logged in!' });
+    .json({ success: true, token: token, status: 'You are successfully logged in!' });
 }
 
 const getUsers = async (req, res, next) => {
@@ -75,6 +76,7 @@ const deleteUsers = async (req, res, next) => {
 }
 
 const getOneUser = async (req, res, next) => {
+const getOneUser = async (req, res, next) => {
   try {
     const user = await User.findById(req.params.userId);
     res.status(200).setHeader("Content-type", "application/json").json(oneUser);
@@ -117,6 +119,7 @@ module.exports = {
   getUsers,
   createUser,
   deleteUsers,
+  getOneUser,
   getOneUser,
   updateOneUser,
   deleteOneUser

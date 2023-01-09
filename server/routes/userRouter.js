@@ -1,8 +1,11 @@
 const userRouter = require("express").Router();
+const passport = require('passport');
+
 const {
   getOneUser,
   getUsers,
   createUser,
+  getOneUser,
   updateOneUser,
   deleteUsers,
   deleteOneUser,
@@ -22,6 +25,7 @@ userRouter.route("/register").post(cors.corsWithOptions, createUser);
 
 userRouter
   .route("/:userId")
+  .get(getOneUser)
   .get(getOneUser)
   .put(updateOneUser)
   .delete(deleteOneUser);

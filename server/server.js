@@ -19,7 +19,7 @@ if (process.env.NODE_ENV === "dev") {
   app.use(morgan("dev"));
 }
 
-//you wont believe necessary this is for the ability to read json - shouldnt this be built into express?//
+//you wont believe how necessary this is for the ability to read json - shouldnt this be built into express?//
 app.use(express.json());
 
 app.use((req,res,next) => {

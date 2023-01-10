@@ -1,16 +1,16 @@
 const User = require('../models/user');
 const passport = require('passport');
-const  authenticate  = require('../authenticate');
+const  authenticate   = require('../middleware/authenticate');
 const user = require('../models/user');
 
 
 const loginUser = async (req, res) => {
   passport.authenticate('local');
-  const token = authenticate.getToken({_id: req.body._id});
+  const token = authenticate.getToken({_id: req.body._id})
   res.status(200)
     .setHeader('Content-Type', 'application/json')
-    .json({ success: true, token: token, status: 'You are successfully logged in!' });
-    .json({ success: true, token: token, status: 'You are successfully logged in!' });
+    .json({ success: true, token: token, status: 'You are successfully logged in!' })
+    .json({ success: true, token: token, status: 'You are successfully logged in!' })
 }
 
 const getUsers = async (req, res, next) => {
@@ -75,7 +75,6 @@ const deleteUsers = async (req, res, next) => {
   }
 }
 
-const getOneUser = async (req, res, next) => {
 const getOneUser = async (req, res, next) => {
   try {
     const user = await User.findById(req.params.userId);

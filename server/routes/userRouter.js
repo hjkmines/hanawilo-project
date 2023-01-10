@@ -5,12 +5,12 @@ const {
   getOneUser,
   getUsers,
   createUser,
-  getOneUser,
   updateOneUser,
   deleteUsers,
   deleteOneUser,
   loginUser
-} = require("../controllers/users");
+} = require('../controllers/users');
+
 const cors = require('../cors');
 // const { authenticate } = require("../models/user");
 

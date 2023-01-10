@@ -49,16 +49,19 @@ export default function Login() {
     //   password: data.get("password"),
     // });
     const user = {
-      email: data.get("email"),
+      // email: data.get("email"),
+      username: data.get('username'),
       password: data.get("password"),
     }
     console.log(user)
     dispatch(setCurrentUser(user));
-    
+
     //api call to server / db // 
     axios.post('http://localhost:5001/login', {
       ...user
     })
+
+
   };
 
   return (
@@ -102,16 +105,16 @@ export default function Login() {
               component="form"
               noValidate
               onSubmit={handleSubmit}
-              sx={{ mt: 1 }}
+              sx={{ mt: 1, backgroundColor: theme.palette.lightPurple }}
             >
               <TextField
                 margin="normal"
                 required
                 fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
+                id="username"
+                label="Username"
+                name="username"
+                autoComplete="username"
                 autoFocus
               />
               <TextField

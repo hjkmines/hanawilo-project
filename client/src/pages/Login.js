@@ -57,7 +57,7 @@ export default function Login() {
     dispatch(setCurrentUser(user));
 
     //api call to server / db // 
-    axios.post('http://localhost:5001/login', {
+    axios.post('http://localhost:5001/user/login', {
       ...user
     })
 

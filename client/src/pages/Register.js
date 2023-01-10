@@ -30,7 +30,7 @@ const Register = () => {
         email: data.get('Email'),
         gender: data.get('row-radio-buttons-group-label')
     }
-        axios.post('http://localhost:5001/register', {
+        axios.post('http://localhost:5001/user/register', {
             ...user
         })
     }

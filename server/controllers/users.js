@@ -5,7 +5,6 @@ const authenticate = require('../middleware/authenticate');
 
 
 const loginUser = async (req, res) => {
-  passport.authenticate('local');
   const token = authenticate.getToken({ _id: req.body._id });
   res.status(200)
     .setHeader('Content-Type', 'application/json')

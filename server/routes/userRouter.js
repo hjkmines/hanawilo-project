@@ -5,7 +5,6 @@ const {
   getOneUser,
   getUsers,
   createUser,
-  getOneUser,
   updateOneUser,
   deleteUsers,
   deleteOneUser,

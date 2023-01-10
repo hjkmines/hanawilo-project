@@ -1,6 +1,6 @@
 const User = require('../models/user');
 const passport = require('passport');
-const authenticate = require('../authenticate');
+const authenticate = require('../middleware/authenticate');
 
 
 
@@ -74,7 +74,7 @@ const deleteUsers = async (req, res, next) => {
     next(err);
   }
 }
-g
+
   const getOneUser = async (req, res, next) => {
     try {
       const user = await User.findById(req.params.userId);

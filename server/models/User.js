@@ -19,7 +19,7 @@ const UserSchema = new Schema({
     },
     gender: {
         type: String,
-        required: [true, 'please select your gender'],
+        // required: [true, 'please select your gender'],
         enum: [
             'Male',
             'Female',

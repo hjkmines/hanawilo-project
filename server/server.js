@@ -4,7 +4,7 @@ const morgan = require("morgan");
 const connectDB = require('./config/db'); 
 const userRouter = require('./routes/userRouter'); 
 const passport = require("passport");
-
+const cors = require("cors")
 
 //configure our project to access config values from this location
 dotenv.config({ path: "./config/config.env" });
@@ -19,8 +19,10 @@ if (process.env.NODE_ENV === "dev") {
   app.use(morgan("dev"));
 }
 
-//you wont believe how necessary this is for the ability to read json - shouldnt this be built into express?//
+//you wont believe necessary this is for the ability to read json - shouldnt this be built into express?//
 app.use(express.json());
+
+app.use(cors({origin:true, credentials: true}))
 
 app.use((req,res,next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -32,8 +34,6 @@ app.use((req,res,next) => {
 
 app.use(express.json());
 app.use(passport.initialize());
-
-
 
 app.use('/user', userRouter); 
 

@@ -19,7 +19,11 @@ userRouter.route("/")
 .post(cors.corsWithOptions, createUser)
 .delete(cors.corsWithOptions, deleteUsers)
 
-userRouter.route("/login").post( cors.corsWithOptions, loginUser);
+userRouter.route("/login")
+.post( 
+  cors.corsWithOptions, 
+  passport.authenticate('local', { session: false }),
+  loginUser);
 
 userRouter.route("/register").post(cors.corsWithOptions, createUser);
 

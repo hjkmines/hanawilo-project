@@ -8,3 +8,10 @@
 .DS_Store
 /client/.DS_Store
 /server/.DS_Store
+
+#package.json
+/client/package.json
+/client/package-lock.json
+
+/server/package.json
+/server/package-lock.json

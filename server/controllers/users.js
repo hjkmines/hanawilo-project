@@ -1,7 +1,7 @@
 const User = require('../models/user');
 const passport = require('passport');
 const  authenticate   = require('../middleware/authenticate');
-const user = require('../models/user');
+// const user = require('../models/user');
 
 
 const loginUser = async (req, res) => {
@@ -9,7 +9,6 @@ const loginUser = async (req, res) => {
   const token = authenticate.getToken({_id: req.body._id})
   res.status(200)
     .setHeader('Content-Type', 'application/json')
-    .json({ success: true, token: token, status: 'You are successfully logged in!' })
     .json({ success: true, token: token, status: 'You are successfully logged in!' })
 }
 

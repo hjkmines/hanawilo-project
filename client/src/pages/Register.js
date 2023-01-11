@@ -39,9 +39,11 @@ const Register = () => {
       email: data.get("Email"),
       gender: data.get("row-radio-buttons-group"),
     };
-    axios.post("http://localhost:5001/user/register", {
-      ...user,
-    });
+    axios
+      .post("http://localhost:5001/user/register", {...user,})
+      .then(data => console.log(data));
+
+    // router.route / link to login page
   };
 
   return (

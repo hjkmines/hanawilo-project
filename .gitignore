@@ -2,5 +2,8 @@
 /client/node_modules
 /server/node_modules
 
+# Python pacakges
+/server/python/venv
+
 # Misc
 /.vscode

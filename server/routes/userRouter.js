@@ -32,7 +32,6 @@ userRouter.route("/register").post(
 userRouter
   .route("/:userId")
   .get(getOneUser)
-  .get(getOneUser)
   .put(updateOneUser)
   .delete(deleteOneUser);
 

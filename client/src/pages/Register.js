@@ -14,10 +14,8 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
     bgcolor: theme.palette.teal,
 }))
 
-
 const Register = () => {
     
-
     const theme = useTheme();
     const handleSubmit = (e) => {
         e.preventDefault();

@@ -21,13 +21,17 @@ import HElogo from "../assets/he-logo.svg";
 import Image from "mui-image";
 import Navbar from "../components/Navbar";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const StyledTextField = styled(TextField)(({ theme }) => ({
   bgcolor: theme.palette.teal,
 }));
 
+
+
 const Register = () => {
   const theme = useTheme();
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
@@ -43,7 +47,8 @@ const Register = () => {
       .post("http://localhost:5001/user/register", {...user,})
       .then(data => console.log(data));
 
-    // router.route / link to login page
+    navigate('/login')
+
   };
 
   return (

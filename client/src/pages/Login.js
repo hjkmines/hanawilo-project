@@ -53,7 +53,7 @@ export default function Login() {
       username: data.get('username'),
       password: data.get("password"),
     }
-    console.log(user)
+    // console.log(user)
     dispatch(setCurrentUser(user));
 
     //api call to server / db // 

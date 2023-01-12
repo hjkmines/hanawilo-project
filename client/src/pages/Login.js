@@ -43,7 +43,7 @@ export default function Login() {
   const dispatch = useDispatch();
   const theme = useTheme();
   const navigate = useNavigate();
-  const [error,setError] = useState("")
+  const [error,setError] = useState()
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -125,8 +125,7 @@ export default function Login() {
                 autoComplete="username"
                 autoFocus
                 helperText={error}
-                error={error}
-                
+                error={error==true}
               />
               
               <TextField

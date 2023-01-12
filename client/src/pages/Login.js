@@ -11,11 +11,13 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
-import {useTheme} from "@mui/material";
+import { FormHelperText, useTheme } from "@mui/material";
 import Navbar from "../components/Navbar";
 import { useDispatch } from "react-redux";
 import { setCurrentUser } from "../features/usersSlice";
 import axios from 'axios';
+import { useNavigate } from "react-router";
+import {useState} from 'react';
 
 function Copyright(props) {
   return (
@@ -40,8 +42,10 @@ function Copyright(props) {
 export default function Login() {
   const dispatch = useDispatch();
   const theme = useTheme();
+  const navigate = useNavigate();
+  const [error,setError] = useState("")
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     // console.log({
@@ -54,19 +58,20 @@ export default function Login() {
       password: data.get("password"),
     }
     console.log(user)
-    dispatch(setCurrentUser(user));
-
     //api call to server / db // 
-    axios.post('http://localhost:5001/user/login', {
+    const res = await axios.post('http://localhost:5001/user/login', {
       ...user
-    })
+    }).catch(setError("Incorrect username or password"))
 
-
+    if (res.status == 200) {
+      dispatch(setCurrentUser(user));
+      navigate('/profile')
+    }
   };
 
   return (
     <>
-    <Navbar />
+      <Navbar />
       <Grid container component="main" sx={{ height: "100vh" }}>
         <CssBaseline />
         <Grid
@@ -98,17 +103,20 @@ export default function Login() {
             <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
               <LockOutlinedIcon />
             </Avatar>
-            <Typography component="h1" variant="h5">
+            <Typography sx={{  color: theme.palette.black }} component="h1" variant="h5">
               Sign in
             </Typography>
             <Box
               component="form"
               noValidate
               onSubmit={handleSubmit}
-              sx={{ mt: 1, backgroundColor: theme.palette.lightPurple }}
+              sx={{ mt: 1}}
             >
+             
+             {error && <Typography>{error}</Typography> }
               <TextField
                 margin="normal"
+                sx={{ input: { color: theme.palette.black } }}
                 required
                 fullWidth
                 id="username"
@@ -116,9 +124,14 @@ export default function Login() {
                 name="username"
                 autoComplete="username"
                 autoFocus
+                helperText={error}
+                error={error}
+                
               />
+              
               <TextField
                 margin="normal"
+                sx={{ input: { color: theme.palette.black } }}
                 required
                 fullWidth
                 name="password"
@@ -130,6 +143,7 @@ export default function Login() {
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
+                sx={{  color: theme.palette.black } }
               />
               <Button
                 type="submit"
@@ -156,6 +170,6 @@ export default function Login() {
           </Box>
         </Grid>
       </Grid>
-      </>
+    </>
   );
 }

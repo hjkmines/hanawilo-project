@@ -3,6 +3,9 @@
 /server/node_modules
 /node_modules
 
+# Python venv
+/server/python/venv
+
 # Misc
 /.vscode
 .DS_Store

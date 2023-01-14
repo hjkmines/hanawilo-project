@@ -1,5 +1,28 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const crypto = require('crypto');
+
+const RatingSchema = new Schema({
+    rating: {
+      type: Number,
+      min: 1,
+      max: 5,
+      required: true,
+      validate: (rating) => {
+        return typeof rating === "number";
+      },
+    },
+    text: {
+      type: String,
+      required: true,
+    },
+    tutor: {
+      type: mongoose.Schema.Types.ObjectID,
+      ref: "User",
+    },
+  }, {
+    timestamps: true
+  });
 
 const RatingSchema = new Schema({
     rating: {
@@ -61,5 +84,18 @@ const UserSchema = new Schema(
     timestamps: true,
   }
 );
+
+
+//hash reset password token
+UserSchema.methods.getResetPasswordToken = function() {
+  const resetToken = crypto.randomBytes(20).toString('hex');
+
+  this.resetPasswordToken = crypto.createHash('sha256').update(resetToken).digest('hex'); 
+
+  this.resetPasswordExpire = Date.now() + 10 * 60 * 1000; 
+
+  return resetToken; 
+}
+
 
 module.exports = mongoose.model("User", UserSchema);

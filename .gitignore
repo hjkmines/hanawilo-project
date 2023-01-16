@@ -3,7 +3,7 @@
 /server/node_modules
 
 # Python pacakges
-/server/python/venv
-
+/server/python/.venv
+*__pycache__
 # Misc
 /.vscode

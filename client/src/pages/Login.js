@@ -11,19 +11,24 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
-import { FormHelperText, useTheme } from "@mui/material";
+import { Container, FormHelperText } from "@mui/material";
+import { useTheme, styled, responsiveFontSizes } from '@mui/material/styles';
 import Navbar from "../components/Navbar";
 import { useDispatch } from "react-redux";
 import { setCurrentUser } from "../features/usersSlice";
 import axios from 'axios';
 import { useNavigate } from "react-router";
-import {useState} from 'react';
+import { useState } from 'react';
+import loginBackground from '../assets/loginBackground.svg';
+
+
+
 
 function Copyright(props) {
   return (
     <Typography
       variant="body2"
-      color="text.secondary"
+      color="theme.palette.white"
       align="center"
       {...props}
     >
@@ -41,9 +46,11 @@ function Copyright(props) {
 
 export default function Login() {
   const dispatch = useDispatch();
-  const theme = useTheme();
+  let theme = useTheme();
+  theme = responsiveFontSizes(theme);
+
   const navigate = useNavigate();
-  const [error,setError] = useState()
+  const [error, setError] = useState()
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -69,106 +76,118 @@ export default function Login() {
     }
   };
 
+  const SubmitButton = styled(Button)({
+    background: theme.palette.green,
+    color: theme.palette.black,
+    fontWeight: 900,
+    textTransform: 'capitalized',
+    borderRadius: 50,
+    marginTop: 20,
+    '&:hover': {
+      backgroundColor: 'rgba(63,255,128,.8)'
+
+    },
+    '&:active': {
+      backgroundColor: 'rgba(63,255,128,.8)'
+    },
+    '&:focus': {
+      backgroundColor: 'rgba(63,255,128,.8)'
+    },
+
+  })
+
   return (
-    <>
-      <Navbar />
-      <Grid container component="main" sx={{ height: "100vh" }}>
-        <CssBaseline />
-        <Grid
-          item
-          xs={false}
-          sm={4}
-          md={7}
+    <Box flex sx={{ background: `url(${loginBackground})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover', minHeight: { md: '100vh' } }}>
+      <Box height="10%">
+        <Navbar />
+      </Box>
+      <Container height="90%">
+        <Box
           sx={{
-            backgroundImage: "url(https://source.unsplash.com/random)",
-            backgroundRepeat: "no-repeat",
-            backgroundColor: (t) =>
-              t.palette.mode === "light"
-                ? t.palette.grey[50]
-                : t.palette.grey[900],
-            backgroundSize: "cover",
-            backgroundPosition: "center",
+            my: 20,
+            mx: 20,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            border: 1,
+            borderColor: "white",
+            borderRadius: 8
+
           }}
-        />
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+        >
+          <Avatar sx={{ m: 1, bgcolor: "white" }}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography sx={{ color: theme.palette.white }} component="h1" variant="h5">
+            Sign in
+          </Typography>
           <Box
-            sx={{
-              my: 8,
-              mx: 4,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
+            component="form"
+            noValidate
+            onSubmit={handleSubmit}
+            sx={{ mt: 1 }}
           >
-            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-              <LockOutlinedIcon />
-            </Avatar>
-            <Typography sx={{  color: theme.palette.black }} component="h1" variant="h5">
-              Sign in
-            </Typography>
-            <Box
-              component="form"
-              noValidate
-              onSubmit={handleSubmit}
-              sx={{ mt: 1}}
+
+            {error && <Typography>{error}</Typography>}
+            <TextField
+              margin="normal"
+              sx={{ input: { color: theme.palette.black }, background: theme.palette.white }}
+              required
+              fullWidth
+              id="username"
+              label="Username"
+              name="username"
+              autoComplete="username"
+              autoFocus
+              helperText={error}
+              error={error == true}
+            />
+
+            <TextField
+              margin="normal"
+              sx={{ input: { color: theme.palette.black }, background: theme.palette.white }}
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+            />
+            <FormControlLabel
+              control={<Checkbox value="remember" sx={{
+                color: theme.palette.white,
+                '&.Mui-checked': {
+                  color: theme.palette.white,
+                }
+              }} />}
+              label="Remember me"
+              sx={{ color: theme.palette.white }}
+            />
+            <SubmitButton
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
             >
-             
-             {error && <Typography>{error}</Typography> }
-              <TextField
-                margin="normal"
-                sx={{ input: { color: theme.palette.black } }}
-                required
-                fullWidth
-                id="username"
-                label="Username"
-                name="username"
-                autoComplete="username"
-                autoFocus
-                helperText={error}
-                error={error==true}
-              />
-              
-              <TextField
-                margin="normal"
-                sx={{ input: { color: theme.palette.black } }}
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-              />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-                sx={{  color: theme.palette.black } }
-              />
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-              >
-                Log In
-              </Button>
-              <Grid container>
-                <Grid item xs>
-                  <Link href="#" variant="body2">
-                    Forgot password?
-                  </Link>
-                </Grid>
-                <Grid item>
-                  <Link href="#" variant="body2">
-                    {"Don't have an account? Sign Up"}
-                  </Link>
-                </Grid>
+              Log In
+            </SubmitButton>
+            <Grid container>
+              <Grid item xs>
+                <Link href="#" underline="hover" variant="body2" sx ={{color: theme.palette.white}}>
+                  Forgot password?
+                </Link>
               </Grid>
-              <Copyright sx={{ mt: 5 }} />
-            </Box>
+              <Grid item>
+                <Link href="/register" underline="hover" variant="body2" sx ={{color: theme.palette.white}}>
+                  {"Don't have an account? Sign Up"}
+                </Link>
+              </Grid>
+            </Grid>
+            <Copyright sx={{ mt: 5 }} />
           </Box>
-        </Grid>
-      </Grid>
-    </>
+        </Box>
+      </Container>
+    </Box>
   );
 }

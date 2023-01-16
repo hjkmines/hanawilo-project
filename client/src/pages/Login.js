@@ -140,7 +140,7 @@ export default function Login() {
               autoComplete="username"
               autoFocus
               helperText={error}
-              error={error == true}
+              error={error? true : false}
             />
 
             <TextField
@@ -169,6 +169,7 @@ export default function Login() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              disableElevation
             >
               Log In
             </SubmitButton>

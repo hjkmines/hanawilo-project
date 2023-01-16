@@ -23,6 +23,7 @@
     "mui-image": "^1.0.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.42.1",
     "react-material-ui-carousel": "^3.4.2",
     "react-multi-carousel": "^2.8.2",
     "react-redux": "^8.0.5",

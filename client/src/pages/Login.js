@@ -16,6 +16,7 @@ import Navbar from "../components/Navbar";
 import { useDispatch } from "react-redux";
 import { setCurrentUser } from "../features/usersSlice";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 function Copyright(props) {
   return (
@@ -27,7 +28,7 @@ function Copyright(props) {
     >
       {"Copyright © "}
       <Link color="inherit" href="https://mui.com/">
-        Your Website
+        Hanawilo Edge
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -40,6 +41,7 @@ function Copyright(props) {
 export default function Login() {
   const dispatch = useDispatch();
   const theme = useTheme();
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -62,8 +64,7 @@ export default function Login() {
     })
     .then(console.log(user))
     .catch(err => console.log(err))
-
-
+    .then(navigate("/"))
   };
 
   return (

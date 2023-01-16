@@ -169,9 +169,9 @@ const Navbar = () => {
                                 {/* avatar box - placeholder kitten image - how cute :) */}
 
 {/* tooltip => pull userName */}
-                                <Tooltip title={currentUser ? currentUser.email : "not logged in"}>
+                                <Tooltip title={currentUser ? currentUser.username : "not logged in"}>
                                     <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, marginLeft: 0 }}>
-                                        <Avatar alt="Place Kitten" src="http://placekitten.com/g/200/300" sx={{ border: 1, borderColor: 'white' }} />
+                                        <Avatar alt="Place Kitten" src={"http://placekitten.com/g/200/300"} sx={{ border: 1, borderColor: 'white' }} />
                                     </IconButton>
                                 </Tooltip>
                                

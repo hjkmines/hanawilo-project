@@ -15,24 +15,33 @@ import {
   Button,
   Stack,
   Tooltip,
+  Input
 } from "@mui/material";
-import { Link } from "react-router-dom";
 import HElogo from "../assets/he-logo.svg";
 import Image from "mui-image";
 import Navbar from "../components/Navbar";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
-const StyledTextField = styled(TextField)(({ theme }) => ({
+const StyledTextField = styled(Input)(({ theme }) => ({
   bgcolor: theme.palette.teal,
 }));
 
-
-
 const Register = () => {
+  //use-hook-form register method
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  console.log(errors);
+
   const theme = useTheme();
   const navigate = useNavigate();
-  const handleSubmit = (e) => {
+
+  const handleFormSubmit = (e) => {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
     const user = {
@@ -44,11 +53,10 @@ const Register = () => {
       gender: data.get("row-radio-buttons-group"),
     };
     axios
-      .post("http://localhost:5001/user/register", {...user,})
-      .then(data => console.log(data));
+      .post("http://localhost:5001/user/register", { ...user })
+      .then((user) => console.log(...user));
 
-    navigate('/login')
-
+    navigate("/login");
   };
 
   return (
@@ -75,7 +83,12 @@ const Register = () => {
           display: "flex",
         }}
       >
-        <Grid container component={"form"} spacing={3} onSubmit={handleSubmit}>
+        <Grid
+          container
+          component={"form"}
+          spacing={3}
+          onSubmit={handleSubmit((data) => console.log(data))}
+        >
           <Grid item xs={12}>
             <Box border={2} borderColor={theme.palette.white} width="100%">
               <Typography
@@ -99,8 +112,14 @@ const Register = () => {
               label="User-Name"
               placeholder="User Name"
               name="User-Name"
+              {...register("User-Name", {
+                required: "user name is require",
+                minLength: { value: 4, message: "min length is 4" },
+                // pattern: /asdfasdf/
+              })}
               sx={{ bgcolor: theme.palette.teal }}
             />
+            <p>{errors.firstName?.message}</p>
           </Grid>
           <Grid item xs={12} md={6}>
             <StyledTextField
@@ -147,6 +166,7 @@ const Register = () => {
               label="Email"
               type="email"
               name="Email"
+              placeholder="Email"
               sx={{ bgcolor: theme.palette.teal }}
             />
           </Grid>

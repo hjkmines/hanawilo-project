@@ -9,10 +9,10 @@
 import pandas as pd 
 from nltk.tokenize import word_tokenize
 import nltk
-
+nltk.download('punkt')
 
 # %%
-table = pd.read_csv('/Users/xiaoyuchen/Desktop/hanawilo-project/server/python/output/udemy_courses_python_2023-01-11.csv')
+table = pd.read_csv('../output/udemy_courses_python_2023-01-11.csv')
 
 # %%
 table.drop(['Unnamed: 0'],axis=1)

@@ -1,9 +1,9 @@
 # Node modules
-/client/node_modules
-/server/node_modules
+*node_modules
+*node_modules
 
 # Python pacakges
-/server/python/.venv
+*.venv
 *__pycache__
 # Misc
 /.vscode

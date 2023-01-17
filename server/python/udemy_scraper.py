@@ -74,22 +74,23 @@ def scrapeCourses(courses):
 
 # %%
 # Params
-query = 'python'
-page_limit= 5
+queries = ['programming']
+page_limit= 50 
 
 # %%
 # Driver
-for page in range(1,page_limit+1):
-    driver.get(f'https://www.udemy.com/courses/search/?p={page}&q={query}&src=ukw')
-    #driver.get("https://www.udemy.com/topic/javascript/")
-    sleep(5)
-    html = driver.page_source
-    soup = BeautifulSoup(html, 'html.parser')
-    courses_list = soup.find('div', {'class': 'course-list--container--3zXPS'})
-    courses = courses_list.find_all('div', {'class': 'course-card--container--1QM2W'})
-    rows = scrapeCourses(courses)
-    tempdf = pd.DataFrame(rows,columns=columns)
-    df=pd.concat([df,tempdf], ignore_index=True)
+for query in queries:
+    for page in range(1,page_limit+1):
+        driver.get(f'https://www.udemy.com/courses/search/?p={page}&q={query}&src=ukw')
+        #driver.get("https://www.udemy.com/topic/javascript/")
+        sleep(5)
+        html = driver.page_source
+        soup = BeautifulSoup(html, 'html.parser')
+        courses_list = soup.find('div', {'class': 'course-list--container--3zXPS'})
+        courses = courses_list.find_all('div', {'class': 'course-card--container--1QM2W'})
+        rows = scrapeCourses(courses)
+        tempdf = pd.DataFrame(rows,columns=columns)
+        df=pd.concat([df,tempdf], ignore_index=True)
 
 driver.close()
 

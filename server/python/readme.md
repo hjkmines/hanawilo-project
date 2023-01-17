@@ -52,7 +52,7 @@ Similar to npm, pip is the package manager of choice for Python modules. The `re
 ### 5. You should now be able to run the `.py` Python script files with:
 
 ```sh
-python <filename.py>
+python filename.py
 ```
 
 ### 6. For Juypter notebooks (`.ipynb`) select .venv interpreter at top right of the notebook.

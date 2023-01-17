@@ -75,7 +75,7 @@ $$
 ### Trigram:
 
 $$
-P(the|Walden Pond's water is so transparent that)  \thickapprox P(the|transparent,that)
+P(the|Walden,Pond's,water is,so,transparent,that)  \thickapprox P(the|transparent,that)
 $$
 
 ### Four-gram:

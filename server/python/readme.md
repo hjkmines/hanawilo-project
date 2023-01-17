@@ -22,14 +22,14 @@ Example:
 
 Bigram:
 
-P(the|that)= $\frac{Count(that,the)}{Count(the)}$
+P(the|that)= $\frac{Count(that,the)}{Count(that)}$
 
 Trigram:
 
-P(the|transparent that)= $\frac{Count(transparent,that,the)}{Count(that,the)}$
+P(the|transparent that)= $\frac{Count(transparent,that,the)}{Count(transparent,that)}$
 
 Four-gram:
 
-P(the|so transparent that)= $\frac{Count(so,transparent,that,the)}{Count(transparent,that,the)}$
+P(the|so transparent that)= $\frac{Count(so,transparent,that,the)}{Count(so,transparent,that)}$
 
 Based on words given, n-gram model should give the next predicted word which has the highest MLE as output. 

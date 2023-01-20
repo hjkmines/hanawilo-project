@@ -30,7 +30,6 @@ userRouter.route("/register").post(cors.corsWithOptions, createUser);
 userRouter
   .route("/:userId")
   .get(getOneUser)
-  .get(getOneUser)
   .put(updateOneUser)
   .delete(deleteOneUser);
 

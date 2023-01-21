@@ -37,9 +37,6 @@ const Home = () => {
 
   return (
     <Box flex sx={{ background: `url(${darkBackground})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover', minHeight: { md: '100vh' } }}>
-      <Box height="10%">
-        <Navbar />
-      </Box>
 
       <Grid container height='90%' >
         <Grid item flex xs md={5}

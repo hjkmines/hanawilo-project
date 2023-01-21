@@ -196,7 +196,6 @@ const Messages = () => {
 
   return (
     <div>
-      <Navbar />
       <ChatSection container component={Paper} elevation={0}>
         <BorderRight500 item xs={3}>
           <Grid

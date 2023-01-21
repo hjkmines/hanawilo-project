@@ -60,7 +60,7 @@ const DeadlineTable= () => {
           >
             {columns.map((column) => (
               <TableCell
-                key={column.id}
+                key={column.label}
                 align={column.align}
                 style={{ minWidth: column.minWidth, }}
 

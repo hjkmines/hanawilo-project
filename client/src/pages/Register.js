@@ -112,7 +112,6 @@ const Register = () => {
 
   return (
     <>
-      <Navbar />
       <Container padding={10} sx={{ display: { xs: "none", md: "inline" } }}>
         <Image
           src={HElogo}

@@ -28,7 +28,6 @@ const ContactUs = () => {
 
   return (
     <div>
-        <Navbar />
             <h1 align="center">Contact Us!</h1>
             <form ref={formData} onSubmit = {handleSubmit} align="center">
               <Container 

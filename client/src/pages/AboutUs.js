@@ -53,7 +53,6 @@ const AboutUs = () => {
           backgroundSize: "cover",
         }}
       >
-        <Navbar />
         <Paper
           sx={{
             position: "relative",

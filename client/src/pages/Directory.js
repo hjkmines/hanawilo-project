@@ -13,7 +13,6 @@ const Directory = () => {
 
     return (
         <>
-        <Navbar />
             <Container 
                 sx={{
                     alignItems:'center',

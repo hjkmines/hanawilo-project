@@ -69,7 +69,6 @@ export default function Login() {
 
   return (
     <>
-    <Navbar />
       <Grid container component="main" sx={{ height: "100vh" }}>
         <CssBaseline />
         <Grid

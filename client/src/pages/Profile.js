@@ -17,9 +17,9 @@ import StarBorderIcon from '@mui/icons-material/StarBorder';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import MessageIcon from '@mui/icons-material/Message';
 import BasicCard from '../components/BasicCard';
-import Navbar from '../components/Navbar';
 import DeadlineTable from '../components/DeadlineTable';
 import WorkshopTable from '../components/WorkshopTable';
+import { useLoaderData } from 'react-router-dom';
 
 const StyledBox = styled(Box)(({ theme }) => ({
   justifyContent: "center",
@@ -38,13 +38,21 @@ const StyledRating = styled(Rating)(({ theme }) => ({
   },
 }));
 
+// export const profileLoader = async () => {
+//   const results = await fetch("https://localhost5001/user/:")
+
+//   if(!results.ok) throw new Error('something went wrong with data loader');
+
+//   const loggedInUser = await results.json()
+
+//   return { loggedInUser }
+// }
 
 const Profile = () => {
   const theme = useTheme();
-
+  // const { loggedInUser } = useLoaderData();
   return (
     <>
-    <Navbar/>
 
     <Grid container marginTop={2}  >
       {/* left side content */}

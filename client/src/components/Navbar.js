@@ -100,8 +100,11 @@ const Navbar = () => {
             <CssBaseline />
             <AppBar elevation={0} position="static"
                 sx={{
-                    background: 'transparent',
+                    "& .MuiToolbar-root":{
+                    background: theme.palette.black,
+                   
                     color: theme.palette.white,
+                    }
                 }} >
                 <Toolbar disableGutters sx={{ background: 'transparent', color: theme.palette.white }}>
 

@@ -92,7 +92,7 @@ const Register = () => {
   }
 
   const sumbitForm = async () => {
-    const user = {
+    const user  =  {
       username: getValues("username"),
       password: getValues("password"),
       firstName: getValues("firstName"),
@@ -210,6 +210,7 @@ const Register = () => {
             name="confirmPassword"
             autoComplete="current-password"
             sx={{ bgcolor: theme.palette.teal }}
+            {...register("confirmPassword")}
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">

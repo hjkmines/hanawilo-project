@@ -98,7 +98,7 @@ const DeadlineTable= () => {
         </TableBody>
       </Table>
     </TableContainer>
-     {/*  <TablePagination
+      <TablePagination
         rowsPerPageOptions={[5, 10, 20]}
         component="div"
         count={rows.length}
@@ -115,7 +115,7 @@ const DeadlineTable= () => {
             }
           } 
         }}
-      />*/}
+      />
     </Paper>
       ); 
 }

@@ -28,16 +28,19 @@ const Footer = () => {
         alignItems: "space-around",
         justifyContent: "space-around",
         justifyItems: "space-around",
-        backgroundColor: "transparent",
+        backgroundColor: theme.palette.black,
         color: theme.palette.white,
         padding: 3,
         minWidth: '100%',
-        spacing: 2
+        spacing: 2,
+        // ".&MuiGrid-root":{
+        //     background: theme.palette.black,
+        // }
     })
 
     return (
         // parent container with above styling
-        <StyledFooterContainer container  >
+        <StyledFooterContainer container >
             {/* grid to dynamically render footer components */}
             <Grid item xs={12} md={3} mb={2}>
                 {/* xs -> md viewport (mobile friendly) */}
@@ -55,7 +58,14 @@ const Footer = () => {
                     <br />
                     <Container mb={2} p={0} >
 
-                        <TextField sx={{ bgcolor: "white", color: theme.palette.white }} type="text" placeholder='jdoe@gmail.com'>
+                        <TextField 
+                            sx={{ 
+                                // bgcolor: "white", 
+                                color: theme.palette.black
+                                }} 
+                            type="text" 
+                            placeholder='jdoe@gmail.com'
+                        >
                             email
                         </TextField>
                         <Button
@@ -96,7 +106,11 @@ const Footer = () => {
                         <br />
                         <Divider variant="middle" my={2} sx={{ bgcolor: 'white', fontWeight: 500 }} />
                         <br />
-                        <TextField type="text" placeholder='JohnDoe@gmail.com' sx={{ bgcolor: "white" }}>
+                        <TextField 
+                            type="text" 
+                            placeholder='JohnDoe@gmail.com' 
+                            sx=
+                            {{ bgcolor: theme.palette.black }}>
                             email
                         </TextField>
                         <Button

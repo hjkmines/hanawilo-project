@@ -31,6 +31,7 @@ const router = createBrowserRouter(
         <Route path="/register" element={<Register />} errorElement={<Error /> }/>
         <Route path="/login" element={<Login />} errorElement={<Error /> }/>
         <Route path="/contact" element={<ContactUs />} errorElement={<Error /> }/>
+         {/* path="*" element ={<Error />} */}
       </ Route>
     )
   );

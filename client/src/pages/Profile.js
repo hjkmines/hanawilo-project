@@ -20,6 +20,8 @@ import BasicCard from '../components/BasicCard';
 import DeadlineTable from '../components/DeadlineTable';
 import WorkshopTable from '../components/WorkshopTable';
 import { useLoaderData } from 'react-router-dom';
+import { selectCurrentUser } from '../features/usersSlice';
+import axios from 'axios';
 
 const StyledBox = styled(Box)(({ theme }) => ({
   justifyContent: "center",
@@ -38,19 +40,25 @@ const StyledRating = styled(Rating)(({ theme }) => ({
   },
 }));
 
-// export const profileLoader = async () => {
-//   const results = await fetch("https://localhost5001/user/:")
+export const profileLoader = async () => {
+// check store -> userSlice(curerntlyLoggedinUser); 
+/// await fetch -> DB (currentlyLoggedinUser);
+// return -> {user}
+//
+const currentUser = selectCurrentUser();
+console.log(currentUser);
 
-//   if(!results.ok) throw new Error('something went wrong with data loader');
+ const results = await axios.get(`https://localhost5001/user/${currentUser.username}`)
+ console.log(results)
 
-//   const loggedInUser = await results.json()
+  if(!results.ok) throw new Error('something went wrong with data loader');
 
-//   return { loggedInUser }
-// }
+  return results
+}
 
 const Profile = () => {
   const theme = useTheme();
-  // const { loggedInUser } = useLoaderData();
+  const  profileData  = useLoaderData();
   return (
     <>
 
@@ -77,7 +85,10 @@ const Profile = () => {
               variant='h3'
               sx={{ fontSize: '1.4rem', fontWeight: 900 }}
               >
-              First, Last
+              {profileData && (<>
+                <p>{profileData.firstName} </p> 
+                <p> {profileData.lastName} </p>
+                </>) } First, Last
             </Typography>
             <Typography
               sx={{ fontSize: '1rem' }}

@@ -34,6 +34,7 @@ const createUser = async (req, res, next) => {
   //check to see if user already exists
   User.findOne({username: req.body.username}, function(err, user) {
     if (err) {
+      //return err
       return res.send({"message": `error:${err.message}`})
     } else if (user) {
       res.statusCode = 403
@@ -60,7 +61,6 @@ const createUser = async (req, res, next) => {
           res.statusCode = 200;
           res.setHeader("Content-Type", "application/json");
           res.json({ success: true, status: "Registration Successful!" });
-          res.send(`user ${res.body.username} created succesfully!`)
         });
       }
     }

@@ -1,3 +1,4 @@
+//packages/libraries
 import React from "react";
 import { 
     Route,
@@ -5,10 +6,9 @@ import {
     createBrowserRouter,
     createRoutesFromElements,
     RouterProvider, 
-    Routes} from "react-router-dom";
-import Footer from "./components/Footer";
-import { useTheme } from "@mui/material";
-import Navbar from "./components/Navbar";
+    } from "react-router-dom";
+
+//components & pages
 import Directory from "./pages/Directory";
 import AboutUs from './pages/AboutUs';
 import Home from "./pages/Home";
@@ -20,18 +20,25 @@ import Login from './pages/Login';
 import SharedLayout from "./layouts/SharedLayout";
 import Error from "./pages/Error";
 
+//hooks & functions
+import { useTheme } from "@mui/material";
+import {profileLoader} from "./pages/Profile";
+
+
+//newer implementation to creat browser router out of function
 const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<SharedLayout />} errorElement={<Error /> }>
-        <Route index element={<Home />} errorElement={<Error /> } />
-        <Route path="/directory" element={<Directory />} errorElement={<Error /> } />
-        <Route path="/about" element={<AboutUs />} errorElement={<Error /> }/>
-        <Route path="/messages" element={<Messages />} errorElement={<Error /> }/>
-        <Route path="/profile" element={<Profile />} errorElement={<Error /> } />
-        <Route path="/register" element={<Register />} errorElement={<Error /> }/>
-        <Route path="/login" element={<Login />} errorElement={<Error /> }/>
-        <Route path="/contact" element={<ContactUs />} errorElement={<Error /> }/>
-         {/* path="*" element ={<Error />} */}
+      //nested routes. Parent component contains shared layout and Outlet for place declared to render children
+      <Route path="/" element={<SharedLayout />} >
+        <Route index element={<Home />}  />
+        <Route path="directory" element={<Directory />}  />
+        <Route path="about" element={<AboutUs />} />
+        <Route path="messages" element={<Messages />} />
+        <Route path="profile" element={<Profile />}  loader={profileLoader}/>
+        <Route path="register" element={<Register />} />
+        <Route path="login" element={<Login />} />
+        <Route path="contact" element={<ContactUs />} />
+        <Route path="*" element ={<Error />} />
       </ Route>
     )
   );

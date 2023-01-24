@@ -9,9 +9,9 @@ const Error = () => {
         <p> Lorem ipsum: Page not found </p>
         <Image 
           src={dumpster}
+          height="40vh"
+          fit = "contain"
         />
-
-        
     </div>
   )
 }

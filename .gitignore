@@ -3,8 +3,13 @@
 /server/node_modules
 /node_modules
 
+/server/config/config.env
+
 # Misc
 /.vscode
 .DS_Store
 /client/.DS_Store
 /server/.DS_Store
+
+*__pycache__
+*.venv

@@ -1,17 +1,15 @@
 
 import React from 'react'
-import { Box, Container, Grid, IconButton, ImageList, ListItemSecondaryAction, Rating, Tooltip, Typography } from '@mui/material'
-import { useTheme, styled } from '@mui/material'
-import Stack from '@mui/material/Stack'
+import { Box, Container, Grid, IconButton, Rating, Tooltip, Typography, Stack, useTheme, styled } from '@mui/material'
 import Image from 'mui-image';
+import Carousel from 'react-material-ui-carousel';
+import "react-multi-carousel/lib/styles.css";
 import JavascriptIcon from '@mui/icons-material/Javascript';
 import CssIcon from '@mui/icons-material/Css';
 import CodeIcon from '@mui/icons-material/Code';
 import PhpIcon from '@mui/icons-material/Php';
 import HtmlIcon from '@mui/icons-material/Html';
 import DataObjectOutlinedIcon from '@mui/icons-material/DataObjectOutlined';
-import Carousel from 'react-material-ui-carousel';
-import "react-multi-carousel/lib/styles.css";
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
@@ -40,25 +38,27 @@ const StyledRating = styled(Rating)(({ theme }) => ({
   },
 }));
 
-export const profileLoader = async () => {
-// check store -> userSlice(curerntlyLoggedinUser); 
-/// await fetch -> DB (currentlyLoggedinUser);
-// return -> {user}
-//
-const currentUser = selectCurrentUser();
-console.log(currentUser);
+//loader function
+// export const profileLoader = async () => {
+// // check store -> userSlice(curerntlyLoggedinUser); 
+// /// await fetch -> DB (currentlyLoggedinUser);
+// // return -> {user}
+// //
+// // const currentUser = selectCurrentUser();
+// // console.log(currentUser);
 
- const results = await axios.get(`https://localhost5001/user/${currentUser.username}`)
- console.log(results)
+//  const results = await axios.get(`https://localhost5001/user/${currentUser.username}`)
 
-  if(!results.ok) throw new Error('something went wrong with data loader');
+//  console.log(results)
 
-  return results
-}
+//   if(!results.ok) throw new Error('something went wrong with data loader');
+
+//   return results.json();
+// }
 
 const Profile = () => {
   const theme = useTheme();
-  const  profileData  = useLoaderData();
+  // const  profile  = useLoaderData();
   return (
     <>
 
@@ -84,11 +84,9 @@ const Profile = () => {
             <Typography
               variant='h3'
               sx={{ fontSize: '1.4rem', fontWeight: 900 }}
-              >
-              {profileData && (<>
-                <p>{profileData.firstName} </p> 
-                <p> {profileData.lastName} </p>
-                </>) } First, Last
+              > First, Last
+  {/* {profile.firstName} , {profile.lastName} */}
+               
             </Typography>
             <Typography
               sx={{ fontSize: '1rem' }}

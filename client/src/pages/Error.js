@@ -1,6 +1,7 @@
 import React from 'react'
 import dumpster from "../assets/dumpster-fire.gif"; 
 import Image from "mui-image";
+import { Link } from "react-router-dom";
 
 const Error = () => {
   return (
@@ -12,6 +13,8 @@ const Error = () => {
           height="40vh"
           fit = "contain"
         />
+
+        <p color="white">Go back to the <Link to="/" color="white" > Homepage</Link> </p> 
     </div>
   )
 }

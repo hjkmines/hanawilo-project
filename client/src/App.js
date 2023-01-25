@@ -19,10 +19,11 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import SharedLayout from "./layouts/SharedLayout";
 import Error from "./pages/Error";
+import ProfileLayout from "./layouts/ProfileLayout"
 
 //hooks & functions
 import { useTheme } from "@mui/material";
-import {profileLoader} from "./pages/Profile";
+import { profileLoader } from "./pages/Profile";
 
 
 //newer implementation to creat browser router out of function
@@ -34,7 +35,12 @@ const router = createBrowserRouter(
         <Route path="directory" element={<Directory />}  />
         <Route path="about" element={<AboutUs />} />
         <Route path="messages" element={<Messages />} />
-        <Route path="profile" element={<Profile />}  loader={profileLoader}/>
+
+        {/* <Route path="profile" element={<ProfileLayout />} errorElement={<Error />} > */}
+          <Route path="profile" element={<Profile />} />
+          
+        {/* </Route> */}
+
         <Route path="register" element={<Register />} />
         <Route path="login" element={<Login />} />
         <Route path="contact" element={<ContactUs />} />

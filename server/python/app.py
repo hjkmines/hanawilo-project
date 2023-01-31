@@ -1,7 +1,7 @@
 from flask import Flask
 import dill as pickle
 from random import randint
-from ngram.ngram import generate_sent
+from ngram.model import generate_sent
 
 app = Flask(__name__)
 
